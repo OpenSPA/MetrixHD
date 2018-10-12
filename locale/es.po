@@ -141,7 +141,9 @@ msgstr ""
 msgid ""
 "\n"
 "Press 'OK-Button'"
-msgstr "Botón-OK"
+msgstr ""
+"\n"
+"Presiona 'Botón-OK'"
 
 #: BackupSettingsView.py:142
 #, python-format
@@ -217,10 +219,6 @@ msgstr "--- vacío ---"
 #: FontsSettingsView.py:142 FontsSettingsView.py:146
 msgid "-"
 msgstr "-"
-
-
-#
-msgstr ""
 
 #: ColorsSettingsView.py:65 MainSettingsView.py:126
 msgid "Color settings"
@@ -1425,7 +1423,7 @@ msgstr "Temperatura:   %s"
 #: WeatherSettingsView.py:183
 #, python-format
 msgid ",   Date is valid:   %s"
-msgstr ",   Fecha es válida:   %s""
+msgstr ",   Fecha es válida:   %s"
 
 #: WeatherSettingsView.py:185
 #, python-format
