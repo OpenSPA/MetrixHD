@@ -1,0 +1,18 @@
+<skin>
+<!-- cf#_#begin -->
+	<screen name="SecondInfoBar" backgroundColor="transparent" flags="wfNoBorder" position="0,0" size="1280,720" title="SecondInfoBar">
+		<panel name="INFOBARKEYSNONVISIBLE" />
+		<panel name="INFOBARSTYLEMODERN" />
+		<panel name="CLOCKWIDGET" />
+		<panel name="INFOBARWEATHERWIDGET" />
+		<panel name="INFOBARSERVICEINFO" />
+		<panel name="INFOBARRECORDSTATE" />
+		<panel name="INFOBARRESOLUTION" />
+		<panel name="INFOBARORBITALPOSITION" />
+		<panel name="INFOBARSNR" />
+		<panel name="INFOBARTUNERINFO-X" />
+		<panel name="INFOBAREPGWIDGET" />
+		<!--panel name="STBINFO" /-->
+		<panel name="SKINPART_secondinfobar"/>
+	</screen>
+</skin>

@@ -1,0 +1,471 @@
+<skin>
+<!-- cf#_#begin -->
+	<!-- this for audio metadata in EMCSelection screen - at time no idea where free place to put it...
+	<widget name="name" position="69,337" size="380,55" valign="center" halign="center" font="epg_text;20" backgroundColor="layer-b-background" foregroundColor="layer-b-accent1" transparent="1" />
+	<widget name="artistAT" position="50,401" size="150,25" font="epg_text;19" backgroundColor="layer-b-background" foregroundColor="layer-b-accent1" transparent="1" noWrap="1" />
+	<widget name="albumAT" position="50,462" size="150,25" font="epg_text;19" backgroundColor="layer-b-background" foregroundColor="layer-b-accent1" transparent="1" noWrap="1" />
+	<widget name="genreAT" position="50,523" size="150,25" font="epg_text;19" backgroundColor="layer-b-background" foregroundColor="layer-b-accent1" transparent="1" noWrap="1" />
+	<widget name="runtimeAT" position="50,584" size="150,25" font="epg_text;19" backgroundColor="layer-b-background" foregroundColor="layer-b-accent1" transparent="1" noWrap="1" />
+	<widget name="artistATtxt" position="210,401" size="265,50" font="epg_text;18" halign="right" backgroundColor="layer-b-background" foregroundColor="layer-b-foreground" transparent="1" />
+	<widget name="albumATtxt" position="210,462" size="265,50" font="epg_text;18" halign="right" backgroundColor="layer-b-background" foregroundColor="layer-b-foreground" transparent="1" />
+	<widget name="genreATtxt" position="210,523" size="265,50" font="epg_text;18" halign="right" backgroundColor="layer-b-background" foregroundColor="layer-b-foreground" transparent="1" />
+	<widget name="runtimeATtxt" position="210,584" size="265,50" font="epg_text;18" halign="right" backgroundColor="layer-b-background" foregroundColor="layer-b-foreground" transparent="1" />
+	<widget name="date" position="50,640" size="270,25" font="epg_text;16" halign="left" backgroundColor="layer-b-background" foregroundColor="layer-b-accent1" transparent="1" />
+	<widget name="size" position="375,640" size="100,25" font="epg_text;16" halign="right" backgroundColor="layer-b-background" foregroundColor="layer-b-accent1" transparent="1" />
+	... end of new audio metadata /-->
+	<!-- Templates -->
+	<!-- EMCMediaCenterCover_no -->
+	<screen name="EMCMediaCenterCover_no">
+	</screen>
+	<!-- EMCMediaCenterCover_small -->
+	<screen name="EMCMediaCenterCover_small">
+		<widget name="Cover" position="40,327" size="100,140" alphatest="blend" zPosition="2" />
+	</screen>
+	<!-- EMCMediaCenterCover_small_infobar-->
+	<screen name="EMCMediaCenterCover_small_infobar">
+		<widget name="Cover" position="40,575" size="100,140" alphatest="blend" zPosition="2" />
+	</screen>
+	<!-- EMCMediaCenterCover_large_infobar-->
+	<screen name="EMCMediaCenterCover_large_infobar">
+		<!--widget name="Cover" position="2,463" size="180,252" alphatest="blend" zPosition="2" /-->
+		<widget name="Cover" position="33,547" size="120,168" alphatest="blend" zPosition="2" />
+	</screen>
+	<!-- EMCMediaCenterCover_large -->
+	<screen name="EMCMediaCenterCover_large">
+		<widget name="Cover" position="40,210" size="180,252" zPosition="4" alphatest="blend" />
+	</screen>
+	<!-- EMCSelection_Picon_left -->
+	<!-- LIST POSITIONS CHANGE ONLY IN MainSettingsView.py !!! -->
+	<screen name="EMCSelectionList_picon_left">
+		<widget name="list" position="70,130" size="700,480" itemHeight="30" CoolFont="epg_text;20" CoolSelectFont="epg_text;20" CoolDateFont="epg_text;20" CoolSelNumTxtWidth="26" CoolProgressPos="38" CoolProgressHPos="2" CoolIconPos="4" CoolIconHPos="2" CoolIconSize="26,26" CoolBarPos="35" CoolBarHPos="12" CoolBarSize="50,10" CoolBarSizeSa="50,10" CoolMoviePos="90" CoolMovieHPos="2" CoolMovieSize="494" CoolFolderSize="475" CoolDatePos="592" CoolDateHPos="2" CoolDateWidth="104" CoolPiconPos="90" CoolPiconHPos="2" CoolPiconWidth="45" CoolPiconHeight="26" CoolMoviePiconPos="140" CoolMoviePiconSize="445" CoolCSWidth="140" CoolDirInfoWidth="140" CoolCSPos="555" CoolTitleColor="1" CoolDateColor="1" CoolHighlightColor="1" DefaultColor="layer-a-foreground" TitleColor="layer-a-foreground" DateColor="layer-a-foreground" UnwatchedColor="layer-a-foreground" WatchingColor="#D8C100" FinishedColor="#5FA816" RecordingColor="#E51400" BackColor="layer-a-background" BackColorSel="layer-a-selection-background" FrontColorSel="layer-a-selection-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" scrollbarSliderBorderWidth="1" scrollbarWidth="10" scrollbarSliderForegroundColor="scrollbarSlidercolor" scrollbarSliderBorderColor="scrollbarSliderbordercolor" scrollbarMode="showNever" transparent="1" />
+	</screen>
+	<screen name="EMCSelectionList_large_description_picon_left">
+		<widget name="list" position="70,130" size="700,240" itemHeight="30" CoolFont="epg_text;20" CoolSelectFont="epg_text;20" CoolDateFont="epg_text;20" CoolSelNumTxtWidth="26" CoolProgressPos="38" CoolProgressHPos="2" CoolIconPos="4" CoolIconHPos="2" CoolIconSize="26,26" CoolBarPos="35" CoolBarHPos="12" CoolBarSize="50,10" CoolBarSizeSa="50,10" CoolMoviePos="90" CoolMovieHPos="2" CoolMovieSize="494" CoolFolderSize="475" CoolDatePos="592" CoolDateHPos="2" CoolDateWidth="104" CoolPiconPos="90" CoolPiconHPos="2" CoolPiconWidth="45" CoolPiconHeight="26" CoolMoviePiconPos="140" CoolMoviePiconSize="445" CoolCSWidth="140" CoolDirInfoWidth="140" CoolCSPos="555" CoolTitleColor="1" CoolDateColor="1" CoolHighlightColor="1" DefaultColor="layer-a-foreground" TitleColor="layer-a-foreground" DateColor="layer-a-foreground" UnwatchedColor="layer-a-foreground" WatchingColor="#D8C100" FinishedColor="#5FA816" RecordingColor="#E51400" BackColor="layer-a-background" BackColorSel="layer-a-selection-background" FrontColorSel="layer-a-selection-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" scrollbarSliderBorderWidth="1" scrollbarWidth="10" scrollbarSliderForegroundColor="scrollbarSlidercolor" scrollbarSliderBorderColor="scrollbarSliderbordercolor" scrollbarMode="showNever" transparent="1" />
+	</screen>
+	<!-- EMCSelection_Picon_right -->
+	<screen name="EMCSelectionList_picon_right">
+		<widget name="list" position="70,130" size="700,480" itemHeight="30" CoolFont="epg_text;20" CoolSelectFont="epg_text;20" CoolDateFont="epg_text;20" CoolSelNumTxtWidth="26" CoolProgressPos="38" CoolProgressHPos="2" CoolIconPos="4" CoolIconHPos="2" CoolIconSize="26,26" CoolBarPos="35" CoolBarHPos="12" CoolBarSize="50,10" CoolBarSizeSa="50,10" CoolMoviePos="90" CoolMovieHPos="2" CoolMovieSize="494" CoolFolderSize="475" CoolDatePos="592" CoolDateHPos="2" CoolDateWidth="104" CoolPiconPos="540" CoolPiconHPos="2" CoolPiconWidth="45" CoolPiconHeight="26" CoolMoviePiconPos="90" CoolMoviePiconSize="445" CoolCSWidth="140" CoolDirInfoWidth="140" CoolCSPos="555" CoolTitleColor="1" CoolDateColor="1" CoolHighlightColor="1" DefaultColor="layer-a-foreground" TitleColor="layer-a-foreground" DateColor="layer-a-foreground" UnwatchedColor="layer-a-foreground" WatchingColor="#D8C100" FinishedColor="#5FA816" RecordingColor="#E51400" BackColor="layer-a-background" BackColorSel="layer-a-selection-background" FrontColorSel="layer-a-selection-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" scrollbarSliderBorderWidth="1" scrollbarWidth="10" scrollbarSliderForegroundColor="scrollbarSlidercolor" scrollbarSliderBorderColor="scrollbarSliderbordercolor" scrollbarMode="showNever" transparent="1" />
+	</screen>
+	<screen name="EMCSelectionList_large_description_picon_right">
+		<widget name="list" position="70,130" size="700,240" itemHeight="30" CoolFont="epg_text;20" CoolSelectFont="epg_text;20" CoolDateFont="epg_text;20" CoolSelNumTxtWidth="26" CoolProgressPos="38" CoolProgressHPos="2" CoolIconPos="4" CoolIconHPos="2" CoolIconSize="26,26" CoolBarPos="35" CoolBarHPos="12" CoolBarSize="50,10" CoolBarSizeSa="50,10" CoolMoviePos="90" CoolMovieHPos="2" CoolMovieSize="494" CoolFolderSize="475" CoolDatePos="592" CoolDateHPos="2" CoolDateWidth="104" CoolPiconPos="540" CoolPiconHPos="2" CoolPiconWidth="45" CoolPiconHeight="26" CoolMoviePiconPos="90" CoolMoviePiconSize="445" CoolCSWidth="140" CoolDirInfoWidth="140" CoolCSPos="555" CoolTitleColor="1" CoolDateColor="1" CoolHighlightColor="1" DefaultColor="layer-a-foreground" TitleColor="layer-a-foreground" DateColor="layer-a-foreground" UnwatchedColor="layer-a-foreground" WatchingColor="#D8C100" FinishedColor="#5FA816" RecordingColor="#E51400" BackColor="layer-a-background" BackColorSel="layer-a-selection-background" FrontColorSel="layer-a-selection-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" scrollbarSliderBorderWidth="1" scrollbarWidth="10" scrollbarSliderForegroundColor="scrollbarSlidercolor" scrollbarSliderBorderColor="scrollbarSliderbordercolor" scrollbarMode="showNever" transparent="1" />
+	</screen>
+	<!-- EMCSelectionCover_no -->
+	<screen name="EMCSelectionCover_no">
+		<panel name="EMCSelectionList_picon_left" />
+		<widget source="Service" render="Label" position="825,90" size="385,55" font="epg_text;22" backgroundColor="layer-b-background" foregroundColor="layer-b-foreground" transparent="1">
+			<convert type="EMCEventName">Name</convert>
+		</widget>
+		<widget source="Service" render="Label" position="825,158" size="385,25" font="epg_text;20" halign="left" backgroundColor="layer-b-background" foregroundColor="layer-b-foreground" transparent="1">
+			<convert type="EMCMovieInfo">RecordServiceName</convert>
+		</widget>
+		<widget source="Service" render="Label" position="825,185" size="55,25" font="epg_text;20" halign="left" backgroundColor="layer-b-background" foregroundColor="layer-b-accent1" transparent="1">
+			<convert type="EMCServiceTime">StartTime</convert>
+			<convert type="EMCClockToText">Format:%H:%M </convert>
+		</widget>
+		<widget source="Service" render="Label" position="885,185" size="75,25" font="epg_text;20" backgroundColor="layer-b-background" foregroundColor="layer-b-accent1" transparent="1">
+			<convert type="EMCServiceTime">EndTime</convert>
+			<convert type="EMCClockToText">Format:-  %H:%M </convert>
+		</widget>
+		<widget source="Service" render="Label" position="1110,185" size="100,25" font="epg_text;20" halign="right" backgroundColor="layer-b-background" foregroundColor="layer-b-accent1" transparent="1">
+			<convert type="EMCServiceTime">Duration</convert>
+			<convert type="EMCClockToText">InMinutes</convert>
+		</widget>
+		<widget source="Service" render="MetrixHDRunningText" options="movetype=none,startdelay=600,steptime=60,direction=top,startpoint=0,wrap=1,always=0,repeat=2,oneshot=1" position="825,228" size="385,323" font="epg_info;19" backgroundColor="layer-b-background" foregroundColor="layer-b-foreground" transparent="1" halign="left" valign="top">
+			<convert type="EMCEventName">FullDescription</convert>
+		</widget>
+	</screen>
+	<!-- EMCSelectionCover_small -->
+	<screen name="EMCSelectionCover_small">
+		<ePixmap position="1132,88" zPosition="1" size="100,100" alphatest="blend" pixmap="MetrixHD/icons/movie_small.png"/>
+		<panel name="EMCSelectionList_picon_left" />
+		<widget source="Service" render="Label" position="825,90" size="300,55" font="epg_text;22" backgroundColor="layer-b-background" foregroundColor="layer-b-foreground" transparent="1">
+			<convert type="EMCEventName">Name</convert>
+		</widget>
+		<widget source="Service" render="Label" position="825,158" size="300,25" font="epg_text;20" halign="left" backgroundColor="layer-b-background" foregroundColor="layer-b-foreground" transparent="1">
+			<convert type="EMCMovieInfo">RecordServiceName</convert>
+		</widget>
+		<widget source="Service" render="Label" position="825,185" size="55,25" font="epg_text;20" halign="left" backgroundColor="layer-b-background" foregroundColor="layer-b-accent1" transparent="1">
+			<convert type="EMCServiceTime">StartTime</convert>
+			<convert type="EMCClockToText">Format:%H:%M </convert>
+		</widget>
+		<widget source="Service" render="Label" position="885,185" size="75,25" font="epg_text;20" backgroundColor="layer-b-background" foregroundColor="layer-b-accent1" transparent="1">
+			<convert type="EMCServiceTime">EndTime</convert>
+			<convert type="EMCClockToText">Format:-  %H:%M </convert>
+		</widget>
+		<widget source="Service" render="Label" position="1025,185" size="100,25" font="epg_text;20" halign="right" backgroundColor="layer-b-background" foregroundColor="layer-b-accent1" transparent="1">
+			<convert type="EMCServiceTime">Duration</convert>
+			<convert type="EMCClockToText">InMinutes</convert>
+		</widget>
+		<widget source="Service" render="MetrixHDRunningText" options="movetype=none,startdelay=600,steptime=60,direction=top,startpoint=0,wrap=1,always=0,repeat=2,oneshot=1" position="825,228" size="385,323" font="epg_info;19" backgroundColor="layer-b-background" foregroundColor="layer-b-foreground" transparent="1" halign="left" valign="top">
+			<convert type="EMCEventName">FullDescription</convert>
+		</widget>
+		<widget name="Cover" position="1132,83" size="100,140" alphatest="blend" zPosition="2" />
+	</screen>
+	<!-- EMCSelectionCover_large -->
+	<screen name="EMCSelectionCover_large_description_on">
+		<panel name="EMCSelectionList_large_description_picon_left" />
+		<eLabel position="70,369" size="700,1" backgroundColor="layer-a-accent2" />
+		<widget source="Service" render="MetrixHDRunningText" options="movetype=none,startdelay=600,steptime=60,direction=top,startpoint=0,wrap=1,always=0,repeat=2,oneshot=1" position="70,372" size="700,250" font="epg_info;19" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="1" halign="left" valign="top">
+			<convert type="EMCEventName">FullDescription</convert>
+		</widget>
+	</screen>
+	<screen name="EMCSelectionCover_large_description_off">
+		<panel name="EMCSelectionList_picon_left" />
+	</screen>
+	<screen name="EMCSelectionCover_large">
+		<ePixmap position="970,260" zPosition="1" size="100,100" alphatest="blend" pixmap="MetrixHD/icons/movie_small.png"/>
+		<panel name="EMCSelectionCover_large_description_on" />
+		<widget source="Service" render="Label" position="825,90" size="380,55" valign="center" halign="center" font="epg_text;22" backgroundColor="layer-b-background" foregroundColor="layer-b-foreground" transparent="1">
+			<convert type="EMCEventName">Name</convert>
+		</widget>
+		<widget source="Service" render="Label" position="825,500" size="380,25" font="epg_text;20" halign="center" backgroundColor="layer-b-background" foregroundColor="layer-b-foreground" transparent="1">
+			<convert type="EMCMovieInfo">RecordServiceName</convert>
+		</widget>
+		<widget source="Service" render="Label" position="825,540" size="55,25" font="epg_text;20" halign="left" backgroundColor="layer-b-background" foregroundColor="layer-b-accent1" transparent="1">
+			<convert type="EMCServiceTime">StartTime</convert>
+			<convert type="EMCClockToText">Format:%H:%M </convert>
+		</widget>
+		<widget source="Service" render="Label" position="885,540" size="75,25" font="epg_text;20" backgroundColor="layer-b-background" foregroundColor="layer-b-accent1" transparent="1">
+			<convert type="EMCServiceTime">EndTime</convert>
+			<convert type="EMCClockToText">Format:-  %H:%M </convert>
+		</widget>
+		<widget source="Service" render="Label" position="1110,540" size="100,25" font="epg_text;20" halign="right" backgroundColor="layer-b-background" foregroundColor="layer-b-accent1" transparent="1">
+			<convert type="EMCServiceTime">Duration</convert>
+			<convert type="EMCClockToText">InMinutes</convert>
+		</widget>
+		<widget name="Cover" position="902,155" size="230,322" zPosition="4" alphatest="blend" />
+	</screen>
+	<!-- EMCMediacenter_1 - large style (old standard version) -->
+	<screen name="EMCMediaCenter_1">
+		<eLabel position="0,570" zPosition="-2" size="1281,150" backgroundColor="infobarbackground" />
+		<panel name="RT_EMCMediaCenter_1"/>
+		<ePixmap pixmap="MetrixHD/icons/ico_dolby_off.png" position="1060,616" size="34,23" zPosition="1" alphatest="blend" />
+		<widget source="session.CurrentService" render="Pixmap" pixmap="MetrixHD/icons/ico_dolby_on.png" position="1060,616" size="34,23" zPosition="2" alphatest="blend">
+			<convert type="ServiceInfo">IsMultichannel</convert>
+			<convert type="ConditionalShowHide" />
+		</widget>
+		<ePixmap pixmap="MetrixHD/icons/ico_format_off.png" position="1175,616" size="43,26" zPosition="1" alphatest="blend" />
+		<widget source="session.CurrentService" render="Pixmap" pixmap="MetrixHD/icons/ico_format_on.png" position="1175,616" size="43,26" zPosition="2" alphatest="blend">
+			<convert type="ServiceInfo">IsWidescreen</convert>
+			<convert type="ConditionalShowHide" />
+		</widget>
+		<ePixmap pixmap="MetrixHD/icons/ico_hd_off.png" position="1109,616" size="49,24" zPosition="1" alphatest="blend" />
+		<widget source="session.CurrentService" render="Pixmap" pixmap="MetrixHD/icons/ico_hd_on.png" position="1109,616" size="49,24" zPosition="2" alphatest="blend">
+			<convert type="ServiceInfo">IsHD</convert>
+			<convert type="ConditionalShowHide" />
+		</widget>
+		<widget source="session.CurrentService" render="Pixmap" pixmap="MetrixHD/icons/ico_hd_on.png" position="1109,616" size="49,24" zPosition="2" alphatest="blend">
+			<convert type="ServiceInfo">Is4K</convert>
+			<convert type="ConditionalShowHide"/>
+		</widget>
+		<widget source="session.CurrentService" render="Label" font="infobar_text;19" position="1070,580" size="55,25" halign="right" foregroundColor="infobaraccent1" backgroundColor="infobarbackground" transparent="1">
+			<convert type="ServiceInfo">VideoWidth</convert>
+		</widget>
+		<eLabel text="x" font="infobar_text;19" position="1129,580" size="15,25" halign="center" foregroundColor="infobaraccent1" backgroundColor="infobarbackground" transparent="1" />
+		<widget source="session.CurrentService" render="Label" font="infobar_text;19" position="1146,580" size="55,25" halign="left" foregroundColor="infobaraccent1" backgroundColor="infobarbackground" transparent="1">
+			<convert type="ServiceInfo">VideoHeight</convert>
+		</widget>
+		<widget source="session.RecordState" render="Pixmap" pixmap="MetrixHD/icons/ico_rec_on.png" position="999,616" size="74,23" zPosition="2" alphatest="blend">
+			<convert type="ConditionalShowHide">Blink</convert>
+		</widget>
+		<widget source="Service" render="Label" position="40,657" size="100,28" font="infobar_text;22" halign="right" valign="bottom" backgroundColor="infobarbackground" foregroundColor="infobarfont1" transparent="1">
+			<convert type="EMCServicePosition">Position</convert>
+		</widget>
+		<widget source="Service" render="EMCPositionGauge" position="151,666" size="980,9" zPosition="6" transparent="1">
+			<convert type="EMCServicePosition">Gauge</convert>
+		</widget>
+		<widget source="Service" render="Progress" position="151,668" size="980,5" foregroundColor="infobarprogress" borderWidth="0" transparent="1" zPosition="5">
+			<convert type="EMCServicePosition">Position</convert>
+		</widget>
+		<!--widget source="Service" render="EMCPositionGauge" pointer="MetrixHD/extensions/CoolPointer.png:980,0" position="151,669" size="980,3" zPosition="5" transparent="1">
+			<convert type="EMCServicePosition">Position</convert>
+		</widget-->
+		<widget source="Service" render="EMCPositionGauge" pointer="MetrixHD/extensions/CoolPointerRec.png:980,0" position="151,669" size="980,3" zPosition="4" transparent="1">
+			<convert type="EMCRecordPosition">Position</convert>
+		</widget>
+		<widget source="Service" render="Label" position="1138,657" size="100,28" font="infobar_text;22" halign="left" valign="bottom" backgroundColor="infobarbackground" foregroundColor="infobarfont1" transparent="1">
+			<convert type="EMCServicePosition">Remaining,Negate</convert>
+		</widget>
+		<widget source="Service" render="Label" position="3,588" size="137,56" font="infobar_event;40" halign="right" valign="center" backgroundColor="infobarbackground" transparent="1" foregroundColor="infobaraccent2">
+			<convert type="EMCServicePosition">Length</convert>
+		</widget>
+		<eLabel name="new eLabel" position="151,670" size="980,1" backgroundColor="infobaraccent1" zPosition="3" />
+		<widget name="audioLabel" position="870,578" size="200,24" font="infobar_text;20" foregroundColor="infobaraccent1" backgroundColor="infobarbackground" zPosition="3" transparent="1" halign="right" />
+		<widget name="chapterLabel" position="148,686" size="981,34" font="infobar_text;20" halign="left" foregroundColor="infobaraccent1" backgroundColor="infobarbackground" transparent="1" />
+	</screen>
+	<!-- EMCMediacenter_2 - standard version (old infobar style) -->
+	<screen name="EMCMediaCenter_2">
+		<eLabel position="0,570" zPosition="-2" size="1281,150" backgroundColor="infobarbackground" />
+		<ePixmap position="40,595" zPosition="1" size="100,100" alphatest="blend" pixmap="MetrixHD/icons/movie_small.png"/>
+		<eLabel backgroundColor="infobaraccent1" position="188,625" size="1050,1" zPosition="3"/>
+		<widget source="Service" render="EMCPositionGauge" position="188,621" size="1050,9" zPosition="6" transparent="1">
+			<convert type="EMCServicePosition">Gauge</convert>
+		</widget>
+		<widget source="Service" render="Progress" position="188,623" size="1050,5" foregroundColor="infobarprogress" borderWidth="0" transparent="1" zPosition="5">
+			<convert type="EMCServicePosition">Position</convert>
+		</widget>
+		<widget source="Service" render="EMCPositionGauge" pointer="MetrixHD/extensions/CoolPointerRec2.png:1080,0" position="188,624" size="1050,3" zPosition="4" transparent="1">
+			<convert type="EMCRecordPosition">Position</convert>
+		</widget>
+		<widget source="Service" render="Label" position="1041,568" size="200,56" font="infobar_event;40" halign="right" valign="center" backgroundColor="infobarbackground" transparent="1" foregroundColor="infobaraccent1">
+			<convert type="EMCServicePosition">Length</convert>
+		</widget>
+		<widget source="Service" render="Label" position="187,630" size="100,28" font="infobar_text;20" halign="left" valign="center" backgroundColor="infobarbackground" foregroundColor="infobarfont1" transparent="1">
+			<convert type="EMCServicePosition">Position</convert>
+		</widget>
+		<widget source="Service" render="Label" position="1139,630" size="100,28" font="infobar_text;20" halign="right" valign="center" backgroundColor="infobarbackground" foregroundColor="infobarfont1" transparent="1">
+			<convert type="EMCServicePosition">Remaining,Negate</convert>
+		</widget>
+		<eLabel text="Chapter" position="187,654" size="300,26" font="global_small;14" halign="center" valign="top" foregroundColor="infobaraccent2" backgroundColor="infobarbackground" transparent="1" />
+		<widget name="chapterLabel" position="187,666" size="300,30" font="infobar_text;24" halign="center" valign="top" foregroundColor="infobaraccent1" backgroundColor="infobarbackground" transparent="1" />
+		<eLabel text="Subtitle" position="487,654" size="80,26" font="global_small;14" zPosition="3" halign="center" valign="top" foregroundColor="infobaraccent2" backgroundColor="infobarbackground" transparent="1"/>
+		<widget name="subtitleLabel" position="487,666" size="80,30" font="infobar_text;24" zPosition="3" halign="center" valign="top" foregroundColor="infobaraccent1" backgroundColor="infobarbackground" transparent="1"/>
+		<eLabel text="Audio" position="567,654" size="300,26" font="global_small;14" backgroundColor="infobarbackground" foregroundColor="infobaraccent2" halign="center" valign="top" zPosition="3" transparent="1" />
+		<widget name="audioLabel" position="567,666" size="300,30" font="infobar_text;24" backgroundColor="infobarbackground" foregroundColor="infobaraccent1" halign="center" valign="top" zPosition="3" transparent="1" />
+		<panel name="RT_EMCMediaCenter_2"/>
+		<panel name="SERVICEICONSMOVIEPLAYER" />
+		<panel name="RESOLUTIONMOVIEPLAYER" />
+	</screen>
+	<!-- EMCMediacenter_3 - small style -->
+	<screen name="EMCMediaCenter_3">
+		<eLabel position="0,640" zPosition="-2" size="1281,80" backgroundColor="infobarbackground" />
+		<eLabel backgroundColor="infobaraccent1" position="110,683" size="796,1" zPosition="3"/>
+		<widget source="Service" render="EMCPositionGauge" position="110,679" size="796,9" zPosition="6" transparent="1">
+			<convert type="EMCServicePosition">Gauge</convert>
+		</widget>
+		<widget source="Service" render="Progress" position="110,681" size="796,5" foregroundColor="infobarprogress" borderWidth="0" transparent="1" zPosition="5">
+			<convert type="EMCServicePosition">Position</convert>
+		</widget>
+		<widget source="Service" render="EMCPositionGauge" pointer="MetrixHD/extensions/CoolPointerRec.png:980,0" position="110,682" size="796,3" zPosition="4" transparent="1">
+			<convert type="EMCRecordPosition">Position</convert>
+		</widget>
+		<widget source="Service" render="Label" position="826,644" size="80,30" font="infobar_event;24" halign="right" valign="center" backgroundColor="infobarbackground" transparent="1" foregroundColor="infobaraccent2">
+			<convert type="EMCServicePosition">Length</convert>
+		</widget>
+		<widget source="Service" render="Label" position="15,669" size="75,28" font="infobar_text;20" halign="right" valign="bottom" backgroundColor="infobarbackground" foregroundColor="infobarfont1" transparent="1">
+			<convert type="EMCServicePosition">Position</convert>
+		</widget>
+		<widget source="Service" render="Label" position="926,669" size="75,28" font="infobar_text;20" halign="left" valign="bottom" backgroundColor="infobarbackground" foregroundColor="infobarfont1" transparent="1">
+			<convert type="EMCServicePosition">Remaining,Negate</convert>
+		</widget>
+		<widget source="session.CurrentService" render="Label" position="1078,644" size="60,26" font="infobar_text;16" halign="right" valign="top" backgroundColor="infobarbackground" foregroundColor="infobaraccent1" transparent="1">
+			<convert type="ServiceInfo">VideoWidth</convert>
+		</widget>
+		<eLabel text="x" position="1142,644" size="16,26" font="infobar_text;16" halign="center" valign="top" backgroundColor="infobarbackground" foregroundColor="infobaraccent1" transparent="1" />
+		<widget source="session.CurrentService" render="Label" position="1160,644" size="60,26" font="infobar_text;16" halign="left" valign="top" backgroundColor="infobarbackground" foregroundColor="infobaraccent1" transparent="1">
+			<convert type="ServiceInfo">VideoHeight</convert>
+		</widget>
+		<panel name="RT_EMCMediaCenter_3"/>
+		<panel name="SERVICEICONSMOVIEPLAYER" />
+	</screen>
+	<!-- EMCMediaCenter_1-3 - start - endtime -->
+	<screen name="EMCMediaCenter_1_time">
+		<widget source="session.CurrentService" render="Label" backgroundColor="infobarbackground" foregroundColor="infobaraccent2" font="infobar_text; 22" halign="right" valign="bottom" position="566,674" size="60,28" transparent="1">
+			<convert type="MetrixHDServiceTime">StartTime</convert>
+		</widget>
+		<eLabel backgroundColor="infobarbackground" foregroundColor="infobaraccent2" font="infobar_text; 22" halign="center" valign="bottom" position="628,674" size="20,28" text="-" transparent="1"/>
+		<widget source="session.CurrentService" render="Label" backgroundColor="infobarbackground" foregroundColor="infobaraccent1" font="infobar_text; 22" halign="left" valign="bottom" position="648,674" size="60,28" transparent="1">
+			<convert type="MetrixHDServiceTime">EndTime</convert>
+		</widget>
+	</screen>
+	<screen name="EMCMediaCenter_2_time">
+		<widget source="session.CurrentService" render="Label" backgroundColor="infobarbackground" foregroundColor="infobaraccent2" font="infobar_text; 20" halign="right" valign="center" position="644,630" size="60,28" transparent="1">
+			<convert type="MetrixHDServiceTime">StartTime</convert>
+		</widget>
+		<eLabel backgroundColor="infobarbackground" foregroundColor="infobaraccent2" font="infobar_text; 20" halign="center" valign="center" position="706,630" size="20,28" text="-" transparent="1"/>
+		<widget source="session.CurrentService" render="Label" backgroundColor="infobarbackground" foregroundColor="infobaraccent1" font="infobar_text; 20" halign="left" valign="center" position="726,630" size="60,28" transparent="1">
+			<convert type="MetrixHDServiceTime">EndTime</convert>
+		</widget>
+	</screen>
+	<screen name="EMCMediaCenter_3_time">
+		<widget source="session.CurrentService" render="Label" backgroundColor="infobarbackground" foregroundColor="infobaraccent2" font="infobar_text; 20" halign="right" valign="bottom" position="440,686" size="60,28" transparent="1">
+			<convert type="MetrixHDServiceTime">StartTime</convert>
+		</widget>
+		<eLabel backgroundColor="infobarbackground" foregroundColor="infobaraccent2" font="infobar_text; 20" halign="center" valign="bottom" position="502,686" size="20,28" text="-" transparent="1"/>
+		<widget source="session.CurrentService" render="Label" backgroundColor="infobarbackground" foregroundColor="infobaraccent1" font="infobar_text; 20" halign="left" valign="bottom" position="522,686" size="60,28" transparent="1">
+			<convert type="MetrixHDServiceTime">EndTime</convert>
+		</widget>
+	</screen>
+	<!-- Templates -->
+	<!-- EMC EnhancedMovieCenter Setup -->
+	<screen name="EnhancedMovieCenterMenu" position="0,0" size="1280,720" title="EnhancedMovieCenterMenu" flags="wfNoBorder" backgroundColor="transparent">
+		<widget source="Title" render="Label" position="58,36" size="525,50" noWrap="1" valign="bottom" font="global_title;34" foregroundColor="layer-a-title-foreground" backgroundColor="layer-a-background" halign="left" transparent="1" />
+		<widget name="config" position="70,100" size="700,510" itemHeight="30" font="epg_text;20" scrollbarSliderBorderWidth="1" scrollbarWidth="10" scrollbarSliderForegroundColor="scrollbarSlidercolor" scrollbarSliderBorderColor="scrollbarSliderbordercolor" scrollbarMode="showOnDemand" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="1" enableWrapAround="1" />
+		<widget source="help" render="Label" position="825,400" size="380,195" font="screen_info;20" foregroundColor="layer-b-foreground" halign="center" backgroundColor="layer-b-background" valign="center" transparent="1"/>
+		<panel name="template1_2layer"/>
+		<panel name="rg_b-keys_template1"/>
+		<panel name="rg_b-buttons_template1"/>
+		<panel name="_oe-buttons_template1" />
+		<ePixmap pixmap="MetrixHD/icons/setup.png" position="890,175" size="256,256" zPosition="2" transparent="1" alphatest="blend" />
+	</screen>	
+	<!-- EMC MovieInfoSetup -->
+	<screen name="MovieInfoSetup" position="0,0" size="1280,720" title="Movie Information Download Setup" flags="wfNoBorder" backgroundColor="transparent">
+		<widget source="Title" render="Label" position="58,36" size="525,50" noWrap="1" valign="bottom" font="global_title;34" foregroundColor="layer-a-title-foreground" backgroundColor="layer-a-background" halign="left" transparent="1" />
+		<widget name="config" position="70,100" size="700,510" itemHeight="30" font="epg_text;20" scrollbarSliderBorderWidth="1" scrollbarWidth="10" scrollbarSliderForegroundColor="scrollbarSlidercolor" scrollbarSliderBorderColor="scrollbarSliderbordercolor" scrollbarMode="showOnDemand" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="1" enableWrapAround="1" />
+		<panel name="template1_2layer"/>
+		<panel name="rg__-keys_template1"/>
+		<panel name="rg__-buttons_template1"/>
+		<panel name="_oe-buttons_template1" />
+		<ePixmap pixmap="MetrixHD/icons/setup.png" position="890,175" size="256,256" zPosition="2" transparent="1" alphatest="blend" />
+	</screen>
+	<!-- EMC CoverSearch Setup -->
+	<screen name="imdbSetup" position="0,0" size="1280,720" title="EMC Cover search setup" flags="wfNoBorder" backgroundColor="transparent">
+		<widget source="Title" render="Label" position="58,36" size="525,50" noWrap="1" valign="bottom" font="global_title;34" foregroundColor="layer-a-title-foreground" backgroundColor="layer-a-background" halign="left" transparent="1" />
+		<widget name="config" position="70,100" size="700,510" itemHeight="30" font="epg_text;20" scrollbarSliderBorderWidth="1" scrollbarWidth="10" scrollbarSliderForegroundColor="scrollbarSlidercolor" scrollbarSliderBorderColor="scrollbarSliderbordercolor" scrollbarMode="showOnDemand" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="1" enableWrapAround="1" />
+		<panel name="template1_2layer"/>
+		<panel name="rg__-keys_template1"/>
+		<panel name="rg__-buttons_template1"/>
+		<panel name="_oe-buttons_template1" />
+		<ePixmap pixmap="MetrixHD/icons/setup.png" position="890,175" size="256,256" zPosition="2" transparent="1" alphatest="blend" />
+	</screen>
+	<!-- EnhancedMovieCenter Menu -->
+	<screen name="MovieMenu" position="0,0" size="1280,720" title="Menu EMC" flags="wfNoBorder" backgroundColor="transparent">
+		<panel name="CONTEXTMENU_textTitle_template" />
+		<ePixmap position="305,80" size="256,256" pixmap="MetrixHD/icons/movie.png" alphatest="blend" />
+		<eLabel text="Menu EMC" position="5,535" size="1280,200" font="global_large_menu; 100" noWrap="0" backgroundColor="text-background" transparent="1" foregroundColor="background-text" valign="bottom" zPosition="-50" />
+	</screen>
+	<!-- EMC Cover Search -->
+	<screen name="EMCImdbScan" position="0,0" size="1280,720" title="EMC Cover search" flags="wfNoBorder" backgroundColor="transparent">
+		<widget source="Title" render="Label" position="58,36" size="525,50" noWrap="1" valign="bottom" font="global_title;34" foregroundColor="layer-a-title-foreground" backgroundColor="layer-a-background" halign="left" transparent="1" />
+		<widget name="menulist" position="70,100" size="700,450" font="epg_text;20" itemHeight="30" scrollbarSliderBorderWidth="1" scrollbarWidth="10" scrollbarSliderForegroundColor="scrollbarSlidercolor" scrollbarSliderBorderColor="scrollbarSliderbordercolor" scrollbarMode="showOnDemand" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="1" enableWrapAround="on"/>
+		<widget name="done_msg" position="70,580" size="700,30" zPosition="0" font="screen_label;20" halign="center" valign="center" transparent="1" foregroundColor="layer-a-foreground" backgroundColor="layer-a-background"/>
+		<widget name="m_info" position="825,90" size="380,55" valign="center" halign="center" font="epg_text;22" backgroundColor="layer-b-background" foregroundColor="layer-b-foreground" transparent="1" />
+		<widget name="poster" position="902,155" size="230,322" zPosition="4" alphatest="blend" />
+		<widget name="info" position="825,500" size="380,30" zPosition="0" font="epg_text;22" halign="center" valign="center" transparent="1" foregroundColor="layer-b-foreground" backgroundColor="layer-b-background"/>
+		<widget name="download" position="825,530" size="380,30" zPosition="0" font="epg_text;20" halign="center" valign="center" transparent="1" foregroundColor="layer-b-accent1" backgroundColor="layer-b-background"/>
+		<widget name="exist" position="845,560" size="150,30" zPosition="0" font="epg_text;20" halign="right" valign="center" transparent="1" foregroundColor="layer-b-accent1" backgroundColor="layer-b-background"/>
+		<widget name="no_poster" position="1035,560" size="150,30" zPosition="0" font="epg_text;20" halign="left" valign="center" transparent="1" foregroundColor="layer-b-accent1" backgroundColor="layer-b-background"/>
+		<panel name="template1_2layer"/>
+		<widget name="ButtonRedText" position="70,638" size="170,30" zPosition="1" valign="center" font="global_button;20" halign="left" backgroundColor="layer-a-background" foregroundColor="layer-a-button-foreground" transparent="1" />
+		<widget name="ButtonGreenText" position="253,638" size="170,30" zPosition="1" valign="center" font="global_button;20" halign="left" backgroundColor="layer-a-background" foregroundColor="layer-a-button-foreground" transparent="1" />
+		<widget name="Manage Cover" position="436,638" size="170,30" zPosition="1" valign="center" font="global_button;20" halign="left" backgroundColor="layer-a-background" foregroundColor="layer-a-button-foreground" transparent="1" />
+		<eLabel text="OK=" position="589,638" size="60,30" zPosition="1" valign="center" font="global_button;20" halign="right" foregroundColor="layer-a-button-foreground" backgroundColor="layer-a-background" transparent="1" />
+		<widget name="Single search" position="649,638" size="170,30" zPosition="1" valign="center" font="global_button;20" halign="left" foregroundColor="layer-a-button-foreground" backgroundColor="layer-a-background" transparent="1" />
+		<panel name="rgy_-buttons_template1"/>
+		<panel name="moe-buttons_template1" />
+	</screen>	
+	<!-- EMC Single CoverSearch -->
+	<screen name="getCover" position="0,0" size="1280,720" title="EMC Cover Selecter" flags="wfNoBorder" backgroundColor="transparent">
+		<widget source="Title" render="Label" position="58,36" size="525,50" noWrap="1" valign="bottom" font="global_title;34" foregroundColor="layer-a-title-foreground" backgroundColor="layer-a-background" halign="left" transparent="1" />
+		<widget name="m_info" position="825,90" size="380,55" valign="center" halign="center" font="epg_text;22" backgroundColor="layer-b-background" foregroundColor="layer-b-foreground" transparent="1" />
+		<widget name="menulist" position="70,100" size="700,510" font="epg_text;20" itemHeight="30" scrollbarSliderBorderWidth="1" scrollbarWidth="10" scrollbarSliderForegroundColor="scrollbarSlidercolor" scrollbarSliderBorderColor="scrollbarSliderbordercolor" scrollbarMode="showOnDemand" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="1" enableWrapAround="on" />
+		<widget name="info" position="70,638" size="700,30" zPosition="0" font="epg_text;20" halign="center" valign="center" transparent="1" foregroundColor="layer-a-foreground" backgroundColor="layer-a-background"/>
+		<widget name="poster" position="902,155" size="230,322" zPosition="4" alphatest="blend" />
+		<widget name="info" position="825,425" size="380,175" zPosition="0" font="screen_info;20" halign="center" valign="center" transparent="1" foregroundColor="layer-b-foreground" backgroundColor="layer-b-background"/>
+		<panel name="template1_2layer"/>
+		<panel name="_oe-buttons_template1" />
+	</screen>	
+	<!-- EMC MovieInfo -->
+	<screen name="DownloadMovieInfo" position="0,0" size="1280,720" title="Movie Information Download (TMDb)" flags="wfNoBorder" backgroundColor="transparent">
+		<widget source="Title" render="Label" position="58,36" size="525,50" noWrap="1" valign="bottom" font="global_title;34" foregroundColor="layer-a-title-foreground" backgroundColor="layer-a-background" halign="left" transparent="1" />
+		<widget name="movie_name" position="70,90" size="700,60" zPosition="0" font="epg_text;21" valign="center" halign="center" transparent="1" foregroundColor="layer-a-accent1" backgroundColor="layer-a-background"/>
+		<widget name="movielist" position="70,150" size="700,480" font="epg_text;20" itemHeight="30" scrollbarSliderBorderWidth="1" scrollbarWidth="10" scrollbarSliderForegroundColor="scrollbarSlidercolor" scrollbarSliderBorderColor="scrollbarSliderbordercolor" scrollbarMode="showOnDemand" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="1" />
+		<widget name="resulttext" position="810,415" size="415,190" font="screen_info;20" foregroundColor="layer-b-foreground" halign="center" backgroundColor="layer-b-background" valign="center" transparent="1"/>
+		<eLabel text="MENU=" position="80,638" size="100,30" zPosition="1" valign="center" font="global_button;20" halign="right" foregroundColor="layer-a-foreground" backgroundColor="layer-a-background" transparent="1" />
+		<widget name="setup" position="180,638" size="170,30" valign="center" font="global_button;20" halign="left" foregroundColor="layer-a-foreground" backgroundColor="layer-a-background" transparent="1" />
+		<eLabel text="OK=" position="360,638" size="60,30" zPosition="1" valign="center" font="global_button;20" halign="right" foregroundColor="layer-a-foreground" backgroundColor="layer-a-background" transparent="1" />
+		<widget name="save" position="420,638" size="170,30" valign="center" font="global_button;20" halign="left" foregroundColor="layer-a-foreground" backgroundColor="layer-a-background" transparent="1" />
+		<eLabel text="INFO=" position="536,638" size="100,30" zPosition="1" valign="center" font="global_button;20" halign="right" foregroundColor="layer-a-foreground" backgroundColor="layer-a-background" transparent="1" />
+		<widget name="movieinfo" position="635,638" size="170,30" valign="center" font="global_button;20" halign="left" foregroundColor="layer-a-foreground" backgroundColor="layer-a-background" transparent="1" />
+		<panel name="template1_2layer"/>
+		<panel name="moe-buttons_template1" />
+		<ePixmap position="890,175" size="256,256" zPosition="2" pixmap="MetrixHD/icons/movie.png" transparent="1" alphatest="blend" />
+	</screen>
+	<!-- EMC MovieInfo - MovieInfoPreview --> 
+	<screen name="MovieInfoPreview" position="0,0" size="1280,720" title="Movie Information Preview" flags="wfNoBorder" backgroundColor="transparent"> 
+		<widget source="Title" render="Label" position="58,36" size="525,50" noWrap="1" valign="bottom" font="global_title;34" backgroundColor="layer-a-background" foregroundColor="layer-a-title-foreground" halign="left" transparent="1" /> 
+		<widget name="movie_name" position="70,90" size="700,60" zPosition="0" font="epg_text;21" valign="center" halign="center" transparent="1" foregroundColor="layer-a-accent1" backgroundColor="layer-a-background"/> 
+		<widget name="previewtext" position="70,150" size="700,480" font="epg_text;20" backgroundColor="layer-a-background" /> 
+		<panel name="template1_2layer"/> 
+		<panel name="__e-buttons_template1" /> 
+		<ePixmap position="890,175" size="256,256" zPosition="2" pixmap="MetrixHD/icons/movie.png" transparent="1" alphatest="blend" /> 
+	</screen> 
+	<!-- EMC MovieInfoTMDb - MovieInfoTMDb -->
+	<screen name="MovieInfoTMDb" position="0,0" size="1280,720" title="Movie Information TMDb" flags="wfNoBorder" backgroundColor="transparent">
+		<widget source="Title" render="Label" position="58,36" size="525,50" noWrap="1" valign="bottom" font="global_title;34" backgroundColor="layer-a-background" foregroundColor="layer-a-title-foreground" halign="left" transparent="1" />
+		<widget name="movie_name" position="70,90" size="700,60" zPosition="0" font="epg_text;21" valign="center" halign="center" transparent="1" foregroundColor="layer-a-accent1" backgroundColor="layer-a-background"/>
+		<widget name="previewlist" position="70,400" size="700,210" font="epg_text;20" itemHeight="30" scrollbarSliderBorderWidth="1" scrollbarWidth="10" scrollbarSliderForegroundColor="scrollbarSlidercolor" scrollbarSliderBorderColor="scrollbarSliderbordercolor" scrollbarMode="showOnDemand" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="1" />
+		<widget name="starsbg" position="562,160" size="210,21" pixmap="MetrixHD/imdb/starsbar_empty.png" zPosition="2" alphatest="blend" />
+		<widget name="stars" position="562,160" size="210,21" pixmap="MetrixHD/imdb/starsbar_filled.png" zPosition="3" transparent="1" />
+		<widget name="rating" position="560,185" size="210,30" font="screen_info;20" halign="left" foregroundColor="unf0b400" backgroundColor="layer-a-background" transparent="1" />
+		<widget name="ratingtxt" position="560,185" size="210,30" font="screen_info;20" halign="right" foregroundColor="unf0b400" backgroundColor="layer-a-background" transparent="1"  />
+		<widget name="previewcover" position="70,160" size="160,224" alphatest="blend" />
+		<widget name="release" position="250,240" size="180,30" halign="left" font="screen_label;19" backgroundColor="layer-a-background" foregroundColor="layer-a-accent1" transparent="1" />
+		<widget name="releasetxt" position="440,240" size="330,30" halign="right" font="epg_text;19" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="1" />
+		<widget name="runtime" position="250,270" size="80,30" halign="left" font="screen_label;19" backgroundColor="layer-a-background" foregroundColor="layer-a-accent1" transparent="1" />
+		<widget name="runtimetxt" position="340,270" size="430,30" halign="right" font="epg_text;19" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="1" />
+		<widget name="genre" position="250,300" size="60,30" halign="left" font="screen_label;19" backgroundColor="layer-a-background" foregroundColor="layer-a-accent1" transparent="1" />
+		<widget name="genretxt" position="310,300" size="460,30" halign="right" font="epg_text;19" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="1" />
+		<widget name="country" position="250,330" size="170,30" halign="left" font="screen_label;19" backgroundColor="layer-a-background" foregroundColor="layer-a-accent1" transparent="1" />
+		<widget name="countrytxt" position="420,330" size="350,60" halign="right" font="epg_text;19" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="1" />
+		<widget name="contenttxt" position="70,400" size="700,220" font="screen_info;20" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="1" />
+		<widget name="key_green" pixmap="MetrixHD/buttons/key_green.png" position="218,635" size="30,40" alphatest="blend" />
+		<widget name="save" position="253,638" size="170,30" noWrap="1" zPosition="1" valign="center" font="global_button; 20" halign="left" backgroundColor="layer-a-background" foregroundColor="layer-a-button-foreground" transparent="1" />
+		<panel name="template1_2layer" />
+		<panel name="moe-buttons_template1" />
+		<ePixmap position="890,175" size="256,256" zPosition="2" pixmap="MetrixHD/icons/movie.png" transparent="1" alphatest="blend" />
+	</screen>
+	<!-- EMCPlaylistScreen -->
+	<screen name="EMCPlaylist" position="0,0" size="1280,720" title="EMC Playlist" flags="wfNoBorder" backgroundColor="transparent"> 
+		<!--widget source="Title" render="Label" position="58,36" size="525,50" noWrap="1" valign="bottom" font="global_title;34" backgroundColor="layer-a-background" foregroundColor="layer-a-title-foreground" halign="left" transparent="1" /-->
+		<eLabel text="EMC Playlist" position="58,36" size="525,50" noWrap="1" valign="bottom" font="global_title;34" foregroundColor="layer-a-title-foreground" backgroundColor="layer-a-background" halign="left" transparent="1" /> 
+		<widget source="Title" render="Label" position="70,95" size="700,35" font="epg_text;22" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" halign="left" transparent="1" />
+		<eLabel position="70,135" size="700,1" backgroundColor="layer-a-accent2" />
+		<widget name="playlist" position="70,150" size="700,450" posFont="epg_text;20" nameFont="epg_text;20" itemHeight="30" posWidth="50" nameWidth="650" scrollbarSliderBorderWidth="1" scrollbarWidth="10" scrollbarSliderForegroundColor="scrollbarSlidercolor" scrollbarSliderBorderColor="scrollbarSliderbordercolor" scrollbarMode="showOnDemand" posColor="layer-a-foreground" posColorSel="layer-a-selection-foreground" nameColor="layer-a-foreground" nameColorSel="layer-a-selection-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="1" /> 
+		<widget name="cancel" position="70,638" size="170,30" noWrap="1" zPosition="1" valign="center" font="global_button; 20" halign="left" backgroundColor="layer-a-background" foregroundColor="layer-a-button-foreground" transparent="1" />
+		<widget name="save" position="253,638" size="170,30" noWrap="1" zPosition="1" valign="center" font="global_button; 20" halign="left" backgroundColor="layer-a-background" foregroundColor="layer-a-button-foreground" transparent="1" />
+		<widget name="delete" position="436,638" size="170,30" noWrap="1" zPosition="1" valign="center" font="global_button; 20" halign="left" backgroundColor="layer-a-background" foregroundColor="layer-a-button-foreground" transparent="1" />
+		<widget name="deleteall" position="619,638" size="170,30" noWrap="1" zPosition="1" valign="center" font="global_button; 20" halign="left" backgroundColor="layer-a-background" foregroundColor="layer-a-button-foreground" transparent="1" />
+		<panel name="template1_2layer"/> 
+		<panel name="rgyb-buttons_template1"/> 
+		<panel name="_oe-buttons_template1" /> 
+		<ePixmap position="890,175" size="256,256" zPosition="2" pixmap="MetrixHD/icons/movie.png" transparent="1" alphatest="blend" /> 
+	</screen> 
+	<screen name="EMCPlaylistSetup" position="0,0" size="1280,720" title="EMC Playlist Setup" flags="wfNoBorder" backgroundColor="transparent"> 
+		<widget source="Title" render="Label" position="58,36" size="525,50" noWrap="1" valign="bottom" font="global_title;34" backgroundColor="layer-a-background" foregroundColor="layer-a-title-foreground" halign="left" transparent="1" />
+		<widget name="config" position="70,100" size="700,510" itemHeight="30" font="epg_text;20" scrollbarSliderBorderWidth="1" scrollbarWidth="10" scrollbarSliderForegroundColor="scrollbarSlidercolor" scrollbarSliderBorderColor="scrollbarSliderbordercolor" scrollbarMode="showOnDemand" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="1" />
+		<widget name="cancel" position="70,638" size="170,30" noWrap="1" zPosition="1" valign="center" font="global_button; 20" halign="left" backgroundColor="layer-a-background" foregroundColor="layer-a-button-foreground" transparent="1" />
+		<widget name="save" position="253,638" size="170,30" noWrap="1" zPosition="1" valign="center" font="global_button; 20" halign="left" backgroundColor="layer-a-background" foregroundColor="layer-a-button-foreground" transparent="1" />
+		<panel name="template1_2layer"/> 
+		<panel name="rg__-buttons_template1"/> 
+		<panel name="_oe-buttons_template1" /> 
+		<ePixmap position="890,175" size="256,256" zPosition="2" pixmap="MetrixHD/icons/movie.png" transparent="1" alphatest="blend" /> 
+	</screen>
+	<!-- EMC : Enhanced Movie Center -->
+	<screen name="EMCSelection" position="0,0" size="1280,720" title="Enhanced Movie Center" flags="wfNoBorder" backgroundColor="transparent">
+		<eLabel text="Enhanced Movie Center" position="58,36" size="525,50" noWrap="1" valign="bottom" font="global_title;34" foregroundColor="layer-a-title-foreground" backgroundColor="layer-a-background" transparent="1" />
+		<!--widget source="Title" render="Label" position="58,36" size="535,50" noWrap="1" valign="bottom" font="global_title;33" foregroundColor="layer-a-title-foreground" backgroundColor="layer-a-background" transparent="1" >
+			<convert type="MetrixHDTextfilter">emc_name_plus_version</convert>
+		</widget-->
+		<widget name="wait" position="70,300" size="700,30" zPosition="1" font="epg_text;24" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" halign="center" valign="center" transparent="1" />
+		<!--widget source="Title" render="Label" position="70,95" size="700,30" font="epg_text;22" noWrap="1" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" halign="left" transparent="1" /-->
+		<widget source="Title" render="Label" position="70,95" size="700,30" font="epg_text;22" noWrap="1" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" halign="left" transparent="1" >
+			<convert type="MetrixHDTextfilter">emc_pathinfo</convert>
+		</widget>
+		<widget source="Service" render="Label" position="825,567" size="280,30" font="epg_text;19" halign="left" backgroundColor="layer-b-background" foregroundColor="layer-b-accent1" transparent="1" noWrap="1">
+			<convert type="EMCServiceTime">StartTime</convert>
+			<convert type="EMCClockToText">Date</convert>
+		</widget>
+		<widget source="Service" render="Label" position="1110,567" size="100,30" font="epg_text;19" halign="right" backgroundColor="layer-b-background" foregroundColor="layer-b-accent1" transparent="1" noWrap="1">
+			<convert type="EMCMovieInfo">FileSize</convert>
+		</widget>
+		<panel name="EMCSelectionCover_no" />
+		<panel name="template1_2layer" />
+		<panel name="rgyb-buttons_template1" />
+		<panel name="rgyb-keys_template1" />
+		<panel name="ime-buttons_template1" />
+	</screen>
+	<!-- EMCMediacenter -->
+	<screen name="EMCMediaCenter" position="0,0" size="1280,720" title="InfoBar" flags="wfNoBorder" backgroundColor="transparent">
+		<panel name="EMCMediaCenter_2" />
+		<panel name="EMCMediaCenter_2_time" />
+		<panel name="EMCMediaCenterCover_no" />
+		<panel name="CLOCKWIDGET" />
+		<panel name="INFOBARWEATHERWIDGET" />
+		<panel name="MOVIENAME" />
+		<panel name="COLORGRADIENT_bottom_IB" />
+		<!--panel name="STBINFOMOVIEPLAYER" /-->
+		<!--panel name="STBINFO" /-->
+		<panel name="SKINPART_emcmediacenter"/>
+	</screen>
+</skin>
