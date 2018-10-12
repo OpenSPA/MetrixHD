@@ -23,7 +23,7 @@ msgstr "Error, resultado desconocido!"
 
 #: ActivateSkinSettings.py:131 ActivateSkinSettings.py:137
 msgid "Your enhanced hd settings are inconsistent. Please check this."
-msgstr ""
+msgstr "Tus ajustes HD mejorados son inconsistentes. Por favor, comprueba esto."
 
 #: ActivateSkinSettings.py:230
 #, python-format
@@ -31,6 +31,8 @@ msgid ""
 "Not enough free flash memory to create the new %s skin files. ( %d kb is "
 "required )"
 msgstr ""
+"No hay suficiente memoria flash libre para crear los nuevos archivos de skin %s. ( %d kb son "
+"requeridos )"
 
 #: ActivateSkinSettings.py:1330
 msgid "--- additional files start ---\n"
@@ -38,13 +40,15 @@ msgstr "--- inicio de archivos adicionales ---\n"
 
 #: ActivateSkinSettings.py:1338 ActivateSkinSettings.py:1341
 msgid "Backup "
-msgstr ""
+msgstr "Backup "
 
 #: ActivateSkinSettings.py:1338 ActivateSkinSettings.py:1341
 msgid ""
 "\n"
 "New calculated file is "
 msgstr ""
+"\n"
+"Nuevo archivo calculado es "
 
 #: ActivateSkinSettings.py:1344
 msgid "No files found or files already exist."
@@ -131,7 +135,7 @@ msgstr ""
 
 #: BackupSettingsView.py:140
 msgid "My Backup Description"
-msgstr ""
+msgstr "Descripción Backup"
 
 #: BackupSettingsView.py:140
 msgid "You can here assign an individual name."
@@ -254,7 +258,7 @@ msgstr ""
 
 #:
 msgid "Transparency"
-msgstr ""
+msgstr "Transparencia"
 
 #:
 msgid "Font color"
