@@ -600,35 +600,6 @@
 		<ePixmap position="890,175" size="256,256" zPosition="2" pixmap="MetrixHD/icons/menu_mainmenu_pluginhider.png" transparent="1" alphatest="blend" />
 	</screen>
 	<!-- PluginHider -->
-	<!-- openATVSupportChannel -->
-	<screen name="supportchannel_YTChannel" position="0,0" size="1280,720" flags="wfNoBorder" backgroundColor="transparent">
-		<widget name="title" position="58,36" size="525,50" noWrap="1" valign="bottom" font="global_title;34" backgroundColor="layer-a-background" foregroundColor="layer-a-title-foreground" transparent="1" />
-		<widget name="name" position="825,85" size="380,70" foregroundColor="#00e5b243" backgroundColor="layer-b-background" transparent="1" font="SetrixHD;24" valign="center" halign="center" zPosition="0" />
-		<widget name="ContentTitle" position="70,125" size="700,30" font="Regular;24" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="1" />
-		<widget name="genreList" position="70,180" size="700,510" itemHeight="30" font="screen_text; 20" scrollbarSliderBorderWidth="1" scrollbarWidth="10" scrollbarSliderForegroundColor="scrollbarSlidercolor" scrollbarSliderBorderColor="scrollbarSliderbordercolor" scrollbarMode="showOnDemand" enableWrapAround="1" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" transparent="1" />
-		<panel name="template1_2layer" />
-		<panel name="r___-buttons_template1" />
-		<panel name="r___-keys_template1" />
-		<panel name="__e-buttons_template1" />
-		<ePixmap position="890,175" size="256,256" zPosition="2" pixmap="MetrixHD/icons/menu_information_supportchannel.png" transparent="1" alphatest="blend" />
-	</screen>
-	<screen name="supportchannel_ListChannel_ListScreen" position="0,0" size="1280,720" flags="wfNoBorder" backgroundColor="transparent">
-		<widget name="title" position="58,36" size="525,50" noWrap="1" valign="bottom" font="global_title;34" backgroundColor="layer-a-background" foregroundColor="layer-a-title-foreground" transparent="1" />
-		<widget name="ContentTitle" position="70,125" size="700,30" font="Regular;24" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="1" />
-		<widget name="liste" position="70,180" size="700,510" itemHeight="30" font="screen_text; 20" scrollbarSliderBorderWidth="1" scrollbarWidth="10" scrollbarSliderForegroundColor="scrollbarSlidercolor" scrollbarSliderBorderColor="scrollbarSliderbordercolor" scrollbarMode="showOnDemand" enableWrapAround="1" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" transparent="1" />
-		<widget name="name" position="825,85" size="380,70" foregroundColor="#00e5b243" backgroundColor="layer-b-background" transparent="1" font="SetrixHD;24" valign="center" halign="center" zPosition="0" />
-		<widget name="handlung" position="840,450" size="380,175" backgroundColor="layer-b-background" foregroundColor="layer-a-foreground" transparent="1" font="SetrixHD;20" valign="top" halign="center" zPosition="0" />
-		<widget name="Page" position="630,132" size="50,25" backgroundColor="layer-a-background" transparent="1" foregroundColor="#00555556" font="Regular;20" valign="center" halign="right" zPosition="0" />
-		<widget name="VideoPrio" position="500,132" size="100,24" backgroundColor="layer-a-background" transparent="1" foregroundColor="#00555556" font="Regular; 20" valign="center" halign="right" zPosition="1" />
-		<widget name="page" position="645,132" size="100,25" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="1" font="Regular;20" valign="center" halign="right" zPosition="0" />
-		<widget name="vPrio" position="745,132" size="25,25" backgroundColor="layer-a-background" transparent="1" font="Regular;20" valign="center" halign="right" zPosition="1" foregroundColor="#00bab329" />
-		<panel name="template1_2layer" />
-		<panel name="rgyb-buttons_template1" />
-		<panel name="rgyb-keys_template1" />
-		<panel name="__e-buttons_template1" />
-		<widget name="coverArt" backgroundColor="layer-b-background" position="880,185" size="270,200" zPosition="2" transparent="1" alphatest="blend" />
-	</screen>
-	<!-- openATVSupportChannel -->
 	<!-- Fancontrol -->
 	<screen name="FanSetupScreen" title="Fan Control" position="0,0" size="1280,720" flags="wfNoBorder" backgroundColor="transparent">
 		<widget source="Title" render="Label" position="58,36" size="525,50" noWrap="0" font="SetrixHD;35" backgroundColor="layer-a-background" transparent="1" />
