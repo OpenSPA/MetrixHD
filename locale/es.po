@@ -1374,7 +1374,7 @@ msgid ""
 "(if red -> press 'save' for refresh)"
 msgstr ""
 
-#: WeatherSettingsView.py:125
+#: WeatherSettingsView.py:123
 msgid "Show in MoviePlayer"
 msgstr "Mostrar en MoviePlayer"
 
@@ -1382,23 +1382,31 @@ msgstr "Mostrar en MoviePlayer"
 msgid "MetrixWeather ID"
 msgstr "ID MetrixWeather"
 
-#: WeatherSettingsView.py:126
-msgid "Get your local MetrixWeather ID from www.mymetrix.de"
+#: WeatherSettingsView.py:124
+msgid "Get your local MetrixWeather ID from https://openweathermap.org/"
 msgstr ""
 
-#: WeatherSettingsView.py:127
+#: WeatherSettingsView.py:125
+msgid "MetrixWeather APIKEY"
+msgstr ""
+
+#: WeatherSettingsView.py:125
+msgid "Get your local MetrixWeather APIKEY from https://openweathermap.org/"
+msgstr ""
+
+#: WeatherSettingsView.py:126
 msgid "Unit"
 msgstr "Unidad"
 
-#: WeatherSettingsView.py:128
+#: WeatherSettingsView.py:127
 msgid "Refresh Interval (min)"
 msgstr "Intervalo Refresco (min)"
 
-#: WeatherSettingsView.py:128
+#: WeatherSettingsView.py:127
 msgid "If set to '0', fetch weather data only at system(gui) start."
 msgstr ""
 
-#: WeatherSettingsView.py:129
+#: WeatherSettingsView.py:128
 msgid "Check is Weather date local date"
 msgstr ""
 
