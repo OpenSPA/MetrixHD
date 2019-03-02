@@ -2,26 +2,32 @@
 #    <widget source="session.CurrentService" render="MetrixHDWeatherPixmap" position="156,50" size="50,50" alphatest="blend" zPosition="9">
 #        <convert type="MetrixHDWeather">currentWeatherCode</convert>
 #    </widget>
+from Tools.LoadPixmap import LoadPixmap 
 from Renderer import Renderer 
-from enigma import ePixmap, ePicLoad
+from enigma import ePixmap, eTimer 
 from Tools.Directories import fileExists, pathExists
-
-lastPiconPath = None
+from Components.config import config
+import os
 
 class MetrixHDWeatherPixmap(Renderer):
 	__module__ = __name__
-	searchPaths = ('/media/usb/%s/', '/usr/share/enigma2/%s/', '/media/hdd/%s/')
+	searchPaths = ('/usr/share/enigma2/MetrixHD/%s/', '/usr/share/enigma2/%s/', '/media/hdd/%s/', '/media/usb/%s/')
 
 	def __init__(self):
 		Renderer.__init__(self)
-		self.path = 'piconMSNWeather'
-		self.pngname = ""
+		self.path = 'animated_weather_icons'
+		self.pixdelay = 100
+		self.pixdelay_overwrite = False
+		self.slideicon = None
 
 	def applySkin(self, desktop, parent):
 		attribs = []
 		for (attrib, value,) in self.skinAttributes:
 			if attrib == "path":
 				self.path = value
+			elif attrib == "pixdelay":
+				self.pixdelay = int(value)
+				self.pixdelay_overwrite = True
 			else:
 				attribs.append((attrib, value))
 
@@ -34,37 +40,59 @@ class MetrixHDWeatherPixmap(Renderer):
 		if self.instance:
 			sname = ''
 			if (what[0] != self.CHANGED_CLEAR):
-				sname = self.ConvertCondition(self.source.text)
-				pngname = self.findPicon(sname)
-				if self.pngname != pngname:
-					if pngname:
-						self.instance.setScale(1)
-						self.instance.setPixmapFromFile(pngname)
-						self.instance.show()
-					else:
-						self.instance.hide()
-					self.pngname = pngname
+				if config.plugins.MetrixWeather.weatherservice.value == "MSN":
+					sname = self.source.text
+				else:
+					sname = self.ConvertCondition(self.source.text)
+				for path in self.searchPaths:
+					if pathExists((path % self.path)):
+						self.runAnim(sname)
 
-	def findPicon(self, serviceName):
-		global lastPiconPath
-		if lastPiconPath is not None:
-			pngname = lastPiconPath + serviceName + ".png"
-			if pathExists(pngname):
-				return pngname
+	def runAnim(self, id):
+		global total
+		animokicon = False
+		for path in self.searchPaths:
+			if fileExists('%s%s' % ((path % self.path), id)):
+				pathanimicon = '%s%s/a' % ((path % self.path), id)
+				path2 = '%s%s' % ((path % self.path), id)
+				dir_work = os.listdir(path2)
+				total = len(dir_work)
+				self.slideicon = total
+				animokicon = True
 			else:
-				return ""
-		else:
-			pngname = ""
-			for path in self.searchPaths:
-				if pathExists((path % self.path)):
-					pngname = (path % self.path) + serviceName + ".png"
-					if pathExists(pngname):
-						lastPiconPath = (path % self.path)
-						break
-			if pathExists(pngname):
-				return pngname
-			else:
-				return ""
+				if fileExists('%sNA' % (path % self.path)):    
+					pathanimicon = '%sNA/a' % (path % self.path)
+					path2 = '%sNA'  % (path % self.path)
+					dir_work = os.listdir(path2)
+					total = len(dir_work)
+					self.slideicon = total
+					animokicon = True
+		if animokicon == True:
+			self.picsicon = []
+			for x in range(self.slideicon):
+				self.picsicon.append(LoadPixmap(pathanimicon + str(x) + '.png'))
+
+			if not self.pixdelay_overwrite:
+				self.pixdelay = int(config.plugins.MetrixWeather.animationspeed.value)
+			self.timericon = eTimer()
+			self.timericon.callback.append(self.timerEvent)
+			self.timerEvent()
+			#self.timericon.start(self.pixdelay, True)
+
+	def timerEvent(self):
+		if self.slideicon == 0:
+			self.slideicon = total
+		if self.slideicon > total:
+			self.slideicon = total
+		self.timericon.stop()
+		self.instance.setScale(1)
+		try:
+			self.instance.setPixmap(self.picsicon[self.slideicon - 1])
+		except:
+			pass
+		self.slideicon = self.slideicon - 1
+		if self.pixdelay:
+			self.timericon.start(self.pixdelay, True)
 
 	def ConvertCondition(self, c):
 		condition = "NA"

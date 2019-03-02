@@ -207,7 +207,10 @@ class MetrixHDWeatherUpdaterStandalone(Renderer, VariableText):
 				id = idmy.nodeValue
 				currentWeather = dom.getElementsByTagName('current')[0]
 				currentWeatherCode = currentWeather.getAttributeNode('skycode')
-				config.plugins.MetrixWeather.currentWeatherCode.value = self.ConvertConditionMSN(currentWeatherCode.nodeValue)
+				if config.plugins.MetrixWeather.type.value:
+					config.plugins.MetrixWeather.currentWeatherCode.value = currentWeatherCode.nodeValue
+				else:
+					config.plugins.MetrixWeather.currentWeatherCode.value = self.ConvertConditionMSN(currentWeatherCode.nodeValue)
 				currentWeatherTemp = currentWeather.getAttributeNode('temperature')
 				temp = currentWeatherTemp.nodeValue
 				config.plugins.MetrixWeather.currentWeatherTemp.value = currentWeatherTemp.nodeValue
@@ -232,7 +235,10 @@ class MetrixHDWeatherUpdaterStandalone(Renderer, VariableText):
 				n = 1
 				currentWeather = dom.getElementsByTagName('forecast')[n]
 				currentWeatherCode = currentWeather.getAttributeNode('skycodeday')
-				config.plugins.MetrixWeather.forecastTodayCode.value = self.ConvertConditionMSN(currentWeatherCode.nodeValue)
+				if config.plugins.MetrixWeather.type.value:
+					config.plugins.MetrixWeather.forecastTodayCode.value = currentWeatherCode.nodeValue
+				else:
+					config.plugins.MetrixWeather.forecastTodayCode.value = self.ConvertConditionMSN(currentWeatherCode.nodeValue)
 				currentWeatherTemp = currentWeather.getAttributeNode('high')
 				temp_max  = currentWeatherTemp.nodeValue
 				config.plugins.MetrixWeather.forecastTodayTempMax.value = currentWeatherTemp.nodeValue
@@ -243,7 +249,10 @@ class MetrixHDWeatherUpdaterStandalone(Renderer, VariableText):
 				config.plugins.MetrixWeather.forecastTodayText.value = currentWeatherText.nodeValue
 				currentWeather = dom.getElementsByTagName('forecast')[n + 1]
 				currentWeatherCode = currentWeather.getAttributeNode('skycodeday')
-				config.plugins.MetrixWeather.forecastTomorrowCode.value = self.ConvertConditionMSN(currentWeatherCode.nodeValue)
+				if config.plugins.MetrixWeather.type.value:
+					config.plugins.MetrixWeather.forecastTomorrowCode.value = currentWeatherCode.nodeValue
+				else:
+					config.plugins.MetrixWeather.forecastTomorrowCode.value = self.ConvertConditionMSN(currentWeatherCode.nodeValue)
 				currentWeatherTemp = currentWeather.getAttributeNode('high')
 				config.plugins.MetrixWeather.forecastTomorrowTempMax.value = currentWeatherTemp.nodeValue
 				currentWeatherTemp = currentWeather.getAttributeNode('low')
@@ -259,7 +268,10 @@ class MetrixHDWeatherUpdaterStandalone(Renderer, VariableText):
 
 				currentWeather = dom.getElementsByTagName('forecast')[n + 2]
 				currentWeatherCode = currentWeather.getAttributeNode('skycodeday')
-				config.plugins.MetrixWeather.forecastTomorrowCode2.value = self.ConvertConditionMSN(currentWeatherCode.nodeValue)
+				if config.plugins.MetrixWeather.type.value:
+					config.plugins.MetrixWeather.forecastTomorrowCode2.value = currentWeatherCode.nodeValue
+				else:
+					config.plugins.MetrixWeather.forecastTomorrowCode2.value = self.ConvertConditionMSN(currentWeatherCode.nodeValue)
 				currentWeatherTemp = currentWeather.getAttributeNode('high')
 				config.plugins.MetrixWeather.forecastTomorrowTempMax2.value = currentWeatherTemp.nodeValue
 				currentWeatherTemp = currentWeather.getAttributeNode('low')
@@ -275,7 +287,10 @@ class MetrixHDWeatherUpdaterStandalone(Renderer, VariableText):
 
 				currentWeather = dom.getElementsByTagName('forecast')[n + 3]
 				currentWeatherCode = currentWeather.getAttributeNode('skycodeday')
-				config.plugins.MetrixWeather.forecastTomorrowCode3.value = self.ConvertConditionMSN(currentWeatherCode.nodeValue)
+				if config.plugins.MetrixWeather.type.value:
+					config.plugins.MetrixWeather.forecastTomorrowCode3.value = currentWeatherCode.nodeValue
+				else:
+					config.plugins.MetrixWeather.forecastTomorrowCode3.value = self.ConvertConditionMSN(currentWeatherCode.nodeValue)
 				currentWeatherTemp = currentWeather.getAttributeNode('high')
 				config.plugins.MetrixWeather.forecastTomorrowTempMax3.value = currentWeatherTemp.nodeValue
 				currentWeatherTemp = currentWeather.getAttributeNode('low')
