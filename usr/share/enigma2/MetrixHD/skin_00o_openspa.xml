@@ -630,6 +630,10 @@
 			<convert type="MenuEntryCompare">youtubetv</convert>
 			<convert type="ConditionalShowHide" />
 		</widget>
+		<widget source="menu" render="Pixmap" pixmap="MetrixHD/icons/pplayer.png" position="305,80" size="256,256" alphatest="blend" zPosition="1">
+			<convert type="MenuEntryCompare">iptv_main</convert>
+			<convert type="ConditionalShowHide" />
+		</widget>
 	</screen>
 	<screen name="menu_timermenu" position="0,0" size="1280,720" title="Main menu" flags="wfNoBorder" backgroundColor="transparent">
 		<panel name="MENU_template" />
@@ -897,6 +901,10 @@
 		</widget>
 		<widget source="menu" render="Pixmap" pixmap="MetrixHD/icons/pplayer.png" position="305,80" size="256,256" alphatest="blend">
 			<convert type="MenuEntryCompare">serviceapp_setup</convert>
+			<convert type="ConditionalShowHide" />
+		</widget>
+		<widget source="menu" render="Pixmap" pixmap="MetrixHD/icons/setup.png" position="305,80" size="256,256" alphatest="blend" zPosition="1">
+			<convert type="MenuEntryCompare">iptv_config</convert>
 			<convert type="ConditionalShowHide" />
 		</widget>
 	</screen>
@@ -1226,28 +1234,28 @@
 	<!--Quick Menu-->
 	<!-- templates -->
 	<screen name="QuickMenu_Layer-1">
-		<eLabel position="220,105" zPosition="-11" size="420,468" backgroundColor="layer-a-background"/>
-		<eLabel position="640,123" zPosition="-11" size="420,433" backgroundColor="layer-b-background"/>
+		<eLabel position="220,105" zPosition="-11" size="420,518" backgroundColor="layer-a-background"/>
+		<eLabel position="640,123" zPosition="-11" size="420,483" backgroundColor="layer-b-background"/>
 	</screen>
 	<screen name="QuickMenu_Layer-2">
-		<eLabel position="220,105" zPosition="-11" size="420,468" backgroundColor="layer-a-background"/>
-		<eLabel position="640,105" zPosition="-11" size="420,468" backgroundColor="layer-b-background"/>
+		<eLabel position="220,105" zPosition="-11" size="420,518" backgroundColor="layer-a-background"/>
+		<eLabel position="640,105" zPosition="-11" size="420,518" backgroundColor="layer-b-background"/>
 	</screen>
 	<screen name="QuickMenu_Layer-3">
-		<eLabel position="220,105" zPosition="-11" size="420,468" backgroundColor="layer-a-background"/>
-		<eLabel position="640,105" zPosition="-11" size="420,468" backgroundColor="layer-b-background"/>
+		<eLabel position="220,105" zPosition="-11" size="420,518" backgroundColor="layer-a-background"/>
+		<eLabel position="640,105" zPosition="-11" size="420,518" backgroundColor="layer-b-background"/>
 	</screen>
 	<screen name="QuickMenu_Layer-1s">
-		<eLabel position="220,105" zPosition="-11" size="415,468" backgroundColor="layer-a-background"/>
-		<eLabel position="645,123" zPosition="-11" size="415,433" backgroundColor="layer-b-background"/>
+		<eLabel position="220,105" zPosition="-11" size="415,518" backgroundColor="layer-a-background"/>
+		<eLabel position="645,123" zPosition="-11" size="415,483" backgroundColor="layer-b-background"/>
 	</screen>
 	<screen name="QuickMenu_Layer-2s">
-		<eLabel position="220,105" zPosition="-11" size="415,468" backgroundColor="layer-a-background"/>
-		<eLabel position="645,105" zPosition="-11" size="415,468" backgroundColor="layer-b-background"/>
+		<eLabel position="220,105" zPosition="-11" size="415,518" backgroundColor="layer-a-background"/>
+		<eLabel position="645,105" zPosition="-11" size="415,518" backgroundColor="layer-b-background"/>
 	</screen>
 	<screen name="QuickMenu_Layer-3s">
-		<eLabel position="220,105" zPosition="-11" size="415,468" backgroundColor="layer-a-background"/>
-		<eLabel position="645,105" zPosition="-11" size="415,468" backgroundColor="layer-b-background"/>
+		<eLabel position="220,105" zPosition="-11" size="415,518" backgroundColor="layer-a-background"/>
+		<eLabel position="645,105" zPosition="-11" size="415,518" backgroundColor="layer-b-background"/>
 	</screen>
 	<!-- templates -->
 	<screen name="QuickMenu" position="0,0" size="1280,720" title="Quick Launch Menu" flags="wfNoBorder" backgroundColor="transparent">
@@ -1260,8 +1268,8 @@
 		<widget name="key_green" position="483,3" size="170,30" zPosition="1" valign="center" font="global_button;20" halign="left" noWrap="1" foregroundColor="layer-a-button-foreground" backgroundColor="layer-a-background" transparent="1" />
 		<widget name="key_yellow" position="666,3" size="170,30" zPosition="1" valign="center" font="global_button;20" halign="left" noWrap="1" foregroundColor="layer-a-button-foreground" backgroundColor="layer-a-background" transparent="1" />
 		<!--widget name="key_blue" position="849,3" size="170,30" zPosition="1" valign="center" font="global_button;20" halign="left" noWrap="1" foregroundColor="layer-a-button-foreground" backgroundColor="layer-a-background" transparent="1" /-->
-		<widget name="list" position="235,114" size="390,450" itemHeight="50" font="screen_text; 20" scrollbarSliderBorderWidth="1" scrollbarWidth="10" scrollbarSliderForegroundColor="scrollbarSlidercolor" scrollbarSliderBorderColor="scrollbarSliderbordercolor" scrollbarMode="showNever" transparent="1" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" />
-		<widget name="sublist" position="655,131" size="390,400" itemHeight="50" font="screen_text; 20" scrollbarSliderBorderWidth="1" scrollbarWidth="10" scrollbarSliderForegroundColor="scrollbarSlidercolor" scrollbarSliderBorderColor="scrollbarSliderbordercolor" scrollbarMode="showNever" transparent="1" backgroundColor="layer-b-background" foregroundColor="layer-b-foreground" backgroundColorSelected="layer-b-selection-background" foregroundColorSelected="layer-b-selection-foreground" />
+		<widget name="list" position="235,114" size="390,500" itemHeight="50" font="screen_text; 20" scrollbarSliderBorderWidth="1" scrollbarWidth="10" scrollbarSliderForegroundColor="scrollbarSlidercolor" scrollbarSliderBorderColor="scrollbarSliderbordercolor" scrollbarMode="showNever" transparent="1" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" />
+		<widget name="sublist" position="655,131" size="390,450" itemHeight="50" font="screen_text; 20" scrollbarSliderBorderWidth="1" scrollbarWidth="10" scrollbarSliderForegroundColor="scrollbarSlidercolor" scrollbarSliderBorderColor="scrollbarSliderbordercolor" scrollbarMode="showNever" transparent="1" backgroundColor="layer-b-background" foregroundColor="layer-b-foreground" backgroundColorSelected="layer-b-selection-background" foregroundColorSelected="layer-b-selection-foreground" />
 		<widget name="description" position="42,42" size="1206,55" zPosition="1" font="screen_info;20" halign="center" valign="center" foregroundColor="layer-a-foreground" backgroundColor="layer-a-background" transparent="1" />
 		<eLabel text="Quick Launch Menu" position="5,535" size="1280,200" font="global_large_menu; 100" noWrap="0" backgroundColor="text-background" transparent="1" foregroundColor="background-text" valign="bottom" zPosition="-50" />
 		<panel name="QuickMenu_Layer" />
@@ -1627,12 +1635,12 @@ self.instance.move(ePoint(0,0))
 		<panel name="_oe-buttons_template1" />
 	</screen>
 	<screen name="Setup" position="0,0" size="1280,720" title="Setup" flags="wfNoBorder" backgroundColor="transparent">
-		<widget source="Title" render="Label" position="58,36" font="global_title;34" foregroundColor="layer-a-title-foreground" size="525,50" valign="bottom" backgroundColor="layer-a-background" transparent="1" />
+		<eLabel text="Setup" position="58,36" foregroundColor="layer-a-title-foreground" size="525,50" noWrap="1" valign="bottom" font="global_title;34" backgroundColor="layer-a-background" transparent="1" />
 		<panel name="setup_common"/>
 		<ePixmap position="890,175" size="256,256" zPosition="2" pixmap="MetrixHD/icons/setup.png" transparent="1" alphatest="blend" />
 	</screen>
 	<screen name="SetupInfo" position="0,0" size="1280,720" title="Setup" flags="wfNoBorder" backgroundColor="transparent">
-		<widget source="Title" render="Label" position="58,36" font="global_title;34" foregroundColor="layer-a-title-foreground" size="525,50" valign="bottom" backgroundColor="layer-a-background" transparent="1" />
+		<eLabel text="Setup" position="58,36" foregroundColor="layer-a-title-foreground" size="525,50" noWrap="1" valign="bottom" font="global_title;34" backgroundColor="layer-a-background" transparent="1" />
 		<panel name="setup_common"/>
 		<widget name="labelInfo" position="810,385" size="415,220" font="screen_info; 20" foregroundColor="layer-b-foreground" halign="center" backgroundColor="layer-b-background" valign="center" transparent="1"/>
 		<ePixmap position="890,175" size="256,256" zPosition="2" pixmap="MetrixHD/icons/setup.png" transparent="1" alphatest="blend" />
@@ -1867,9 +1875,10 @@ self['config'].l.setSeperation(int(300*f))
 	</screen>
 	<screen name="HdmiCECSetupScreen" position="0,0" size="1280,720" title="Setup" flags="wfNoBorder" backgroundColor="transparent">
 		<eLabel text="HDMI CEC Setup" position="58,36" foregroundColor="layer-a-title-foreground" size="525,50" noWrap="1" valign="bottom" font="global_title;34" backgroundColor="layer-a-background" transparent="1" />
-		<widget name="config" position="70,100" size="700,420" itemHeight="30" font="screen_text; 20" scrollbarSliderBorderWidth="1" scrollbarWidth="10" scrollbarSliderForegroundColor="scrollbarSlidercolor" scrollbarSliderBorderColor="scrollbarSliderbordercolor" scrollbarMode="showOnDemand" enableWrapAround="1" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" transparent="1" />
-		<widget source="current_address" render="Label" position="825,425" size="380,30" font="screen_info; 20" foregroundColor="layer-b-foreground" halign="center" backgroundColor="layer-b-background" valign="center" transparent="1"/>
-		<widget source="fixed_address" render="Label" position="825,475" size="380,30" font="screen_info; 20" foregroundColor="layer-b-foreground" halign="center" backgroundColor="layer-b-background" valign="center" transparent="1"/>
+		<widget name="config" position="70,100" size="700,510" itemHeight="30" font="screen_text; 20" scrollbarSliderBorderWidth="1" scrollbarWidth="10" scrollbarSliderForegroundColor="scrollbarSlidercolor" scrollbarSliderBorderColor="scrollbarSliderbordercolor" scrollbarMode="showOnDemand" enableWrapAround="1" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" transparent="1" />
+		<widget source="current_address" render="Label" position="825,150" size="380,30" font="screen_info; 20" foregroundColor="layer-b-foreground" halign="center" backgroundColor="layer-b-background" valign="center" transparent="1"/>
+		<widget source="fixed_address" render="Label" position="825,175" size="380,30" font="screen_info; 20" foregroundColor="layer-b-foreground" halign="center" backgroundColor="layer-b-background" valign="center" transparent="1"/>
+		<widget name="description" position="810,415" size="415,190" font="screen_info; 20" foregroundColor="layer-b-foreground" halign="center" backgroundColor="layer-b-background" valign="center" transparent="1"/>
 		<panel name="template1_2layer" />
 		<panel name="rgyb-buttons_template1" />
 		<panel name="rgyb-keys_template1-source" />
@@ -1958,7 +1967,7 @@ self['config'].l.setSeperation(int(300*f))
 		<widget name="text" position="51,90" size="550,150" halign="left" font="screen_text; 20" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" zPosition="1" transparent="1" />
 	</screen>
 	<screen name="SkinSelector" position="0,0" size="1280,720" title="Skin Selector" flags="wfNoBorder" backgroundColor="transparent">
-		<widget source="Title" render="Label" position="58,36" font="global_title;34" foregroundColor="layer-a-title-foreground" size="525,50" valign="bottom" backgroundColor="layer-a-background" transparent="1" />
+		<eLabel text="Skin Selector" position="58,36" foregroundColor="layer-a-title-foreground" size="525,50" valign="bottom" font="global_title;34" backgroundColor="layer-a-background" transparent="1" />
 		<widget name="SkinList" position="70,100" size="700,240" itemHeight="30" font="screen_text; 20" scrollbarSliderBorderWidth="1" scrollbarWidth="10" scrollbarSliderForegroundColor="scrollbarSlidercolor" scrollbarSliderBorderColor="scrollbarSliderbordercolor" scrollbarMode="showOnDemand" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" enableWrapAround="1" transparent="1"/>
 		<widget name="Preview" position="293,375" size="280,240" alphatest="blend" />
 		<widget source="introduction" render="Label" position="825,425" size="380,175" font="screen_info; 20" foregroundColor="layer-b-foreground" halign="center" backgroundColor="layer-b-background" valign="center" transparent="1"/>
@@ -2238,7 +2247,7 @@ self['config'].l.setSeperation(int(300*f))
 		<ePixmap position="398,209" size="81,40" zPosition="10" pixmap="MetrixHD/buttons/ok.png" transparent="1" alphatest="blend" />
 	</screen>
 	<screen name="TimerEditList" position="0,0" size="1280,720" title="Timer Editor" flags="wfNoBorder" backgroundColor="transparent">
-		<widget source="Title" render="Label" position="58,36" font="global_title;34" foregroundColor="layer-a-title-foreground" size="525,50" valign="bottom" backgroundColor="layer-a-background" transparent="1" />
+		<eLabel text="Timer List" position="58,36" foregroundColor="layer-a-title-foreground" size="525,50" noWrap="1" valign="bottom" font="global_title;34" backgroundColor="layer-a-background" transparent="1" />
 		<widget name="timerlist" position="70,100" size="700,500" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" itemHeight="50" rowSplit="26" iconMargin="5" satPosLeft="160" setFont="screen_text; 18" setEventNameFont="screen_text; 20" setServiceNameFont="screen_text; 20" scrollbarSliderBorderWidth="1" scrollbarWidth="10" scrollbarSliderForegroundColor="scrollbarSlidercolor" scrollbarSliderBorderColor="scrollbarSliderbordercolor" scrollbarMode="showOnDemand" enableWrapAround="1" transparent="1" />
 		<widget name="description" position="810,410" size="415,190" font="screen_info; 20" foregroundColor="layer-b-foreground" halign="center" backgroundColor="layer-b-background" valign="center" transparent="1"/>
 		<panel name="template1_2layer" />
@@ -2250,7 +2259,7 @@ self['config'].l.setSeperation(int(300*f))
 	</screen>
 	<screen name="TimerEntry" position="0,0" size="1280,720" title="Timer entry" flags="wfNoBorder" backgroundColor="transparent">
 		<widget name="HelpWindow" position="818,25" size="402,128" zPosition="1" transparent="1" alphatest="blend" />
-		<widget source="Title" render="Label" position="58,36" font="global_title;34" foregroundColor="layer-a-title-foreground" size="525,50" valign="bottom" backgroundColor="layer-a-background" transparent="1" />
+		<eLabel text="Timer entry" position="58,36" foregroundColor="layer-a-title-foreground" size="525,50" noWrap="1" valign="bottom" font="global_title;34" backgroundColor="layer-a-background" transparent="1" />
 		<widget name="config" position="70,100" size="700,510" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" itemHeight="30" font="screen_text; 20" scrollbarSliderBorderWidth="1" scrollbarWidth="10" scrollbarSliderForegroundColor="scrollbarSlidercolor" scrollbarSliderBorderColor="scrollbarSliderbordercolor" scrollbarMode="showOnDemand" transparent="1" />
 		<widget name="canceltext" position="70,638" size="170,30" zPosition="1" valign="center" font="global_button;20" halign="left" noWrap="1" foregroundColor="layer-a-button-foreground" backgroundColor="layer-a-background" transparent="1" />
 		<widget name="oktext" position="253,638" size="170,30" zPosition="1" valign="center" font="global_button;20" halign="left" noWrap="1" foregroundColor="layer-a-button-foreground" backgroundColor="layer-a-background" transparent="1" />
@@ -2263,7 +2272,7 @@ self['config'].l.setSeperation(int(300*f))
 		<ePixmap position="890,175" size="256,256" zPosition="2" pixmap="MetrixHD/icons/timer.png" transparent="1" alphatest="blend" />
 	</screen>
 	<screen name="TimerLog" position="0,0" size="1280,720" title="Timer log" flags="wfNoBorder" backgroundColor="transparent">
-		<widget source="Title" render="Label" position="58,36" font="global_title;34" foregroundColor="layer-a-title-foreground" size="525,50" valign="bottom" backgroundColor="layer-a-background" transparent="1" />
+		<eLabel text="Timer log" position="58,36" foregroundColor="layer-a-title-foreground" size="525,50" valign="bottom" font="global_title;34" backgroundColor="layer-a-background" transparent="1" />
 		<widget name="loglist" position="70,100" size="700,510" itemHeight="30" font="screen_text; 20" scrollbarSliderBorderWidth="1" scrollbarWidth="10" scrollbarSliderForegroundColor="scrollbarSlidercolor" scrollbarSliderBorderColor="scrollbarSliderbordercolor" scrollbarMode="showOnDemand" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" transparent="1" />
 		<widget name="logentry" position="810,415" size="415,190" font="screen_info; 20" foregroundColor="layer-b-foreground" halign="center" backgroundColor="layer-b-background" valign="center" transparent="1"/>
 		<panel name="rgyb-buttons_template1" />
@@ -3851,7 +3860,7 @@ self.instance.move(ePoint(int(deskwidth - newwidth)/2,int(deskheight - newheight
 		<ePixmap position="890,175" size="256,256" zPosition="2" pixmap="MetrixHD/icons/menu_scan_tuner_setup.png" transparent="1" alphatest="blend" />
 	</screen>
 	<screen name="ScanSetup" position="0,0" size="1280,720" title="Service scan" flags="wfNoBorder" backgroundColor="transparent">
-		<widget source="Title" render="Label" position="58,36" font="global_title;34" foregroundColor="layer-a-title-foreground" size="525,50" valign="bottom" backgroundColor="layer-a-background" transparent="1" />
+		<eLabel text="Service scan" position="58,36" foregroundColor="layer-a-title-foreground" size="525,50" valign="bottom" font="global_title;34" backgroundColor="layer-a-background" transparent="1" />
 		<widget name="header" position="70,100" size="700,32" font="SetrixHD;24" backgroundColor="layer-a-background" transparent="1" />
 		<eLabel position="70,150" size="700,2" backgroundColor="layer-a-accent1" />
 		<widget name="config" position="70,160" size="700,480" itemHeight="30" font="screen_text; 20" scrollbarSliderBorderWidth="1" scrollbarWidth="10" scrollbarSliderForegroundColor="scrollbarSlidercolor" scrollbarSliderBorderColor="scrollbarSliderbordercolor" scrollbarMode="showOnDemand" enableWrapAround="1" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" transparent="1" />
@@ -3863,7 +3872,7 @@ self.instance.move(ePoint(int(deskwidth - newwidth)/2,int(deskheight - newheight
 		<ePixmap position="890,175" size="256,256" zPosition="2" pixmap="MetrixHD/icons/menu_scan_manual_scan.png" transparent="1" alphatest="blend" />
 	</screen>
 	<screen name="ScanSimple" position="0,0" size="1280,720" title="Service scan" flags="wfNoBorder" backgroundColor="transparent">
-		<widget source="Title" render="Label" position="58,36" font="global_title;34" foregroundColor="layer-a-title-foreground" size="525,50" valign="bottom" backgroundColor="layer-a-background" transparent="1" />
+		<eLabel text="Service scan" position="58,36" foregroundColor="layer-a-title-foreground" size="525,50" valign="bottom" font="global_title;34" backgroundColor="layer-a-background" transparent="1" />
 		<widget name="header" position="70,100" size="700,32" font="SetrixHD;24" backgroundColor="layer-a-background" transparent="1" />
 		<eLabel position="70,150" size="700,2" backgroundColor="layer-a-accent1" />
 		<widget name="config" position="70,160" size="700,480" itemHeight="30" font="screen_text; 20" scrollbarSliderBorderWidth="1" scrollbarWidth="10" scrollbarSliderForegroundColor="scrollbarSlidercolor" scrollbarSliderBorderColor="scrollbarSliderbordercolor" scrollbarMode="showOnDemand" enableWrapAround="1" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" transparent="1" />
@@ -4390,19 +4399,9 @@ self.instance.move(ePoint(int(deskwidth - newwidth)/2,int(deskheight - newheight
 	</screen>
 	<screen name="FlashOnline" position="0,0" size="1280,720" title="Flash Online" flags="wfNoBorder" backgroundColor="transparent">
 		<widget source="Title" render="Label" position="58,36" foregroundColor="layer-a-title-foreground" size="525,50" valign="bottom" font="global_title;34" backgroundColor="layer-a-background" transparent="1" />
-		<widget name="info-online" position="825,470" size="380,30" font="screen_info;20" backgroundColor="layer-b-background" foregroundColor="layer-b-foreground" halign="center" transparent="0" zPosition="1" />
-		<widget name="info-local" position="825,520" size="380,30" font="screen_info;20" backgroundColor="layer-b-background" foregroundColor="layer-b-foreground" halign="center" transparent="0" zPosition="1" />
-		<eLabel text="OPEN SOURCE" position="825,110" size="382,58" font="screen_info;50" backgroundColor="layer-b-background" foregroundColor="layer-b-foreground" halign="center" transparent="0" zPosition="1" />
-		<panel name="template1_2layer" />
-		<panel name="rgyb-buttons_template1" />
-		<panel name="rgyb-keys_template1-source" />
-		<panel name="_oe-buttons_template1" />
-		<ePixmap position="890,175" size="256,256" zPosition="2" pixmap="MetrixHD/icons/menu_information_about.png" transparent="1" alphatest="blend" />
-	</screen>
-	<screen name="doFlashImage" position="0,0" size="1280,720" title="Flash On the fly (select a image)" flags="wfNoBorder" backgroundColor="transparent">
-		<widget source="Title" render="Label" position="58,36" foregroundColor="layer-a-title-foreground" size="525,50" valign="bottom" font="global_title;34" backgroundColor="layer-a-background" transparent="1" />
-		<widget name="imageList" position="70,100" zPosition="1" size="700,510" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" itemHeight="30" font="screen_text; 20" scrollbarSliderBorderWidth="1" scrollbarWidth="10" scrollbarSliderForegroundColor="scrollbarSlidercolor" scrollbarSliderBorderColor="scrollbarSliderbordercolor" scrollbarMode="showOnDemand" transparent="1" />
-		<eLabel text="OPEN SOURCE" position="825,110" size="382,58" font="screen_info;50" backgroundColor="layer-b-background" foregroundColor="layer-b-foreground" halign="center" transparent="0" zPosition="1" />
+		<widget name="list" position="70,100" zPosition="1" size="700,510" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" itemHeight="30" font="screen_text; 20" scrollbarSliderBorderWidth="1" scrollbarWidth="10" scrollbarSliderForegroundColor="scrollbarSlidercolor" scrollbarSliderBorderColor="scrollbarSliderbordercolor" scrollbarMode="showOnDemand" transparent="1" />
+		<widget name="description" position="70,300" zPosition="1" size="700,510" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" itemHeight="30" font="screen_text; 20" scrollbarSliderBorderWidth="1" scrollbarWidth="10" scrollbarSliderForegroundColor="scrollbarSlidercolor" scrollbarSliderBorderColor="scrollbarSliderbordercolor" scrollbarMode="showOnDemand" transparent="1" />
+		<eLabel text="OPEN SOURCE" position="825,110" size="380,55" font="screen_info;50" backgroundColor="layer-b-background" foregroundColor="layer-b-foreground" halign="center" transparent="0" zPosition="1" />
 		<eLabel text="https://github.com/openspa" position="825,470" size="380,30" font="screen_info;20" backgroundColor="layer-b-background" foregroundColor="layer-b-foreground" halign="center" transparent="0" zPosition="1" />
 		<eLabel text="https://github.com/oe-alliance" position="825,520" size="380,30" font="screen_info;20" backgroundColor="layer-b-background" foregroundColor="layer-b-foreground" halign="center" transparent="0" zPosition="1" />
 		<panel name="template1_2layer" />
@@ -4459,11 +4458,11 @@ self.instance.move(ePoint(int(deskwidth - newwidth)/2,int(deskheight - newheight
 	<!-- IMDb -->
 	<screen name="IMDB" position="0,0" size="1280,720" title="IMDb Details Plugin" flags="wfNoBorder" backgroundColor="transparent">
 		<eLabel text="IMDb Details" position="58,36" foregroundColor="layer-a-title-foreground" size="525,50" valign="bottom" font="global_title;34" backgroundColor="layer-a-background" transparent="1" />
-		<widget name="menu" position=" 70,220" size="700,360" itemHeight="30" font="screen_text; 20" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="1" />
-		<widget name="titellabel" position=" 70,105" size="700,35" font="screen_info;25" halign="left" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="1" />
+		<widget name="menu" position=" 70,220" size="700,360" itemHeight="30" font="screen_text; 20" scrollbarSliderBorderWidth="1" scrollbarWidth="10" scrollbarSliderForegroundColor="scrollbarSlidercolor" scrollbarSliderBorderColor="scrollbarSliderbordercolor" scrollbarMode="showOnDemand" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" transparent="1" />
+		<widget name="titellabel" position=" 70,105" size="700,35" font="SetrixHD;25" halign="left" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="1" />
 		<widget name="starsbg" position="562,110" size="210,21" pixmap="MetrixHD/imdb/starsbar_empty.png" zPosition="2" alphatest="blend" />
 		<widget name="stars" position="562,110" size="210,21" pixmap="MetrixHD/imdb/starsbar_filled.png" zPosition="3" transparent="1" />
-		<widget name="ratinglabel" position="470,135" size="300,30" font="screen_info;20" halign="right" backgroundColor="layer-a-background" foregroundColor="unf0b400" transparent="1" />
+		<widget name="ratinglabel" position="470,135" size="300,30" font="SetrixHD;20" halign="right" backgroundColor="layer-a-background" foregroundColor="unf0b400" transparent="1" />
 		<widget name="poster" position=" 70,150" size="160,230" alphatest="blend" />
 		<widget name="detailslabel" position="270,170" size="500,210" itemHeight="30" font="screen_text; 20" scrollbarSliderBorderWidth="1" scrollbarWidth="10" scrollbarSliderForegroundColor="scrollbarSlidercolor" scrollbarSliderBorderColor="scrollbarSliderbordercolor" scrollbarMode="showOnDemand" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" transparent="1" />
 		<widget name="castlabel" position=" 70,395" size="700,220" itemHeight="30" font="screen_text; 20" scrollbarSliderBorderWidth="1" scrollbarWidth="10" scrollbarSliderForegroundColor="scrollbarSlidercolor" scrollbarSliderBorderColor="scrollbarSliderbordercolor" scrollbarMode="showOnDemand" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" transparent="1" />
