@@ -520,10 +520,7 @@ class OtherSettingsView(ConfigListScreen, Screen):
 		list.append(getConfigListEntry(tab + _("Show CPU-Load"), config.plugins.MyMetrixLiteOther.showCPULoad, _("helptext")))
 		list.append(getConfigListEntry(tab + _("Show free RAM"), config.plugins.MyMetrixLiteOther.showRAMfree, _("helptext")))
 		if self.getCPUSensor():
-			list.append(getConfig		section = _("mini TV")
-		list.append(getConfigListEntry(section + tab + sep*(char-len(section)-len(tab)), ))
-		list.append(getConfigListEntry(tab + _("Show in Channel selection?"), config.usage.servicelist_mode, _("Setting is the same as\n'") + _("Channel list service mode*") + _("'\nin\n'") + _("Channel selection settings") + _("'\n(") + _("Simple") + _(" = mini TV on)"), "ENABLED"))
-		list.append(getConfigListEntry(tab + _("Show in Movie Center?"), config.movielist.useslim, _("Setting is the same as\n'") + _("Use slim screen") + _("'\nin\n'") + _("Movie List Setup") + "'", "ENABLED"))ListEntry(tab + _("Show CPU-Temp"), config.plugins.MyMetrixLiteOther.showCPUTemp, _("helptext")))
+			list.append(getConfigListEntry(tab + _("Show CPU-Temp"), config.plugins.MyMetrixLiteOther.showCPUTemp, _("helptext")))
 		elif config.plugins.MyMetrixLiteOther.showCPUTemp.getValue() is not False:
 			config.plugins.MyMetrixLiteOther.showCPUTemp.setValue(False)
 			config.plugins.MyMetrixLiteOther.save()
