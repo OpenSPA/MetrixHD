@@ -1,7 +1,7 @@
 MetrixHD
 ========
 
-##**openSPA 7.3 default skin**
+##**openSPA 7.x default skin**
 
 MetrixHD is created by iMaxxx http://open-store.net
 
