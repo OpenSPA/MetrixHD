@@ -20,7 +20,7 @@ msgid "     "
 msgstr ""
 
 msgid " (no restart required)"
-msgstr " (kein Neustart erforderlich)"
+msgstr " (Nach Änderung ist kein Neustart erforderlich.)"
 
 msgid "Off"
 msgstr "Aus"
@@ -47,7 +47,7 @@ msgstr ""
 "!!! Ist Ihr Receiver nicht kompatibel, ist ein Systemabsturz möglich !!!\n"
 "\n"
 "Wenn Sie 'Ja' wählen beginnt der Auflösungstest.\n"
-"Die alte Auflösung wird automatisch nach 10 Sekunden wieder hergestellt."
+"Die alte Auflösung wird automatisch nach 10 Sekunden wiederhergestellt."
 
 msgid "!!! Recording(s) are in progress or coming up in few minutes !!!"
 msgstr "!!! Aufnahme(n) sind aktiv oder starten in wenigen Minuten !!!"
@@ -63,11 +63,11 @@ msgstr ""
 
 msgid ""
 "'\n"
-"in\n"
+"in the\n"
 "'"
 msgstr ""
 "'\n"
-"in\n"
+"in den "
 "'"
 
 msgid "(Text-Mode)"
@@ -386,6 +386,8 @@ msgid ""
 "Cant get weather id:\n"
 "%s"
 msgstr ""
+"Kann keine Wetter-ID erhalten:\n"
+"%s"
 
 msgid "Celsius"
 msgstr ""
@@ -400,7 +402,7 @@ msgid "Change field size 'Progressbar' in Movie Selection"
 msgstr "Breite der Fortschrittsanzeige in der Filmliste ändern"
 
 msgid "Change field size or hide"
-msgstr "Feldgröße ändern oder ausblenden"
+msgstr "Feldgröße ändern oder Feld ausblenden."
 
 msgid "Change Number of Rows in Movie Selection"
 msgstr "Zeilenanzahl in der Filmliste ändern"
@@ -409,7 +411,7 @@ msgid "Channel list service mode*"
 msgstr "Servicemodus*"
 
 msgid "Channel selection settings"
-msgstr "Kanalliste"
+msgstr "Kanalliste Einstellungen"
 
 msgid "Channel selection style"
 msgstr "Kanalliste Stil"
@@ -440,13 +442,13 @@ msgid "Choose skin resolution"
 msgstr "Auflösung des Skin wählen"
 
 msgid "Choose your preferred weather service"
-msgstr "Wählen Sie Ihren bevorzugten Wetterservice"
+msgstr "Wählen Sie Ihren bevorzugten Wetterservice."
 
 msgid "Chose Extended-Info Style"
 msgstr "Erweiterte Informationen"
 
 msgid "Chose Skin Design"
-msgstr "Skin-Design wählen"
+msgstr "Skin Design wählen"
 
 msgid "Circle Gradient"
 msgstr "Kreisverlauf"
@@ -525,12 +527,11 @@ msgid ""
 "red - fetch weather data aborted after 6 times green and yellow\n"
 "(if red -> press 'save' for refresh)"
 msgstr ""
-"Aktualisierungs-/Fehlerfarben Indikator im Widget:\n"
-"Grün - Versuche die Wetterdaten abzurufen\n"
+"Aktualisierungs-/Fehlerfarbenanzeige im Widget:\n"
+"Grün - Abruf der Wetterdaten\n"
 "Gelb - Pause nach erfolglosem Abruf\n"
 "Rot - Abruf der Wetterdaten abgebrochen\n"
-"[6 x (Grün = 6 Versuche + Gelb = 5 Minuten)]\n"
-"Info: wenn Rot, dann 'speichern' drücken zur Aktualisierung"
+"Info: Bei Status Rot erfolgt mit 'speichern' ein erneuter Abruf."
 
 msgid "Dark Colors"
 msgstr "Dunkle Farben"
@@ -543,6 +544,9 @@ msgstr "Dunkelbraun"
 
 msgid "Darkgrey"
 msgstr "Dunkelgrau"
+
+msgid "Default"
+msgstr "Standard"
 
 msgid "Defaults"
 msgstr "Standard"
@@ -630,7 +634,7 @@ msgid "Error creating Skin!"
 msgstr "Fehler beim Erstellen vom Skin!"
 
 msgid "Error, unknown Result!"
-msgstr ""
+msgstr "Fehler, unbekanntes Ergebnis!"
 
 msgid "Event Description"
 msgstr "Sendungsbeschreibung"
@@ -790,16 +794,16 @@ msgid "Glossy Effect Size"
 msgstr "Glänzende Effektgröße"
 
 msgid "Graphical EPG"
-msgstr "Grafisches EPG"
+msgstr "Grafischer EPG"
 
 msgid "graphical EPG"
-msgstr "grafisches EPG"
+msgstr "grafischer EPG"
 
 msgid "Graphical EPG style"
-msgstr "Grafisches EPG Stil"
+msgstr "Grafischer EPG Stil"
 
 msgid "GraphicalEPG settings"
-msgstr "Grafisches EPG Einstellungen"
+msgstr "Grafischer EPG Einstellungen"
 
 msgid "Green"
 msgstr "Grün"
@@ -872,7 +876,7 @@ msgid "HOME"
 msgstr ""
 
 msgid "If set to '0', fetch weather data only at system(gui) start."
-msgstr "Wenn '0', dann werden die Wetterdaten nur einmal beim Systemstart abgeholt."
+msgstr "Bei '0' werden die Wetterdaten nur einmal beim Systemstart abgeholt."
 
 msgid ""
 "If you can see this then is your receiver compatible.\n"
@@ -888,7 +892,7 @@ msgid ""
 msgstr ""
 "Verbesserte Skalierungsqualität - experimentell.\n"
 "Info: < 1 = unscharfes und > 1 = schärferes Bild\n"
-"(kein Neustart erforderlich)"
+"(Nach Änderung ist kein Neustart erforderlich.)"
 
 msgid "in Image included Fonts"
 msgstr "Im Image enthaltene Schriftarten"
@@ -1035,10 +1039,10 @@ msgid "min:   %s"
 msgstr ""
 
 msgid "mini TV"
-msgstr ""
+msgstr "MiniTV"
 
 msgid "more Events or 'mini TV' greater"
-msgstr "Mehr Sendungen oder 'Mini-TV' größer"
+msgstr "Mehr Sendungen oder 'MiniTV' größer"
 
 msgid "Movie List Setup"
 msgstr "Movie Center"
@@ -1155,7 +1159,7 @@ msgid "Orange"
 msgstr ""
 
 msgid "OSD settings"
-msgstr "OSD"
+msgstr "OSD Einstellungen"
 
 msgid "Other settings"
 msgstr "Sonstige - Einstellungen"
@@ -1173,7 +1177,7 @@ msgid "Overwrite current Settings?"
 msgstr "Wollen Sie die aktuellen Einstellungen überschreiben?"
 
 msgid "Picture in graphics"
-msgstr "Mini-TV Bild im grafischen EPG anzeigen"
+msgstr "MiniTV Bild im grafischen EPG anzeigen"
 
 msgid "Pink"
 msgstr ""
@@ -1339,7 +1343,7 @@ msgid ""
 "(no restart required)"
 msgstr ""
 "Bei schlechter Skalierungsqualität auf 'Ja' setzen - experimentell.\n"
-"(kein Neustart erforderlich)"
+"(Nach Änderung ist kein Neustart erforderlich.)"
 
 msgid "SetrixHD"
 msgstr ""
@@ -1356,7 +1360,10 @@ msgstr "Die Einstellungen wurden erfolgreich wiederhergestellt."
 
 # ColorSettings.py
 msgid "Show also in main layer?"
-msgstr "Auch im Hauptlayer anzeigen?"
+msgstr "Im Hauptlayer anzeigen"
+
+msgid "Show Background"
+msgstr "Hintergrund anzeigen"
 
 msgid "Show CAID"
 msgstr "CAID anzeigen"
@@ -1370,8 +1377,11 @@ msgstr "Kanalnummer anzeigen"
 msgid "Show Clock"
 msgstr "Uhr anzeigen"
 
+msgid "Show in EMC?"
+msgstr "Im EMC anzeigen"
+
 msgid "Show color buttons at top of the screen."
-msgstr "Zeige Farbtasten oben auf dem Bildschirm ( hilft beim Umsortieren der Menüpunkte )"
+msgstr "Zeige Farbtasten oben auf dem Bildschirm (hilft beim Umsortieren der Menüpunkte)."
 
 msgid "Show Cover in Infobar"
 msgstr "Cover in der Infoleiste anzeigen"
@@ -1407,13 +1417,13 @@ msgid "Show HOPS"
 msgstr "HOPS anzeigen"
 
 msgid "Show in Channel selection?"
-msgstr "In der Kanalliste anzeigen?"
+msgstr "In der Kanalliste anzeigen"
 
 msgid "Show in graphical EPG?"
-msgstr "Im grafischen EPG anzeigen?"
+msgstr "Im grafischen EPG anzeigen"
 
 msgid "Show in Movie Center?"
-msgstr "Im Movie Center anzeigen?"
+msgstr "Im Movie Center anzeigen"
 
 msgid "Show in MoviePlayer"
 msgstr "Im MoviePlayer anzeigen"
@@ -1422,8 +1432,8 @@ msgid ""
 "Show info in main menu and context menu if more entries on next side.\n"
 "(no restart required)"
 msgstr ""
-"Zeigt Informationen im Hauptmenü und im Kontextmenü an, wenn sich weitere Einträge auf der nächsten Seite befinden. \n"
-"(kein Neustart erforderlich)"
+"Zeigt Informationen im Hauptmenü und im Kontextmenü an, wenn sich weitere Einträge auf der nächsten Seite befinden.\n"
+"(Nach Änderung ist kein Neustart erforderlich.)"
 
 msgid "Show large Text on bottom of the screen"
 msgstr "Großen Text unten am Bildschirm anzeigen"
@@ -1435,7 +1445,7 @@ msgid "Show lower right Corner Layer"
 msgstr "Layer unten rechts anzeigen"
 
 msgid "Show Menu Buttons"
-msgstr "Zeige Buttons im Menü"
+msgstr "Zeige Schaltflächen im Menü"
 
 msgid "Show Menu Scrollinfo"
 msgstr "Zeige Scroll-Informationen im Menü"
@@ -1468,10 +1478,10 @@ msgid "Show Orbital-Position"
 msgstr "Satellitenposition anzeigen"
 
 msgid "Show Picon in Movie Selection?"
-msgstr "Zeige Picon´s in der Filmliste?"
+msgstr "Zeige Picons in der Filmliste"
 
 msgid "Show picons zoomed ?"
-msgstr "Picons gezoomt anzeigen"
+msgstr "Picons vergrößert anzeigen"
 
 msgid "Show PID"
 msgstr "PID anzeigen"
@@ -1501,7 +1511,7 @@ msgid "Show running text for event. If it flickers, try increasing the start del
 msgstr "Laufschrift für Ereignisse anzeigen. Wenn es flackert, versuchen Sie die Startverzögerung zu erhöhen."
 
 msgid "Show running text?"
-msgstr "Aktiviere Laufschrift?"
+msgstr "Aktiviere Laufschrift"
 
 msgid "Show Screen-Resolution"
 msgstr "Bildauflösung anzeigen"
@@ -1510,7 +1520,7 @@ msgid "Show Scrollbar if more than one pages are available."
 msgstr "Zeige die Scrollbar an, wenn mehr als eine Seite verfügbar ist."
 
 msgid "Show scrollbar?"
-msgstr "Scrollbar anzeigen?"
+msgstr "Scrollbar anzeigen"
 
 msgid "Show ServiceIcons"
 msgstr "Service-Icons anzeigen"
@@ -1549,6 +1559,9 @@ msgid "Simple"
 msgstr "Einfach"
 
 msgid "size"
+msgstr "Größe"
+
+msgid "Size"
 msgstr "Größe"
 
 msgid "Skin Design"
@@ -1694,17 +1707,32 @@ msgstr ""
 msgid "Ultra HD (3840x2160) %s"
 msgstr ""
 
+msgid "Show '+' before temperature"
+msgstr "Zeige '+' vor der Temperatur"
+
+msgid "If actively output '+' before temperature."
+msgstr "Bei positiven Temperaturen wird den Werten ein '+' vorangestellt."
+
 msgid "Unit"
 msgstr "Einheit"
 
+msgid "MetrixWeather animatedWeather type"
+msgstr "Animierte Wettersymbole anzeigen"
+
+msgid "Get your MetrixWeather AnimatedWeather."
+msgstr "Wählen Sie ob animierte Wettersymbole angezeigt werden sollen."
+
+msgid "Set your preferred temperature unit."
+msgstr "Wählen Sie Ihre bevorzugte Temperatureinheit."
+
 msgid "Unknown error occurred!"
-msgstr ""
+msgstr "Unbekannter Fehler aufgetreten!"
 
 msgid "Use slim screen"
 msgstr "Slim Screen verwenden"
 
 msgid "Vertical EPG"
-msgstr "Vertikales EPG"
+msgstr "Vertikaler EPG"
 
 msgid "Violet"
 msgstr "Violett"
@@ -1816,7 +1844,7 @@ msgstr ""
 "Drücke die 'OK-Taste'"
 
 msgid "Your place for weather determination. Press TEXT or OK to enter the city name"
-msgstr "Dein Ort für die Wetterbestimmung. Drücke TEXT oder OK, um den Namen der Stadt einzugeben"
+msgstr "Ort für die Wetterbestimmung. Mit der Taste TEXT oder OK kann der Stadtname eingeben werden."
 
 msgid ""
 "If the file 'ID_APIKEY.apidata' exists in the '/tmp/' folder,\n"
@@ -1850,3 +1878,6 @@ msgstr ""
 "und\n"
 "OpenWeatherMap\n"
 "(https://openweathermap.org)"
+
+msgid "Channel list show MiniTV*"
+msgstr "MiniTV in der Kanalliste anzeigen*"

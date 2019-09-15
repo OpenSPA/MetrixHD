@@ -27,6 +27,13 @@ msgstr ""
 "--- створення додаткових файлів закінчено ---\n"
 "\n"
 
+msgid "' function.\n"
+"\n"
+"(e.g. '2911298_a4bd84726035d0ce2c6185740617d8c5.apidata')"
+msgstr "' призначення.\n"
+"\n"
+"(наприклад '2911298_a4bd84726035d0ce2c6185740617d8c5.apidata')"
+
 msgid "(Text-Mode)"
 msgstr "(Текстовий режим)"
 
@@ -63,6 +70,15 @@ msgid ""
 msgstr ""
 "\n"
 "(Немає зображення для попереднього перегляду.)"
+
+msgid ""
+"'\n"
+"in\n"
+"'"
+msgstr ""
+"'\n"
+"в\n"
+"'"
 
 msgid ",   Date is valid:   %s"
 msgstr ",   поточна дата:   %s"
@@ -131,6 +147,9 @@ msgstr "Між годинником та погодою"
 msgid "Black"
 msgstr "Чорний"
 
+msgid "Blocks Layer Design"
+msgstr "Блоковий Дизайн"
+
 msgid "Bold and greater Fonts"
 msgstr "Жирний і великі шрифти"
 
@@ -177,6 +196,13 @@ msgstr ""
 "Не можу отримати дані про погоду:\n"
 "%s"
 
+msgid ""
+"Cant get weather id:\n"
+"%s"
+msgstr ""
+"Не можу отримати id:\n"
+"%s"
+
 msgid "Calculating additional files"
 msgstr "Обчислення додаткових файлів"
 
@@ -208,6 +234,12 @@ msgstr "Змінити кількість рядків у виборі філь�
 msgid "ChannelName/Number FontSize"
 msgstr "Назва каналу/Розмір шрифта"
 
+msgid "Channel list show MiniTV*"
+msgstr "У списку каналів відображається MiniTV *"
+
+msgid "Channel selection settings"
+msgstr "Налаштування вибору каналу"
+
 msgid "Channel selection style"
 msgstr "Стиль вибору каналу"
 
@@ -237,6 +269,9 @@ msgstr "Виберіть дизайн скіну"
 
 msgid "Choose skin resolution"
 msgstr "Виберіть роздільну здатність скіну"
+
+msgid "Choose your preferred weather service"
+msgstr "Виберіть бажану службу погоди"
 
 msgid "City:   %s,   "
 msgstr "Місто:   %s,   "
@@ -277,11 +312,17 @@ msgstr "Налаштування кольорів"
 msgid "Console"
 msgstr "Console"
 
+msgid "Contrast Layer Design"
+msgstr "Контрастний Дизайн"
+
 msgid "Crimson"
 msgstr "Малиновий"
 
 msgid "Current weather data:   %s\n"
 msgstr "Поточні дані про погоду:   %s\n"
+
+msgid "Current weather id:   %s\n"
+msgstr "ID міста:   %s\n"
 
 msgid "Cyan"
 msgstr "Блакитний"
@@ -310,6 +351,9 @@ msgstr "Темно коричневий"
 
 msgid "Darkgrey"
 msgstr "Темно сірий"
+
+msgid "Default"
+msgstr "За замовч."
 
 msgid "Defaults"
 msgstr "За замовч."
@@ -358,6 +402,9 @@ msgstr "Ввімкнути"
 
 msgid "Enhanced HD Option"
 msgstr "Розширені опції HD"
+
+msgid "Enter text to search city"
+msgstr "Введіть назву для пошуку міста"
 
 msgid ""
 "Error creating %s skin. HD skin is used!\n"
@@ -444,6 +491,9 @@ msgstr "Тип шрифту"
 msgid "Foreground"
 msgstr "Передній план"
 
+msgid "Frame Layer Design"
+msgstr "Дизайн Кадру"
+
 msgid ""
 "GUI needs a restart to apply a new skin.\n"
 "Do you want to Restart the GUI now?"
@@ -454,21 +504,28 @@ msgstr ""
 msgid "Generally"
 msgstr "Звичайний"
 
+msgid "Get weather data failure:\n"
+"%s"
+msgstr "Збій отримання даних про погоду:\n"
+"%s"
+
+msgid "Get your local MetrixWeather ID from https://openweathermap.org/"
+msgstr "Отримайте свій локальний ідентифікатор MetrixWeather з https://openweathermap.org/"
+
+msgid "Get your local MetrixWeather APIKEY from https://openweathermap.org/"
+msgstr "Отримайте свій API-ключ з https://openweathermap.org/"
+
 msgid "Green"
 msgstr "Зелений"
 
 msgid "Graphical EPG"
 msgstr "Графічний ЕПГ"
 
-msgid ""
-"Get weather data failure:\n"
-"%s"
-msgstr ""
-"Відбувся збій даних про погоду:\n"
-"%s"
-
 msgid "Get your local MetrixWeather ID from www.mymetrix.de"
 msgstr "Тут можна знайти ID Вашого міста для MetrixWeather: www.mymetrix.de"
+
+msgid "Get your MetrixWeather AnimatedWeather."
+msgstr "Завантажити анімаційні пікони до MetrixWeather"
 
 msgid "Green Сolors"
 msgstr "Зелені кольори"
@@ -517,6 +574,14 @@ msgstr "Шрифт HandelGotD"
 
 msgid "Hide PVR State"
 msgstr "Приховати стан PVR"
+
+msgid "If set to '0', fetch weather data only at system(gui) start."
+msgstr "Якщо встановлено значення '0', дані про погоду отримуються лише при запуску системи."
+
+msgid "If the file 'ID_APIKEY.apidata' exists in the '/tmp/' folder,\n"
+"imported these data automatically on '"
+msgstr "Якщо файл 'ID_APIKEY.apidata' існує у папці '/tmp/',\n"
+"ці дані імпортуються автоматично '"
 
 msgid ""
 "If you can see this then is your receiver compatible.\n"
@@ -606,8 +671,23 @@ msgstr "Меню тексту вводу"
 msgid "Method of font scaling"
 msgstr "Метод масштабування шрифту"
 
+msgid "MetrixWeather APIKEY"
+msgstr "API-ключ MetrixWeather"
+
+msgid "MetrixWeather animatedWeather type"
+msgstr "Анімація піконів погоди Metrix"
+
+msgid "MetrixWeather animations speed"
+msgstr "Швидкість анімації"
+
+msgid "MetrixWeather City Name"
+msgstr "Назва міста погоди Metrix"
+
 msgid "MetrixWeather ID"
 msgstr "ID міста"
+
+msgid "MetrixWeather Service"
+msgstr "Сервіс Погоди Metrix"
 
 msgid "Midnight"
 msgstr "Темний"
@@ -649,6 +729,9 @@ msgstr ""
 msgid "No Backup-Set found!"
 msgstr "Незнайдено жодних налаштувань резервної копії!"
 
+msgid "No Design"
+msgstr "Без дизайну"
+
 msgid "No description available."
 msgstr "Немає опису."
 
@@ -675,6 +758,9 @@ msgstr "Зсув піконна позиція y"
 
 msgid "Olive"
 msgstr "Оливковий"
+
+msgid "One Layer Design"
+msgstr "Одношаровий Дизайн"
 
 msgid ""
 "One or more %s icons are missing. Using HD icons for this.\n"
@@ -712,6 +798,9 @@ msgstr "Будь ласка, зачекайте, отримуються дані
 
 msgid "Please wait whilst feeds state is checked."
 msgstr "Будь ласка, зачекайте, доки буде перевірено стан фідів."
+
+msgid "Position"
+msgstr "Розташування"
 
 msgid "Position PVR State"
 msgstr "Встановити розташування PVR"
@@ -797,6 +886,9 @@ msgstr "Скріни, Плагіни"
 msgid "Selection bar"
 msgstr "Полоса вибору"
 
+msgid "Select Your Location"
+msgstr "Виберіть своє місцезнаходження"
+
 msgid "Service"
 msgstr "Канал"
 
@@ -812,8 +904,22 @@ msgstr "Встановити номер тюнера автоматично"
 msgid "Set number of tuner manually"
 msgstr "Встановити номер тюнера вручну"
 
+msgid "Set your animations speed."
+msgstr "Встановіть швидкість анімації."
+
+msgid "Set your preferred temperature unit."
+msgstr "Встановіть бажану одиницю виміру температури."
+
+msgid "Setting is the same as\n"
+"'"
+msgstr "Налаштування те саме, що\n"
+"'"
+
 msgid "Settings successfully restored."
 msgstr "Налаштування успішно відновлено."
+
+msgid "Show Background"
+msgstr "Показати фон"
 
 msgid "Show CAID"
 msgstr "Показати CAID"
@@ -917,8 +1023,17 @@ msgstr "Показати розширену роздільну здатніст�
 msgid "Show free RAM"
 msgstr "Показати об’єм вільної оперативної пам’яті"
 
+msgid "Show in Channel selection?"
+msgstr "Показати в Списку каналів?"
+
+msgid "Show in EMC?"
+msgstr "Показати в EMC?"
+
 msgid "Show in MoviePlayer"
 msgstr "Показати в Медіа плеєрі"
+
+msgid "Show in Movie Center?"
+msgstr "Показати в Медіа Центрі?"
 
 msgid "Show large Text on bottom of the screen"
 msgstr "Показати великий текст внизу екрана"
@@ -965,6 +1080,9 @@ msgstr "Показати верхній правий кутовий шар"
 msgid "Sienna"
 msgstr "Теплий бронзовий"
 
+msgid "Size"
+msgstr "Розмір"
+
 msgid "Skin Design"
 msgstr "Дизайн скіну"
 
@@ -1007,11 +1125,17 @@ msgstr "Затримка на початку"
 msgid "Steel"
 msgstr "Сталевий"
 
+msgid "Stripe Layer Design"
+msgstr "Смуговий Дизайн"
+
 msgid "Style"
 msgstr "Стиль"
 
 msgid "Teal"
 msgstr "Блакитноголубий"
+
+msgid "Temp:   %s,   "
+msgstr "Темп.:   %s,   "
 
 msgid "Temperature:   %s"
 msgstr "Температура:   %s"
@@ -1058,6 +1182,9 @@ msgstr "Білий"
 msgid "Width"
 msgstr "Ширина"
 
+msgid "Wrong import file ..."
+msgstr "Неправильний формат файл імпорту ..."
+
 msgid "Yellow"
 msgstr "Жовтий"
 
@@ -1091,6 +1218,9 @@ msgstr "Розширені HD налаштування непослідовні.
 msgid "Your %s %s is not connected to the internet, please check your network settings and try again."
 msgstr "Ваш %s %s не підключений до Інтернету, перевірте налаштування мережі та повторіть спробу."
 
+msgid "Your place for weather determination. Press TEXT or OK to enter the city name"
+msgstr "Місце розташування для визначення погоди. Натисніть TEXT або OK, щоб ввести назву міста"
+
 msgid "Zoom"
 msgstr "Збільшити"
 
@@ -1109,8 +1239,26 @@ msgstr "довідка"
 msgid "in Image included Fonts"
 msgstr "в іміджі застосовані шрифти"
 
+msgid "in Menus"
+msgstr "у Меню"
+
+msgid "in Menus and Screens"
+msgstr "у Меню і Вікнах"
+
 msgid "in Skin included Fonts"
 msgstr "в скіні застосовані шрифти"
+
+msgid "in Screens"
+msgstr "у Вікнах"
+
+msgid "max:   %s,   "
+msgstr "макс:   %s,   "
+
+msgid "min:   %s"
+msgstr "мін:   %s"
+
+msgid "mini TV"
+msgstr "міні ТВ"
 
 msgid "now"
 msgstr "зараз"
