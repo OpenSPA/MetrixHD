@@ -4,7 +4,12 @@ from Components.Converter.Converter import Converter
 from enigma import iServiceInformation, iPlayableService, iPlayableServicePtr, eServiceReference, eServiceCenter, eTimer
 from Components.Element import cached
 from Components.config import config
-from Poll import Poll
+from Components.Converter.Poll import Poll
+from six.moves import range
+import six
+
+SIGN = '°' if six.PY3 else str('\xc2\xb0')
+
 
 class MetrixHDServiceName2(Poll, Converter, object):
 	NAME = 0
@@ -186,7 +191,7 @@ class MetrixHDServiceName2(Poll, Converter, object):
 			elif f == 'f':
 				if type in ('DVB-S', 'DVB-C'):
 					x = self.tpdata.get('fec_inner', 15)
-					result += x in range(10) + [15] and {0: 'Auto',
+					result += x in list(range(10)) + [15] and {0: 'Auto',
 					 1: '1/2',
 					 2: '2/3',
 					 3: '3/4',
@@ -199,7 +204,7 @@ class MetrixHDServiceName2(Poll, Converter, object):
 					 15: 'None'}[x] or ''
 				elif type == 'DVB-T':
 					x = self.tpdata.get('code_rate_lp', 5)
-					result += x in range(6) and {0: '1/2',
+					result += x in list(range(6)) and {0: '1/2',
 					 1: '2/3',
 					 2: '3/4',
 					 3: '5/6',
@@ -207,22 +212,22 @@ class MetrixHDServiceName2(Poll, Converter, object):
 					 5: 'Auto'}[x] or ''
 			elif f == 'i':
 				x = self.tpdata.get('inversion', 2)
-				result += x in range(3) and {0: 'On',
+				result += x in list(range(3)) and {0: 'On',
 				 1: 'Off',
 				 2: 'Auto'}[x] or ''
 			elif f == 'O':
 				if type == 'DVB-S':
 					x = self.tpdata.get('orbital_position', 0)
-					result += x > 1800 and '%d.%d\xc2\xb0W' % ((3600 - x) / 10, (3600 - x) % 10) or '%d.%d\xc2\xb0E' % (x / 10, x % 10)
+					result += x > 1800 and '%d.%d' + SIGN + 'W' % ((3600 - x) / 10, (3600 - x) % 10) or '%d.%d' + SIGN + 'E' % (x / 10, x % 10)
 			elif f == 'M':
 				x = self.tpdata.get('modulation', 1)
 				if type == 'DVB-S':
-					result += x in range(4) and {0: 'Auto',
+					result += x in list(range(4)) and {0: 'Auto',
 					 1: 'QPSK',
 					 2: '8PSK',
 					 3: 'QAM16'}[x] or ''
 				elif type == 'DVB-C':
-					result += x in range(6) and {0: 'Auto',
+					result += x in list(range(6)) and {0: 'Auto',
 					 1: 'QAM16',
 					 2: 'QAM32',
 					 3: 'QAM64',
@@ -231,7 +236,7 @@ class MetrixHDServiceName2(Poll, Converter, object):
 			elif f == 'p':
 				if type == 'DVB-S':
 					x = self.tpdata.get('polarization', 0)
-					result += x in range(4) and {0: 'H',
+					result += x in list(range(4)) and {0: 'H',
 					 1: 'V',
 					 2: 'L',
 					 3: 'R'}[x] or '?'
@@ -241,26 +246,26 @@ class MetrixHDServiceName2(Poll, Converter, object):
 			elif f == 'r':
 				x = self.tpdata.get('rolloff')
 				if x is not None:
-					result += x in range(3) and {0: '0.35',
+					result += x in list(range(3)) and {0: '0.35',
 					 1: '0.25',
 					 2: '0.20'}[x] or ''
 			elif f == 'o':
 				x = self.tpdata.get('pilot')
 				if x is not None:
-					result += x in range(3) and {0: 'Off',
+					result += x in list(range(3)) and {0: 'Off',
 					 1: 'On',
 					 2: 'Auto'}[x] or ''
 			elif f == 'c':
 				if type == 'DVB-T':
 					x = self.tpdata.get('constellation', 3)
-					result += x in range(4) and {0: 'QPSK',
+					result += x in list(range(4)) and {0: 'QPSK',
 					 1: 'QAM16',
 					 2: 'QAM64',
 					 3: 'Auto'}[x] or ''
 			elif f == 'l':
 				if type == 'DVB-T':
 					x = self.tpdata.get('code_rate_lp', 5)
-					result += x in range(6) and {0: '1/2',
+					result += x in list(range(6)) and {0: '1/2',
 					 1: '2/3',
 					 2: '3/4',
 					 3: '5/6',
@@ -269,7 +274,7 @@ class MetrixHDServiceName2(Poll, Converter, object):
 			elif f == 'h':
 				if type == 'DVB-T':
 					x = self.tpdata.get('code_rate_hp', 5)
-					result += x in range(6) and {0: '1/2',
+					result += x in list(range(6)) and {0: '1/2',
 					 1: '2/3',
 					 2: '3/4',
 					 3: '5/6',
@@ -278,13 +283,13 @@ class MetrixHDServiceName2(Poll, Converter, object):
 			elif f == 'm':
 				if type == 'DVB-T':
 					x = self.tpdata.get('transmission_mode', 2)
-					result += x in range(3) and {0: '2k',
+					result += x in list(range(3)) and {0: '2k',
 					 1: '8k',
 					 2: 'Auto'}[x] or ''
 			elif f == 'g':
 				if type == 'DVB-T':
 					x = self.tpdata.get('guard_interval', 4)
-					result += x in range(5) and {0: '1/32',
+					result += x in list(range(5)) and {0: '1/32',
 					 1: '1/16',
 					 2: '1/8',
 					 3: '1/4',
@@ -292,14 +297,14 @@ class MetrixHDServiceName2(Poll, Converter, object):
 			elif f == 'b':
 				if type == 'DVB-T':
 					x = self.tpdata.get('bandwidth', 1)
-					result += x in range(4) and {0: '8 MHz',
+					result += x in list(range(4)) and {0: '8 MHz',
 					 1: '7 MHz',
 					 2: '6 MHz',
 					 3: 'Auto'}[x] or ''
 			elif f == 'e':
 				if type == 'DVB-T':
 					x = self.tpdata.get('hierarchy_information', 4)
-					result += x in range(5) and {0: 'None',
+					result += x in list(range(5)) and {0: 'None',
 					 1: '1',
 					 2: '2',
 					 3: '4',
@@ -328,7 +333,7 @@ class MetrixHDServiceName2(Poll, Converter, object):
 					from Components.NimManager import nimmanager
 					name = str(nimmanager.getSatDescription(orbpos))
 				except:
-					name = orbpos > 1800 and '%d.%d\xc2\xb0W' % ((3600 - orbpos) / 10, (3600 - orbpos) % 10) or '%d.%d\xc2\xb0E' % (orbpos / 10, orbpos % 10)
+					name = orbpos > 1800 and '%d.%d' + SIGN + 'W' % ((3600 - orbpos) / 10, (3600 - orbpos) % 10) or '%d.%d' + SIGN + 'E' % (orbpos / 10, orbpos % 10)
 
 		return name
 
@@ -346,7 +351,7 @@ class MetrixHDServiceName2(Poll, Converter, object):
 			return ''
 		if self.type == self.NAME:
 			name = ref and (info.getName(ref) or 'N/A') or info.getName() or 'N/A'
-			return name.replace('\xc2\x86', '').replace('\xc2\x87', '')
+			return name.replace('\xc2\x86', '').replace('\xc2\x87', '').replace('\x86', '').replace('\x87', '')
 		if self.type == self.NUMBER:
 			num, bouq = self.getServiceNumber(ref or eServiceReference(info.getInfoString(iServiceInformation.sServiceref)))
 			return num and str(num) or ''

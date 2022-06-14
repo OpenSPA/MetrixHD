@@ -23,7 +23,9 @@
 from Components.Converter.Converter import Converter
 from Components.config import config, ConfigText, ConfigNumber, ConfigDateTime
 from Components.Element import cached
-from Poll import Poll
+from Components.Converter.Poll import Poll
+
+
 
 class MetrixHDWeather(Poll, Converter, object):
 
@@ -37,45 +39,43 @@ class MetrixHDWeather(Poll, Converter, object):
 	@cached
 	def getText(self):
 		try:
+			if config.plugins.MetrixWeather.tempplus.value:
+				config.plugins.MetrixWeather.tempplus.setValue(False) # option disabled -> WeatherSettingsView
+				config.plugins.MetrixWeather.save()
 			if self.type == "currentLocation":
 				return config.plugins.MetrixWeather.currentLocation.value
 			elif self.type == "currentWeatherTemp":
 				if config.plugins.MetrixWeather.tempplus.value:
 					if config.plugins.MetrixWeather.currentWeatherTemp.value.startswith("-") or config.plugins.MetrixWeather.currentWeatherTemp.value.startswith("0"):
 						return config.plugins.MetrixWeather.currentWeatherTemp.value
-					else:
-						return "+" + config.plugins.MetrixWeather.currentWeatherTemp.value
-				else:
-					return config.plugins.MetrixWeather.currentWeatherTemp.value
+					return "+" + config.plugins.MetrixWeather.currentWeatherTemp.value
+				return config.plugins.MetrixWeather.currentWeatherTemp.value
 			elif self.type == "currentWeatherTempgetCF":
 				if config.plugins.MetrixWeather.tempplus.value:
 					if config.plugins.MetrixWeather.currentWeatherTemp.value.startswith("-") or config.plugins.MetrixWeather.currentWeatherTemp.value.startswith("0"):
 						return config.plugins.MetrixWeather.currentWeatherTemp.value + " " + self.getCF()
-					else:
-						return "+" + config.plugins.MetrixWeather.currentWeatherTemp.value + " " + self.getCF()
-				else:
-					return config.plugins.MetrixWeather.currentWeatherTemp.value + " " + self.getCF()
+					return "+" + config.plugins.MetrixWeather.currentWeatherTemp.value + " " + self.getCF()
+				return config.plugins.MetrixWeather.currentWeatherTemp.value + " " + self.getCF()
 			elif self.type == "currentWeatherText":
 				return config.plugins.MetrixWeather.currentWeatherText.value
 			elif self.type == "currentWeatherTempheigh_low":
 				if config.plugins.MetrixWeather.tempplus.value:
-					tempmax = "" 
+					tempmax = ""
 					templov = ""
 					if config.plugins.MetrixWeather.forecastTodayTempMax.value.startswith("-") or config.plugins.MetrixWeather.forecastTodayTempMax.value.startswith("0"):
-						tempmax = config.plugins.MetrixWeather.forecastTodayTempMax.value 
+						tempmax = config.plugins.MetrixWeather.forecastTodayTempMax.value
 					else:
 						tempmax = "+" + config.plugins.MetrixWeather.forecastTodayTempMax.value
 					if config.plugins.MetrixWeather.forecastTodayTempMin.value.startswith("-") or config.plugins.MetrixWeather.forecastTodayTempMin.value.startswith("0"):
-						templov = config.plugins.MetrixWeather.forecastTodayTempMin.value 
+						templov = config.plugins.MetrixWeather.forecastTodayTempMin.value
 					else:
 						templov = "+" + config.plugins.MetrixWeather.forecastTodayTempMin.value
-						return tempmax + " " + self.getCF() + " - " + templov + " " + self.getCF()
-				else:
-					return config.plugins.MetrixWeather.forecastTodayTempMax.value + " " + self.getCF() + " - " + config.plugins.MetrixWeather.forecastTodayTempMin.value + " " + self.getCF()
+					return tempmax + " " + self.getCF() + " - " + templov + " " + self.getCF()
+				return config.plugins.MetrixWeather.forecastTodayTempMax.value + " " + self.getCF() + " - " + config.plugins.MetrixWeather.forecastTodayTempMin.value + " " + self.getCF()
 			elif self.type == "currentWeatherCode":
 				return config.plugins.MetrixWeather.currentWeatherCode.value
 			elif self.type == "currenthumidity":
-				return config.plugins.MetrixWeather.currentWeatherhumidity.value
+				return config.plugins.MetrixWeather.currentWeatherhumidity.value + " %"
 			elif self.type == "currentwinddisplay":
 				return config.plugins.MetrixWeather.currentWeatherwinddisplay.value
 			elif self.type == "currentwindspeed":
@@ -96,18 +96,14 @@ class MetrixHDWeather(Poll, Converter, object):
 				if config.plugins.MetrixWeather.tempplus.value:
 					if config.plugins.MetrixWeather.forecastTodayTempMin.value.startswith("-") or config.plugins.MetrixWeather.forecastTodayTempMin.value.startswith("0"):
 						return config.plugins.MetrixWeather.forecastTodayTempMin.value + " " + self.getCF()
-					else:
-						return "+" + config.plugins.MetrixWeather.forecastTodayTempMin.value + " " + self.getCF()
-				else:
-					return config.plugins.MetrixWeather.forecastTodayTempMin.value + " " + self.getCF()
+					return "+" + config.plugins.MetrixWeather.forecastTodayTempMin.value + " " + self.getCF()
+				return config.plugins.MetrixWeather.forecastTodayTempMin.value + " " + self.getCF()
 			elif self.type == "forecastTodayTempMax":
 				if config.plugins.MetrixWeather.tempplus.value:
 					if config.plugins.MetrixWeather.forecastTodayTempMax.value.startswith("-") or config.plugins.MetrixWeather.forecastTodayTempMax.value.startswith("0"):
 						return config.plugins.MetrixWeather.forecastTodayTempMax.value + " " + self.getCF()
-					else:
-						return "+" + config.plugins.MetrixWeather.forecastTodayTempMax.value + " " + self.getCF()
-				else:
-					return config.plugins.MetrixWeather.forecastTodayTempMax.value + " " + self.getCF()
+					return "+" + config.plugins.MetrixWeather.forecastTodayTempMax.value + " " + self.getCF()
+				return config.plugins.MetrixWeather.forecastTodayTempMax.value + " " + self.getCF()
 			elif self.type == "forecastTodayText":
 				return config.plugins.MetrixWeather.forecastTodayText.value
 			elif self.type == "forecastTomorrowCode":
@@ -122,18 +118,14 @@ class MetrixHDWeather(Poll, Converter, object):
 				if config.plugins.MetrixWeather.tempplus.value:
 					if config.plugins.MetrixWeather.forecastTomorrowTempMin.value.startswith("-") or config.plugins.MetrixWeather.forecastTomorrowTempMin.value.startswith("0"):
 						return config.plugins.MetrixWeather.forecastTomorrowTempMin.value + " " + self.getCF()
-					else:
-						return "+" + config.plugins.MetrixWeather.forecastTomorrowTempMin.value + " " + self.getCF()
-				else:
-					return config.plugins.MetrixWeather.forecastTomorrowTempMin.value + " " + self.getCF()
+					return "+" + config.plugins.MetrixWeather.forecastTomorrowTempMin.value + " " + self.getCF()
+				return config.plugins.MetrixWeather.forecastTomorrowTempMin.value + " " + self.getCF()
 			elif self.type == "forecastTomorrowTempMax":
 				if config.plugins.MetrixWeather.tempplus.value:
 					if config.plugins.MetrixWeather.forecastTomorrowTempMax.value.startswith("-") or config.plugins.MetrixWeather.forecastTomorrowTempMax.value.startswith("0"):
 						return config.plugins.MetrixWeather.forecastTomorrowTempMax.value + " " + self.getCF()
-					else:
-						return "+" + config.plugins.MetrixWeather.forecastTomorrowTempMax.value + " " + self.getCF()
-				else:
-					return config.plugins.MetrixWeather.forecastTomorrowTempMax.value + " " + self.getCF()
+					return "+" + config.plugins.MetrixWeather.forecastTomorrowTempMax.value + " " + self.getCF()
+				return config.plugins.MetrixWeather.forecastTomorrowTempMax.value + " " + self.getCF()
 			elif self.type == "forecastTomorrowText":
 				return config.plugins.MetrixWeather.forecastTomorrowText.value
 			elif self.type == "forecastTomorrowCode2":
@@ -142,18 +134,14 @@ class MetrixHDWeather(Poll, Converter, object):
 				if config.plugins.MetrixWeather.tempplus.value:
 					if config.plugins.MetrixWeather.forecastTomorrowTempMin2.value.startswith("-") or config.plugins.MetrixWeather.forecastTomorrowTempMin2.value.startswith("0"):
 						return config.plugins.MetrixWeather.forecastTomorrowTempMin2.value + " " + self.getCF()
-					else:
-						return "+" + config.plugins.MetrixWeather.forecastTomorrowTempMin2.value + " " + self.getCF()
-				else:
-					return config.plugins.MetrixWeather.forecastTomorrowTempMin2.value + " " + self.getCF()
+					return "+" + config.plugins.MetrixWeather.forecastTomorrowTempMin2.value + " " + self.getCF()
+				return config.plugins.MetrixWeather.forecastTomorrowTempMin2.value + " " + self.getCF()
 			elif self.type == "forecastTomorrowTempMax2":
 				if config.plugins.MetrixWeather.tempplus.value:
 					if config.plugins.MetrixWeather.forecastTomorrowTempMax2.value.startswith("-") or config.plugins.MetrixWeather.forecastTomorrowTempMax2.value.startswith("0"):
 						return config.plugins.MetrixWeather.forecastTomorrowTempMax2.value + " " + self.getCF()
-					else:
-						return "+" + config.plugins.MetrixWeather.forecastTomorrowTempMax2.value + " " + self.getCF()
-				else:
-					return config.plugins.MetrixWeather.forecastTomorrowTempMax2.value + " " + self.getCF()
+					return "+" + config.plugins.MetrixWeather.forecastTomorrowTempMax2.value + " " + self.getCF()
+				return config.plugins.MetrixWeather.forecastTomorrowTempMax2.value + " " + self.getCF()
 			elif self.type == "forecastTomorrowText2":
 				return config.plugins.MetrixWeather.forecastTomorrowText2.value
 			elif self.type == "forecastTomorrowdate2":
@@ -168,18 +156,14 @@ class MetrixHDWeather(Poll, Converter, object):
 				if config.plugins.MetrixWeather.tempplus.value:
 					if config.plugins.MetrixWeather.forecastTomorrowTempMin3.value.startswith("-") or config.plugins.MetrixWeather.forecastTomorrowTempMin3.value.startswith("0"):
 						return config.plugins.MetrixWeather.forecastTomorrowTempMin3.value + " " + self.getCF()
-					else:
-						return "+" + config.plugins.MetrixWeather.forecastTomorrowTempMin3.value + " " + self.getCF()
-				else:
-					return config.plugins.MetrixWeather.forecastTomorrowTempMin3.value + " " + self.getCF()
+					return "+" + config.plugins.MetrixWeather.forecastTomorrowTempMin3.value + " " + self.getCF()
+				return config.plugins.MetrixWeather.forecastTomorrowTempMin3.value + " " + self.getCF()
 			elif self.type == "forecastTomorrowTempMax3":
 				if config.plugins.MetrixWeather.tempplus.value:
 					if config.plugins.MetrixWeather.forecastTomorrowTempMax3.value.startswith("-") or config.plugins.MetrixWeather.forecastTomorrowTempMax3.value.startswith("0"):
 						return config.plugins.MetrixWeather.forecastTomorrowTempMax3.value + " " + self.getCF()
-					else:
-						return "+" + config.plugins.MetrixWeather.forecastTomorrowTempMax3.value + " " + self.getCF()
-				else:
-					return config.plugins.MetrixWeather.forecastTomorrowTempMax3.value + " " + self.getCF()
+					return "+" + config.plugins.MetrixWeather.forecastTomorrowTempMax3.value + " " + self.getCF()
+				return config.plugins.MetrixWeather.forecastTomorrowTempMax3.value + " " + self.getCF()
 			elif self.type == "forecastTomorrowText3":
 				return config.plugins.MetrixWeather.forecastTomorrowText3.value
 			elif self.type == "forecastTomorrowdate3":
@@ -191,7 +175,7 @@ class MetrixHDWeather(Poll, Converter, object):
 			elif self.type == "title":
 				return self.getCF() + " | " + config.plugins.MetrixWeather.currentLocation.value
 			elif self.type == "CF":
-				return self.getCF() 
+				return self.getCF()
 			else:
 				return ""
 		except:
@@ -209,7 +193,7 @@ class MetrixHDWeather(Poll, Converter, object):
 	def getCF(self):
 		if config.plugins.MetrixWeather.tempUnit.value == "Fahrenheit":
 			return "°F"
-		else: 
+		else:
 			return "°C"
 
 	value = property(getValue)

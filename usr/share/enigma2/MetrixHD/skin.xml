@@ -16,10 +16,11 @@
 # next line is a picon position                                               #
 #(for centered position at different picon size -> xpicon scalable option)    #
 #<!-- cf#_#pixnore -->                                                        #
-# next line is a pixmap png file and not change path or check this            #
+# next line is a pixmap png file and not check is this file available         #
 ###############################################################################
 <!-- cf#_#start -->
 	<!-- MetrixHD v2.5 by iMaxxx | optimized for openSPA 7.x -->
+	<!-- MetrixHD v3.0 by openATV Team | adapted to openSPA 8.x -->
 	<!-- recommended to use with XPicons -->
 	<!-- You can modify and redistribute it as long as you keep this license and the original author for the skin and all of your modifications -->
 	<output id="0">
@@ -96,6 +97,7 @@
 		<color name="layer-a-button-foreground" value="#00FFFFFF" />				<!-- MetrixColors - Foreground color for button description in layer a -->
 		<color name="layer-a-clock-foreground" value="#00FFFFFF" />					<!-- MetrixColors - Foreground color for clock in layer a -->
 		<color name="layer-b-clock-foreground" value="#00FFFFFF" />					<!-- MetrixColors - Foreground color for clock in layer b -->
+		<color name="weather-borderlines" value="#00FFFFFF" />						<!-- MetrixColors - Weather border line color -->
 		<color name="menubackground" value="#1A0F0F0F" />							<!-- MetrixColors - Background color for menu -->
 		<color name="menusymbolbackground" value="#1A27408B" />						<!-- MetrixColors - Background color for menu symbol -->
 		<color name="menufont" value="#00FFFFFF" />									<!-- MetrixColors - Font color for menu item  -->
@@ -136,46 +138,44 @@
 		<color name="unffff00" value="#00ffff00" />
 		<color name="unffffff" value="#00ffffff" />
 	</colors>
-	<switchpixmap>
-		<pixmap name="menu_on" filename="MetrixHD/icons/menu_on.png" />
-		<pixmap name="menu_off" filename="MetrixHD/icons/menu_off.png" />
-	</switchpixmap>
 	<fonts>
 		<font filename="/usr/share/fonts/lcd.ttf" name="LCD" scale="100" />
-		<font filename="/usr/share/enigma2/MetrixHD/fonts/OpenSans-Regular.ttf" name="Replacement" scale="100" replacement="1" />
+		<font filename="/usr/share/fonts/ae_AlMateen.ttf" name="Replacement" scale="100" replacement="1" />
 		<font filename="/usr/share/fonts/tuxtxt.ttf" name="Console" scale="100" />
 		<font filename="/usr/share/fonts/andale.ttf" name="Fixed" scale="100" />
 		<font filename="/usr/share/fonts/nmsbd.ttf" name="Arial" scale="100" />
-		<font filename="/usr/share/enigma2/MetrixHD/fonts/OpenSans-Regular.ttf" name="Regular" scale="100" />
-		<font filename="/usr/share/enigma2/MetrixHD/fonts/OpenSans-Regular.ttf" name="RegularLight" scale="100" />
-		<font filename="/usr/share/enigma2/MetrixHD/fonts/setrixHD.ttf" name="SetrixHD" scale="105" />
-		<font filename="/usr/share/enigma2/MetrixHD/fonts/meteocons.ttf" name="Meteo" scale="105" />
+		<font filename="/usr/share/enigma2/MetrixHD/fonts/OpenSans-Regular.ttf" name="Regular" scale="95" />
+		<font filename="/usr/share/enigma2/MetrixHD/fonts/OpenSans-Regular.ttf" name="RegularLight" scale="95" />
+		<font filename="/usr/share/enigma2/MetrixHD/fonts/setrixHD.ttf" name="SetrixHD" scale="100" />
+		<font filename="/usr/share/enigma2/MetrixHD/fonts/meteocons.ttf" name="Meteo" scale="100" />
 <!-- for individual skinned screens -->
 	<!-- global -->
-		<font filename="/usr/share/enigma2/MetrixHD/fonts/setrixHD.ttf" name="global_title" scale="105" />				<!--Screen or window title-->
-		<font filename="/usr/share/enigma2/MetrixHD/fonts/setrixHD.ttf" name="global_button" scale="105" />				<!--Button text-->
-		<font filename="/usr/share/enigma2/MetrixHD/fonts/setrixHD.ttf" name="global_clock" scale="105" />				<!--Clock text-->
-		<font filename="/usr/share/enigma2/MetrixHD/fonts/setrixHD.ttf" name="global_large" scale="105" />				<!--Text in background or large text-->
-		<font filename="/usr/share/enigma2/MetrixHD/fonts/setrixHD.ttf" name="global_large_screen" scale="105" />		<!--Text in background or large text-->
-		<font filename="/usr/share/enigma2/MetrixHD/fonts/setrixHD.ttf" name="global_large_menu" scale="105" />			<!--Text in background or large text-->
-		<font filename="/usr/share/enigma2/MetrixHD/fonts/OpenSans-Regular.ttf" name="global_small" scale="105" />		<!--Small text in Infobar, Screens ...-->
-		<font filename="/usr/share/enigma2/MetrixHD/fonts/setrixHD.ttf" name="global_menu" scale="105" />				<!--Menu items-->
+		<font filename="/usr/share/enigma2/MetrixHD/fonts/setrixHD.ttf" name="global_title" scale="100" />				<!--Screen or window title-->
+		<font filename="/usr/share/enigma2/MetrixHD/fonts/setrixHD.ttf" name="global_button" scale="90" />				<!--Button text-->
+		<font filename="/usr/share/enigma2/MetrixHD/fonts/setrixHD.ttf" name="global_clock" scale="100" />				<!--Clock text-->
+		<font filename="/usr/share/enigma2/MetrixHD/fonts/DroidSans-Bold.ttf" name="global_weather_bold" scale="100" />	<!--Weather Weekday text-->
+		<font filename="/usr/share/enigma2/MetrixHD/fonts/setrixHD.ttf" name="global_large" scale="100" />				<!--Text in background or large text-->
+		<font filename="/usr/share/enigma2/MetrixHD/fonts/setrixHD.ttf" name="global_large_screen" scale="100" />		<!--Text in background or large text-->
+		<font filename="/usr/share/enigma2/MetrixHD/fonts/setrixHD.ttf" name="global_large_menu" scale="100" />			<!--Text in background or large text-->
+		<font filename="/usr/share/enigma2/MetrixHD/fonts/OpenSans-Regular.ttf" name="global_small" scale="95" />		<!--Small text in Infobar, Screens ...-->
+		<font filename="/usr/share/enigma2/MetrixHD/fonts/setrixHD.ttf" name="global_menu" scale="100" />				<!--Menu items-->
 	<!-- screens, plugins -->
-		<font filename="/usr/share/enigma2/MetrixHD/fonts/OpenSans-Regular.ttf" name="screen_label" scale="100" />		<!--Label Name-->
-		<font filename="/usr/share/enigma2/MetrixHD/fonts/OpenSans-Regular.ttf" name="screen_text" scale="100" />		<!--Output Text-->
-		<font filename="/usr/share/enigma2/MetrixHD/fonts/setrixHD.ttf" name="screen_info" scale="105" />				<!--Info or Description-->
+		<font filename="/usr/share/enigma2/MetrixHD/fonts/OpenSans-Regular.ttf" name="screen_label" scale="95" />		<!--Label Name-->
+		<font filename="/usr/share/enigma2/MetrixHD/fonts/OpenSans-Regular.ttf" name="screen_text" scale="95" />		<!--Output Text-->
+		<font filename="/usr/share/enigma2/MetrixHD/fonts/setrixHD.ttf" name="screen_info" scale="100" />				<!--Info or Description-->
 	<!-- epg, channellist, movielist -->
-		<font filename="/usr/share/enigma2/MetrixHD/fonts/OpenSans-Regular.ttf" name="epg_event" scale="100" />			<!--Event/Service Name-->
-		<font filename="/usr/share/enigma2/MetrixHD/fonts/OpenSans-Regular.ttf" name="epg_text" scale="100" />			<!--Other Text-->
-		<font filename="/usr/share/enigma2/MetrixHD/fonts/OpenSans-Regular.ttf" name="epg_info" scale="100" />			<!--Info or Description-->
+		<font filename="/usr/share/enigma2/MetrixHD/fonts/OpenSans-Regular.ttf" name="epg_event" scale="95" />			<!--Event/Service Name-->
+		<font filename="/usr/share/enigma2/MetrixHD/fonts/OpenSans-Regular.ttf" name="epg_text" scale="95" />			<!--Other Text-->
+		<font filename="/usr/share/enigma2/MetrixHD/fonts/OpenSans-Regular.ttf" name="epg_info" scale="95" />			<!--Info or Description-->
 	<!-- infobar, movieplayer -->
-		<font filename="/usr/share/enigma2/MetrixHD/fonts/setrixHD.ttf" name="infobar_event" scale="105" />				<!--Event/Service Name-->
-		<font filename="/usr/share/enigma2/MetrixHD/fonts/OpenSans-Regular.ttf" name="infobar_text" scale="100" />		<!--Other Text-->
+		<font filename="/usr/share/enigma2/MetrixHD/fonts/setrixHD.ttf" name="infobar_event" scale="100" />				<!--Event/Service Name-->
+		<font filename="/usr/share/enigma2/MetrixHD/fonts/OpenSans-Regular.ttf" name="infobar_text" scale="95" />		<!--Other Text-->
 	<!-- aliases -->
 		<alias name="Body" font="screen_text" size="20" height="30" />
 		<alias name="ChoiceList" font="screen_text" size="20" height="30" />
 		<alias name="Dreamexplorer" font="screen_text" size="20" height="30" />
 		<alias name="SelectionList" font="screen_text" size="20" height="30" />
+		<alias name="ServiceInfo" font="screen_text" size="20" height="30" />
 		<alias name="FileList" font="screen_text" size="20" height="30" />
 		<alias name="FileListMulti" font="screen_text" size="20" height="30" />
 		<alias name="TextNormal" font="screen_text" size="20" height="30" />
@@ -225,7 +225,6 @@
 			<!--lb pixmap pos="bpRight" filename="MetrixHD/border/1px/FFFFFF.png" /-->
 		</borderset>
 	</windowstyle>
-<!-- cf#_#start -->
 	<windowstyle type="skinned" id="1">
 		<color name="Background" color="layer-a-background" />
 		<color name="LabelForeground" color="layer-a-foreground" />
@@ -240,7 +239,13 @@
 		<color name="WindowTitleForeground" color="title-foreground" />
 		<color name="WindowTitleBackground" color="title-background"/>
 	</windowstyle>
+<!-- cf#_#start -->
+	<switchpixmap>
+		<pixmap name="menu_on" filename="MetrixHD/icons/menu_on.png" />
+		<pixmap name="menu_off" filename="MetrixHD/icons/menu_off.png" />
+	</switchpixmap>
 	<parameters>
+		<parameter name="AllowUserDatesAndTimes" value="1,1"/>
 		<parameter name="AutotimerEnabledIcon" value="5,2,25,25"/>
 		<parameter name="AutotimerRecordIcon" value="32,5,20,20"/>
 		<parameter name="DreamexplorerName" value="40,0,660,30"/>
@@ -265,7 +270,7 @@
 		<parameter name="HelpMenuListExtHlp1" value="0,27,700,23"/>
 		<parameter name="HelpMenuListHlp" value="0,0,700,30"/>
 		<parameter name="SelectionListDescr" value="40,2,660,30"/>
-		<parameter name="SelectionListLock" value="10,2,25,24"/>
+		<parameter name="SelectionListLock" value="10,2,27,24"/>
 		<parameter name="SelectionListLockOff" value="10,2,25,24"/>
 		<parameter name="PicturePlayerThumb" value="35,190,30,200,20,14"/>
 		<parameter name="PlayListName" value="40,2,660,30"/>
@@ -299,7 +304,10 @@
 		<parameter name="EpgListSingle#_FHDscreen" value="88,220"/>
 <!-- cf#_#start -->
 	</parameters>
-<!-- SKINPARTS -->
+<!-- SKINFILES -->
+	<include filename="/usr/share/enigma2/MetrixHD/skinfiles/skin_unchecked.xml" />
+	<include filename="/usr/share/enigma2/MetrixHD/skinfiles/skin_templates.xml" />
+	<include filename="/usr/share/enigma2/MetrixHD/skinfiles/skin_design.xml" />
 	<include filename="/usr/share/enigma2/MetrixHD/skinfiles/skin_infobar.xml" />
 	<include filename="/usr/share/enigma2/MetrixHD/skinfiles/skin_infobarlite.xml" />
 	<include filename="/usr/share/enigma2/MetrixHD/skinfiles/skin_secondinfobar.xml" />
@@ -307,10 +315,7 @@
 	<include filename="/usr/share/enigma2/MetrixHD/skinfiles/skin_channelselection.xml" />
 	<include filename="/usr/share/enigma2/MetrixHD/skinfiles/skin_openspa.xml" />
 	<include filename="/usr/share/enigma2/MetrixHD/skinfiles/skin_plugins.xml" />
-	<include filename="/usr/share/enigma2/MetrixHD/skinfiles/skin_unchecked.xml" />
 	<include filename="/usr/share/enigma2/MetrixHD/skinfiles/skin_movieplayer.xml" />
 	<include filename="/usr/share/enigma2/MetrixHD/skinfiles/skin_emc.xml" />
-	<include filename="/usr/share/enigma2/MetrixHD/skinfiles/skin_templates.xml" />
-	<include filename="/usr/share/enigma2/MetrixHD/skinfiles/skin_design.xml" />
-<!-- SKINPARTS -->
+<!-- SKINFILES -->
 </skin>

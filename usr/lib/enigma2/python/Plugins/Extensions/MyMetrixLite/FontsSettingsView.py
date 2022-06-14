@@ -36,6 +36,7 @@ from Tools.Directories import resolveFilename, SCOPE_CURRENT_SKIN, fileExists
 
 #######################################################################
 
+
 class FontsSettingsView(ConfigListScreen, Screen):
 	skin = """
 	<screen name="MyMetrixLiteFontsView" position="0,0" size="1280,720" flags="wfNoBorder" backgroundColor="transparent">
@@ -103,96 +104,99 @@ class FontsSettingsView(ConfigListScreen, Screen):
 
 	def getMenuItemList(self):
 		char = 150
-		tab = " "*10
+		tab = " " * 10
 		sep = "-"
 		list = []
-		list.append(getConfigListEntry(_("Font Examples"),config.plugins.MyMetrixLiteFonts.SkinFontExamples, _("helptext"),"PRESET"))
+		list.append(getConfigListEntry(_("Font Examples"), config.plugins.MyMetrixLiteFonts.SkinFontExamples, _("helptext"), "PRESET"))
 		section = _("in Image included Fonts")
-		list.append(getConfigListEntry(section + tab + sep*(char-len(section)-len(tab)), ))
+		list.append(getConfigListEntry(section + tab + sep * (char - len(section) - len(tab)), ))
 		list.append(getConfigListEntry(tab + _("LCD"), ))
-		list.append(getConfigListEntry(tab*2 + _("Font type"), config.plugins.MyMetrixLiteFonts.Lcd_type, _("helptext")))
-		list.append(getConfigListEntry(tab*2 + _("Font scale [%]"), config.plugins.MyMetrixLiteFonts.Lcd_scale, _("helptext")))
+		list.append(getConfigListEntry(tab * 2 + _("Font type"), config.plugins.MyMetrixLiteFonts.Lcd_type, _("helptext")))
+		list.append(getConfigListEntry(tab * 2 + _("Font scale [%]"), config.plugins.MyMetrixLiteFonts.Lcd_scale, _("helptext")))
 		list.append(getConfigListEntry(tab + _("Replacement"), ))
-		list.append(getConfigListEntry(tab*2 + _("Font type"), config.plugins.MyMetrixLiteFonts.Replacement_type, _("helptext")))
-		list.append(getConfigListEntry(tab*2 + _("Font scale [%]"), config.plugins.MyMetrixLiteFonts.Replacement_scale, _("helptext")))
+		list.append(getConfigListEntry(tab * 2 + _("Font type"), config.plugins.MyMetrixLiteFonts.Replacement_type, _("helptext")))
+		list.append(getConfigListEntry(tab * 2 + _("Font scale [%]"), config.plugins.MyMetrixLiteFonts.Replacement_scale, _("helptext")))
 		list.append(getConfigListEntry(tab + _("Console"), ))
-		list.append(getConfigListEntry(tab*2 + _("Font type"), config.plugins.MyMetrixLiteFonts.Console_type, _("helptext")))
-		list.append(getConfigListEntry(tab*2 + _("Font scale [%]"), config.plugins.MyMetrixLiteFonts.Console_scale, _("helptext")))
+		list.append(getConfigListEntry(tab * 2 + _("Font type"), config.plugins.MyMetrixLiteFonts.Console_type, _("helptext")))
+		list.append(getConfigListEntry(tab * 2 + _("Font scale [%]"), config.plugins.MyMetrixLiteFonts.Console_scale, _("helptext")))
 		list.append(getConfigListEntry(tab + _("Fixed"), ))
-		list.append(getConfigListEntry(tab*2 + _("Font type"), config.plugins.MyMetrixLiteFonts.Fixed_type, _("helptext")))
-		list.append(getConfigListEntry(tab*2 + _("Font scale [%]"), config.plugins.MyMetrixLiteFonts.Fixed_scale, _("helptext")))
+		list.append(getConfigListEntry(tab * 2 + _("Font type"), config.plugins.MyMetrixLiteFonts.Fixed_type, _("helptext")))
+		list.append(getConfigListEntry(tab * 2 + _("Font scale [%]"), config.plugins.MyMetrixLiteFonts.Fixed_scale, _("helptext")))
 		list.append(getConfigListEntry(tab + _("Arial"), ))
-		list.append(getConfigListEntry(tab*2 + _("Font type"), config.plugins.MyMetrixLiteFonts.Arial_type, _("helptext")))
-		list.append(getConfigListEntry(tab*2 + _("Font scale [%]"), config.plugins.MyMetrixLiteFonts.Arial_scale, _("helptext")))
+		list.append(getConfigListEntry(tab * 2 + _("Font type"), config.plugins.MyMetrixLiteFonts.Arial_type, _("helptext")))
+		list.append(getConfigListEntry(tab * 2 + _("Font scale [%]"), config.plugins.MyMetrixLiteFonts.Arial_scale, _("helptext")))
 		section = _("in Skin included Fonts")
-		list.append(getConfigListEntry(section + tab + sep*(char-len(section)-len(tab)), ))
+		list.append(getConfigListEntry(section + tab + sep * (char - len(section) - len(tab)), ))
 		list.append(getConfigListEntry(tab + _("Regular"), ))
-		list.append(getConfigListEntry(tab*2 + _("Font type"), config.plugins.MyMetrixLiteFonts.Regular_type, _("helptext")))
-		list.append(getConfigListEntry(tab*2 + _("Font scale [%]"), config.plugins.MyMetrixLiteFonts.Regular_scale, _("helptext")))
+		list.append(getConfigListEntry(tab * 2 + _("Font type"), config.plugins.MyMetrixLiteFonts.Regular_type, _("helptext")))
+		list.append(getConfigListEntry(tab * 2 + _("Font scale [%]"), config.plugins.MyMetrixLiteFonts.Regular_scale, _("helptext")))
 		list.append(getConfigListEntry(tab + _("RegularLight"), ))
-		list.append(getConfigListEntry(tab*2 + _("Font type"), config.plugins.MyMetrixLiteFonts.RegularLight_type, _("helptext")))
-		list.append(getConfigListEntry(tab*2 + _("Font scale [%]"), config.plugins.MyMetrixLiteFonts.RegularLight_scale, _("helptext")))
+		list.append(getConfigListEntry(tab * 2 + _("Font type"), config.plugins.MyMetrixLiteFonts.RegularLight_type, _("helptext")))
+		list.append(getConfigListEntry(tab * 2 + _("Font scale [%]"), config.plugins.MyMetrixLiteFonts.RegularLight_scale, _("helptext")))
 		list.append(getConfigListEntry(tab + _("SetrixHD"), ))
-		list.append(getConfigListEntry(tab*2 + _("Font type"), config.plugins.MyMetrixLiteFonts.SetrixHD_type, _("helptext")))
-		list.append(getConfigListEntry(tab*2 + _("Font scale [%]"), config.plugins.MyMetrixLiteFonts.SetrixHD_scale, _("helptext")))
+		list.append(getConfigListEntry(tab * 2 + _("Font type"), config.plugins.MyMetrixLiteFonts.SetrixHD_type, _("helptext")))
+		list.append(getConfigListEntry(tab * 2 + _("Font scale [%]"), config.plugins.MyMetrixLiteFonts.SetrixHD_scale, _("helptext")))
 		list.append(getConfigListEntry(tab + _("Meteo"), ))
-		list.append(getConfigListEntry(tab*2 + _("Font scale [%]"), config.plugins.MyMetrixLiteFonts.Meteo_scale, _("helptext")))
+		list.append(getConfigListEntry(tab * 2 + _("Font scale [%]"), config.plugins.MyMetrixLiteFonts.Meteo_scale, _("helptext")))
 		section = _("-")
-		list.append(getConfigListEntry(section + sep*(char-len(section)), ))
+		list.append(getConfigListEntry(section + sep * (char - len(section)), ))
 		section = _("Individual Settings (only for some individual skinned screens)")
 		list.append(getConfigListEntry(section, ))
 		section = _("-")
-		list.append(getConfigListEntry(section + sep*(char-len(section)), ))
+		list.append(getConfigListEntry(section + sep * (char - len(section)), ))
 		section = _("Generally")
-		list.append(getConfigListEntry(section + tab + sep*(char-len(section)-len(tab)), ))
+		list.append(getConfigListEntry(section + tab + sep * (char - len(section) - len(tab)), ))
 		list.append(getConfigListEntry(tab + _("Screen title text"), ))
-		list.append(getConfigListEntry(tab*2 + _("Font type"), config.plugins.MyMetrixLiteFonts.globaltitle_type, _("helptext")))
-		list.append(getConfigListEntry(tab*2 + _("Font scale [%]"), config.plugins.MyMetrixLiteFonts.globaltitle_scale, _("helptext")))
+		list.append(getConfigListEntry(tab * 2 + _("Font type"), config.plugins.MyMetrixLiteFonts.globaltitle_type, _("helptext")))
+		list.append(getConfigListEntry(tab * 2 + _("Font scale [%]"), config.plugins.MyMetrixLiteFonts.globaltitle_scale, _("helptext")))
 		list.append(getConfigListEntry(tab + _("Button text"), ))
-		list.append(getConfigListEntry(tab*2 + _("Font type"), config.plugins.MyMetrixLiteFonts.globalbutton_type, _("helptext")))
-		list.append(getConfigListEntry(tab*2 + _("Font scale [%]"), config.plugins.MyMetrixLiteFonts.globalbutton_scale, _("helptext")))
+		list.append(getConfigListEntry(tab * 2 + _("Font type"), config.plugins.MyMetrixLiteFonts.globalbutton_type, _("helptext")))
+		list.append(getConfigListEntry(tab * 2 + _("Font scale [%]"), config.plugins.MyMetrixLiteFonts.globalbutton_scale, _("helptext")))
 		list.append(getConfigListEntry(tab + _("Clock text"), ))
-		list.append(getConfigListEntry(tab*2 + _("Font type"), config.plugins.MyMetrixLiteFonts.globalclock_type, _("helptext")))
-		list.append(getConfigListEntry(tab*2 + _("Font scale [%]"), config.plugins.MyMetrixLiteFonts.globalclock_scale, _("helptext")))
+		list.append(getConfigListEntry(tab * 2 + _("Font type"), config.plugins.MyMetrixLiteFonts.globalclock_type, _("helptext")))
+		list.append(getConfigListEntry(tab * 2 + _("Font scale [%]"), config.plugins.MyMetrixLiteFonts.globalclock_scale, _("helptext")))
+		list.append(getConfigListEntry(tab + _("Weather week text"), ))
+		list.append(getConfigListEntry(tab * 2 + _("Font type"), config.plugins.MyMetrixLiteFonts.globalweatherweek_type, _("helptext")))
+		list.append(getConfigListEntry(tab * 2 + _("Font scale [%]"), config.plugins.MyMetrixLiteFonts.globalweatherweek_scale, _("helptext")))
 		list.append(getConfigListEntry(tab + _("Large text"), ))
-		list.append(getConfigListEntry(tab*2 + _("Font type"), config.plugins.MyMetrixLiteFonts.globallarge_type, _("helptext")))
-		list.append(getConfigListEntry(tab*2 + _("Font scale [%]"), config.plugins.MyMetrixLiteFonts.globallarge_scale, _("helptext")))
+		list.append(getConfigListEntry(tab * 2 + _("Font type"), config.plugins.MyMetrixLiteFonts.globallarge_type, _("helptext")))
+		list.append(getConfigListEntry(tab * 2 + _("Font scale [%]"), config.plugins.MyMetrixLiteFonts.globallarge_scale, _("helptext")))
 		list.append(getConfigListEntry(tab + _("Small text"), ))
-		list.append(getConfigListEntry(tab*2 + _("Font type"), config.plugins.MyMetrixLiteFonts.globalsmall_type, _("helptext")))
-		list.append(getConfigListEntry(tab*2 + _("Font scale [%]"), config.plugins.MyMetrixLiteFonts.globalsmall_scale, _("helptext")))
+		list.append(getConfigListEntry(tab * 2 + _("Font type"), config.plugins.MyMetrixLiteFonts.globalsmall_type, _("helptext")))
+		list.append(getConfigListEntry(tab * 2 + _("Font scale [%]"), config.plugins.MyMetrixLiteFonts.globalsmall_scale, _("helptext")))
 		list.append(getConfigListEntry(tab + _("Menu entry text"), ))
-		list.append(getConfigListEntry(tab*2 + _("Font type"), config.plugins.MyMetrixLiteFonts.globalmenu_type, _("helptext")))
-		list.append(getConfigListEntry(tab*2 + _("Font scale [%]"), config.plugins.MyMetrixLiteFonts.globalmenu_scale, _("helptext")))
+		list.append(getConfigListEntry(tab * 2 + _("Font type"), config.plugins.MyMetrixLiteFonts.globalmenu_type, _("helptext")))
+		list.append(getConfigListEntry(tab * 2 + _("Font scale [%]"), config.plugins.MyMetrixLiteFonts.globalmenu_scale, _("helptext")))
 		section = _("Screens, Plugins")
-		list.append(getConfigListEntry(section + tab + sep*(char-len(section)-len(tab)), ))
+		list.append(getConfigListEntry(section + tab + sep * (char - len(section) - len(tab)), ))
 		list.append(getConfigListEntry(tab + _("Label text"), ))
-		list.append(getConfigListEntry(tab*2 + _("Font type"), config.plugins.MyMetrixLiteFonts.screenlabel_type, _("helptext")))
-		list.append(getConfigListEntry(tab*2 + _("Font scale [%]"), config.plugins.MyMetrixLiteFonts.screenlabel_scale, _("helptext")))
+		list.append(getConfigListEntry(tab * 2 + _("Font type"), config.plugins.MyMetrixLiteFonts.screenlabel_type, _("helptext")))
+		list.append(getConfigListEntry(tab * 2 + _("Font scale [%]"), config.plugins.MyMetrixLiteFonts.screenlabel_scale, _("helptext")))
 		list.append(getConfigListEntry(tab + _("Output text"), ))
-		list.append(getConfigListEntry(tab*2 + _("Font type"), config.plugins.MyMetrixLiteFonts.screentext_type, _("helptext")))
-		list.append(getConfigListEntry(tab*2 + _("Font scale [%]"), config.plugins.MyMetrixLiteFonts.screentext_scale, _("helptext")))
+		list.append(getConfigListEntry(tab * 2 + _("Font type"), config.plugins.MyMetrixLiteFonts.screentext_type, _("helptext")))
+		list.append(getConfigListEntry(tab * 2 + _("Font scale [%]"), config.plugins.MyMetrixLiteFonts.screentext_scale, _("helptext")))
 		list.append(getConfigListEntry(tab + _("Description text"), ))
-		list.append(getConfigListEntry(tab*2 + _("Font type"), config.plugins.MyMetrixLiteFonts.screeninfo_type, _("helptext")))
-		list.append(getConfigListEntry(tab*2 + _("Font scale [%]"), config.plugins.MyMetrixLiteFonts.screeninfo_scale, _("helptext")))
+		list.append(getConfigListEntry(tab * 2 + _("Font type"), config.plugins.MyMetrixLiteFonts.screeninfo_type, _("helptext")))
+		list.append(getConfigListEntry(tab * 2 + _("Font scale [%]"), config.plugins.MyMetrixLiteFonts.screeninfo_scale, _("helptext")))
 		section = _("EPG, Channellist, Movielist")
-		list.append(getConfigListEntry(section + tab + sep*(char-len(section)-len(tab)), ))
+		list.append(getConfigListEntry(section + tab + sep * (char - len(section) - len(tab)), ))
 		list.append(getConfigListEntry(tab + _("Event name text"), ))
-		list.append(getConfigListEntry(tab*2 + _("Font type"), config.plugins.MyMetrixLiteFonts.epgevent_type, _("helptext")))
-		list.append(getConfigListEntry(tab*2 + _("Font scale [%]"), config.plugins.MyMetrixLiteFonts.epgevent_scale, _("helptext")))
+		list.append(getConfigListEntry(tab * 2 + _("Font type"), config.plugins.MyMetrixLiteFonts.epgevent_type, _("helptext")))
+		list.append(getConfigListEntry(tab * 2 + _("Font scale [%]"), config.plugins.MyMetrixLiteFonts.epgevent_scale, _("helptext")))
 		list.append(getConfigListEntry(tab + _("Other text"), ))
-		list.append(getConfigListEntry(tab*2 + _("Font type"), config.plugins.MyMetrixLiteFonts.epgtext_type, _("helptext")))
-		list.append(getConfigListEntry(tab*2 + _("Font scale [%]"), config.plugins.MyMetrixLiteFonts.epgtext_scale, _("helptext")))
+		list.append(getConfigListEntry(tab * 2 + _("Font type"), config.plugins.MyMetrixLiteFonts.epgtext_type, _("helptext")))
+		list.append(getConfigListEntry(tab * 2 + _("Font scale [%]"), config.plugins.MyMetrixLiteFonts.epgtext_scale, _("helptext")))
 		list.append(getConfigListEntry(tab + _("Description text"), ))
-		list.append(getConfigListEntry(tab*2 + _("Font type"), config.plugins.MyMetrixLiteFonts.epginfo_type, _("helptext")))
-		list.append(getConfigListEntry(tab*2 + _("Font scale [%]"), config.plugins.MyMetrixLiteFonts.epginfo_scale, _("helptext")))
+		list.append(getConfigListEntry(tab * 2 + _("Font type"), config.plugins.MyMetrixLiteFonts.epginfo_type, _("helptext")))
+		list.append(getConfigListEntry(tab * 2 + _("Font scale [%]"), config.plugins.MyMetrixLiteFonts.epginfo_scale, _("helptext")))
 		section = _("Infobar, Moviebar")
-		list.append(getConfigListEntry(section + tab + sep*(char-len(section)-len(tab)), ))
+		list.append(getConfigListEntry(section + tab + sep * (char - len(section) - len(tab)), ))
 		list.append(getConfigListEntry(tab + _("Event name text"), ))
-		list.append(getConfigListEntry(tab*2 + _("Font type"), config.plugins.MyMetrixLiteFonts.infobarevent_type, _("helptext")))
-		list.append(getConfigListEntry(tab*2 + _("Font scale [%]"), config.plugins.MyMetrixLiteFonts.infobarevent_scale, _("helptext")))
+		list.append(getConfigListEntry(tab * 2 + _("Font type"), config.plugins.MyMetrixLiteFonts.infobarevent_type, _("helptext")))
+		list.append(getConfigListEntry(tab * 2 + _("Font scale [%]"), config.plugins.MyMetrixLiteFonts.infobarevent_scale, _("helptext")))
 		list.append(getConfigListEntry(tab + _("Other text"), ))
-		list.append(getConfigListEntry(tab*2 + _("Font type"), config.plugins.MyMetrixLiteFonts.infobartext_type, _("helptext")))
-		list.append(getConfigListEntry(tab*2 + _("Font scale [%]"), config.plugins.MyMetrixLiteFonts.infobartext_scale, _("helptext")))
+		list.append(getConfigListEntry(tab * 2 + _("Font type"), config.plugins.MyMetrixLiteFonts.infobartext_type, _("helptext")))
+		list.append(getConfigListEntry(tab * 2 + _("Font scale [%]"), config.plugins.MyMetrixLiteFonts.infobartext_scale, _("helptext")))
 
 		return list
 
@@ -235,6 +239,8 @@ class FontsSettingsView(ConfigListScreen, Screen):
 			config.plugins.MyMetrixLiteFonts.globalbutton_scale.value = 90
 			config.plugins.MyMetrixLiteFonts.globalclock_type.value = "/usr/share/enigma2/MetrixHD/fonts/setrixHD.ttf"
 			config.plugins.MyMetrixLiteFonts.globalclock_scale.value = 100
+			config.plugins.MyMetrixLiteFonts.globalweatherweek_type.value = "/usr/share/enigma2/MetrixHD/fonts/OpenSans-Bold.ttf"
+			config.plugins.MyMetrixLiteFonts.globalweatherweek_scale.value = 100
 			config.plugins.MyMetrixLiteFonts.globallarge_type.value = "/usr/share/enigma2/MetrixHD/fonts/setrixHD.ttf"
 			config.plugins.MyMetrixLiteFonts.globallarge_scale.value = 100
 			config.plugins.MyMetrixLiteFonts.globalsmall_type.value = "/usr/share/enigma2/MetrixHD/fonts/OpenSans-Regular.ttf"
@@ -286,6 +292,8 @@ class FontsSettingsView(ConfigListScreen, Screen):
 			config.plugins.MyMetrixLiteFonts.globalbutton_scale.value = 105
 			config.plugins.MyMetrixLiteFonts.globalclock_type.value = "/usr/share/enigma2/MetrixHD/fonts/setrixHD.ttf"
 			config.plugins.MyMetrixLiteFonts.globalclock_scale.value = 105
+			config.plugins.MyMetrixLiteFonts.globalweatherweek_type.value = "/usr/share/enigma2/MetrixHD/fonts/OpenSans-Bold.ttf"
+			config.plugins.MyMetrixLiteFonts.globalweatherweek_scale.value = 105
 			config.plugins.MyMetrixLiteFonts.globallarge_type.value = "/usr/share/enigma2/MetrixHD/fonts/setrixHD.ttf"
 			config.plugins.MyMetrixLiteFonts.globallarge_scale.value = 105
 			config.plugins.MyMetrixLiteFonts.globalsmall_type.value = "/usr/share/enigma2/MetrixHD/fonts/OpenSans-Regular.ttf"
@@ -340,6 +348,8 @@ class FontsSettingsView(ConfigListScreen, Screen):
 			config.plugins.MyMetrixLiteFonts.globalbutton_scale.value = 95
 			config.plugins.MyMetrixLiteFonts.globalclock_type.value = "/usr/share/enigma2/MetrixHD/fonts/DroidSans-Bold.ttf"
 			config.plugins.MyMetrixLiteFonts.globalclock_scale.value = 100
+			config.plugins.MyMetrixLiteFonts.globalweatherweek_type.value = "/usr/share/enigma2/MetrixHD/fonts/OpenSans-Bold.ttf"
+			config.plugins.MyMetrixLiteFonts.globalweatherweek_scale.value = 100
 			config.plugins.MyMetrixLiteFonts.globallarge_type.value = "/usr/share/enigma2/MetrixHD/fonts/DroidSans-Bold.ttf"
 			config.plugins.MyMetrixLiteFonts.globallarge_scale.value = 100
 			config.plugins.MyMetrixLiteFonts.globalsmall_type.value = "/usr/share/enigma2/MetrixHD/fonts/DroidSans.ttf"
@@ -394,6 +404,8 @@ class FontsSettingsView(ConfigListScreen, Screen):
 			config.plugins.MyMetrixLiteFonts.globalbutton_scale.value = 100
 			config.plugins.MyMetrixLiteFonts.globalclock_type.value = "/usr/share/enigma2/MetrixHD/fonts/Raleway-Light.ttf"
 			config.plugins.MyMetrixLiteFonts.globalclock_scale.value = 105
+			config.plugins.MyMetrixLiteFonts.globalweatherweek_type.value = "/usr/share/enigma2/MetrixHD/fonts/Raleway-Regular.ttf"
+			config.plugins.MyMetrixLiteFonts.globalweatherweek_scale.value = 105
 			config.plugins.MyMetrixLiteFonts.globallarge_type.value = "/usr/share/enigma2/MetrixHD/fonts/Raleway-Channel.ttf"
 			config.plugins.MyMetrixLiteFonts.globallarge_scale.value = 100
 			config.plugins.MyMetrixLiteFonts.globalsmall_type.value = "/usr/share/enigma2/MetrixHD/fonts/Raleway-Regular.ttf"
@@ -448,6 +460,8 @@ class FontsSettingsView(ConfigListScreen, Screen):
 			config.plugins.MyMetrixLiteFonts.globalbutton_scale.value = 100
 			config.plugins.MyMetrixLiteFonts.globalclock_type.value = "/usr/share/fonts/lcd.ttf"
 			config.plugins.MyMetrixLiteFonts.globalclock_scale.value = 120
+			config.plugins.MyMetrixLiteFonts.globalweatherweek_type.value = "/usr/share/fonts/lcd.ttf"
+			config.plugins.MyMetrixLiteFonts.globalweatherweek_scale.value = 120
 			config.plugins.MyMetrixLiteFonts.globallarge_type.value = "/usr/share/fonts/lcd.ttf"
 			config.plugins.MyMetrixLiteFonts.globallarge_scale.value = 100
 			config.plugins.MyMetrixLiteFonts.globalsmall_type.value = "/usr/share/fonts/lcd.ttf"
@@ -502,6 +516,8 @@ class FontsSettingsView(ConfigListScreen, Screen):
 			config.plugins.MyMetrixLiteFonts.globalbutton_scale.value = 100
 			config.plugins.MyMetrixLiteFonts.globalclock_type.value = "/usr/share/enigma2/MetrixHD/fonts/analog.ttf"
 			config.plugins.MyMetrixLiteFonts.globalclock_scale.value = 105
+			config.plugins.MyMetrixLiteFonts.globalweatherweek_type.value = "/usr/share/enigma2/MetrixHD/fonts/analog.ttf"
+			config.plugins.MyMetrixLiteFonts.globalweatherweek_scale.value = 105
 			config.plugins.MyMetrixLiteFonts.globallarge_type.value = "/usr/share/enigma2/MetrixHD/fonts/analog.ttf"
 			config.plugins.MyMetrixLiteFonts.globallarge_scale.value = 100
 			config.plugins.MyMetrixLiteFonts.globalsmall_type.value = "/usr/share/enigma2/MetrixHD/fonts/analog.ttf"
@@ -556,6 +572,8 @@ class FontsSettingsView(ConfigListScreen, Screen):
 			config.plugins.MyMetrixLiteFonts.globalbutton_scale.value = 95
 			config.plugins.MyMetrixLiteFonts.globalclock_type.value = "/usr/share/fonts/nmsbd.ttf"
 			config.plugins.MyMetrixLiteFonts.globalclock_scale.value = 100
+			config.plugins.MyMetrixLiteFonts.globalweatherweek_type.value = "/usr/share/fonts/nmsbd.ttf"
+			config.plugins.MyMetrixLiteFonts.globalweatherweek_scale.value = 100
 			config.plugins.MyMetrixLiteFonts.globallarge_type.value = "/usr/share/enigma2/MetrixHD/fonts/HandelGotD.ttf"
 			config.plugins.MyMetrixLiteFonts.globallarge_scale.value = 100
 			config.plugins.MyMetrixLiteFonts.globalsmall_type.value = "/usr/share/enigma2/MetrixHD/fonts/HandelGotD.ttf"
@@ -600,7 +618,7 @@ class FontsSettingsView(ConfigListScreen, Screen):
 		self.onLayoutFinish.append(self.ShowPicture)
 
 	def ShowPicture(self):
-		self.PicLoad.setPara([self["helperimage"].instance.size().width(),self["helperimage"].instance.size().height(),self.Scale[0],self.Scale[1],0,1,"#00000000"])
+		self.PicLoad.setPara([self["helperimage"].instance.size().width(), self["helperimage"].instance.size().height(), self.Scale[0], self.Scale[1], 0, 1, "#00000000"])
 		self.PicLoad.startDecode(self.GetPicturePath())
 		self.showHelperText()
 
@@ -626,7 +644,8 @@ class FontsSettingsView(ConfigListScreen, Screen):
 		for x in self["config"].list:
 			if len(x) > 1:
 				self.setInputToDefault(x[1])
-				if SAVE: x[1].save()
+				if SAVE:
+					x[1].save()
 		if self.session:
 			self["config"].setList(self.getMenuItemList())
 			self.ShowPicture()

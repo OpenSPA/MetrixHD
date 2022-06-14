@@ -20,6 +20,7 @@ from xml.etree.cElementTree import parse
 
 ##########################################################################
 
+
 class MetrixHDExtServiceInfo(Converter, object):
 	SERVICENAME = 0
 	SERVICENUMBER = 1
@@ -61,7 +62,7 @@ class MetrixHDExtServiceInfo(Converter, object):
 			return ""
 
 		text = ""
-		name = info.getName().replace('\xc2\x86', '').replace('\xc2\x87', '')
+		name = info.getName().replace('\xc2\x86', '').replace('\xc2\x87', '').replace('\x86', '').replace('\x87', '')
 		try:
 			service = self.source.serviceref
 			num = service and service.getChannelNum() or None
@@ -75,7 +76,8 @@ class MetrixHDExtServiceInfo(Converter, object):
 		orbital = self.getOrbitalPosition(info)
 		satName = self.satNames.get(orbital, orbital)
 
-		if len(number) > 5: number=''
+		if len(number) > 5:
+			number = ''
 		if self.type == self.SERVICENAME:
 			text = name
 		elif self.type == self.SERVICENUMBER:
@@ -125,7 +127,7 @@ class MetrixHDExtServiceInfo(Converter, object):
 			channels = services and services.getContent("SN", True)
 			for channel in channels:
 				if not channel[0].startswith("1:64:"): # Ignore marker
-					list.append(channel[1].replace('\xc2\x86', '').replace('\xc2\x87', ''))
+					list.append(channel[1].replace('\xc2\x86', '').replace('\xc2\x87', '').replace('\x86', '').replace('\x87', ''))
 
 		return list
 
@@ -153,15 +155,15 @@ class MetrixHDExtServiceInfo(Converter, object):
 					self.satNames[position] = name
 
 	def getServiceNumber(self, name, ref):
-		list = []
+		_list = []
 		if ref.startswith("1:0:2"):
-			list = self.radio_list
+			_list = self.radio_list
 		elif ref.startswith("1:0:1"):
-			list = self.tv_list
+			_list = self.tv_list
 		number = ""
-		if name in list:
-			for idx in range(1, len(list)):
-				if name == list[idx-1]:
+		if name in _list:
+			for idx in list(range(1, len(_list))):
+				if name == _list[idx - 1]:
 					number = str(idx)
 					break
 		return number
@@ -172,13 +174,13 @@ class MetrixHDExtServiceInfo(Converter, object):
 		if transponderData is not None:
 			if isinstance(transponderData, float):
 				return ""
-			if transponderData.has_key("tuner_type"):
+			if "tuner_type" in transponderData:
 				if (transponderData["tuner_type"] == "DVB-S") or (transponderData["tuner_type"] == "DVB-S2"):
 					orbital = transponderData["orbital_position"]
 					orbital = int(orbital)
 					if orbital > 1800:
-						orbital = str((float(3600 - orbital))/10.0) + "W"
+						orbital = str((float(3600 - orbital)) / 10.0) + "W"
 					else:
-						orbital = str((float(orbital))/10.0) + "E"
+						orbital = str((float(orbital)) / 10.0) + "E"
 					return orbital
 		return ""

@@ -1,9 +1,9 @@
 MetrixHD
 ========
 
-##**openSPA 7.x default skin**
+##**openSPA 8.x default skin**
 
-MetrixHD is created by iMaxxx http://open-store.net
+MetrixHD is created by iMaxxx
 
 **The skin uses a modern 2-layer style with 2 main fonts and several font colors to catch the users attention on the important areas of a screen.**
 

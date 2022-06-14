@@ -5,12 +5,14 @@
 ##			<convert type="MetrixHDVideoInfo">VideoMode</convert>
 ##		</widget>
 ##
+from __future__ import print_function, division
 from Components.Converter.Converter import Converter
 from Components.Element import cached
 from enigma import eServiceCenter, eServiceReference, iServiceInformation
-from Poll import Poll
+from Components.Converter.Poll import Poll
 
 ##########################################################################
+
 
 class MetrixHDVideoInfo(Poll, Converter, object):
 
@@ -61,17 +63,17 @@ class MetrixHDVideoInfo(Poll, Converter, object):
 		if self.type == self.VIDEOMODE:
 			if width > 0 and height > 0:
 				f = open("/proc/stb/video/videomode")
-				text = f.read()[:-1].replace('\n','')
+				text = f.read()[:-1].replace('\n', '')
 				f.close()
 		elif self.type == self.VIDEOSIZE:
 			if width > 0 and height > 0:
 				sProgressive = info.getInfo(iServiceInformation.sProgressive)
-				text = "%dx%d" % (width,height)
+				text = "%dx%d" % (width, height)
 				#text += ("i", "p", " ")[sProgressive]
 				if sProgressive:
-					text += "p" + str((info.getInfo(iServiceInformation.sFrameRate) + 499) / 1000)
+					text += "p" + str((info.getInfo(iServiceInformation.sFrameRate) + 499) // 1000)
 				else:
-					text += "i" + str((info.getInfo(iServiceInformation.sFrameRate) + 499) / 500)
+					text += "i" + str((info.getInfo(iServiceInformation.sFrameRate) + 499) // 500)
 		elif self.type == self.VIDEOSIZEWIDTH:
 			if width > 0:
 				text = "%d" % (width)
@@ -81,12 +83,12 @@ class MetrixHDVideoInfo(Poll, Converter, object):
 				text = "%d" % (height)
 				#text += ("i", "p", " ")[sProgressive]
 				if sProgressive:
-					text += "p" + str((info.getInfo(iServiceInformation.sFrameRate) + 499) / 1000)
+					text += "p" + str((info.getInfo(iServiceInformation.sFrameRate) + 499) // 1000)
 				else:
-					text += "i" + str((info.getInfo(iServiceInformation.sFrameRate) + 499) / 500)
+					text += "i" + str((info.getInfo(iServiceInformation.sFrameRate) + 499) // 500)
 		elif self.type == self.VIDEOSIZESHORT:
 			if width > 0 and height > 0:
-				text = "%dx%d" % (width,height)
+				text = "%dx%d" % (width, height)
 		elif self.type == self.VIDEOCODEC:
 			from Components.Converter.PliExtraInfo import codec_data
 			text = codec_data.get(self.info.getInfo(iServiceInformation.sVideoType), "N/A")
@@ -97,12 +99,12 @@ class MetrixHDVideoInfo(Poll, Converter, object):
 					text = info.getInfoString(iServiceInformation.sAspect)
 				elif text == -1:
 					text = _("N/A")
-				if text in ( 1, 2, 5, 6, 9, 0xA, 0xD, 0xE ):
+				if text in (1, 2, 5, 6, 9, 0xA, 0xD, 0xE):
 					text = "4:3"
 				else:
 					text = "16:9"
 		else:
-			print "type must be {VideoMode, VideoSize, VideoSizeWidth, VideoSizeHeight, VideoSizeShort, VideoCodec, VideoFormat} for MetrixHDVideoInfo converter"
+			print("type must be {VideoMode, VideoSize, VideoSizeWidth, VideoSizeHeight, VideoSizeShort, VideoCodec, VideoFormat} for MetrixHDVideoInfo converter")
 			text = "type-error"
 
 		return text

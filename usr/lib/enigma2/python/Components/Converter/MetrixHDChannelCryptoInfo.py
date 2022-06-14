@@ -1,11 +1,13 @@
 from enigma import iServiceInformation
 from Components.Converter.Converter import Converter
 from Components.Element import cached
-from Poll import Poll
+from Components.Converter.Poll import Poll
 import os
+import six
 ECM_INFO = '/tmp/ecm.info'
 old_ecm_mtime = None
 data = None
+
 
 class MetrixHDChannelCryptoInfo(Poll, Converter, object):
 	IRDCRYPT = 0
@@ -157,6 +159,7 @@ class MetrixHDChannelCryptoInfo(Poll, Converter, object):
 			ecm = open(ECM_INFO, 'rb').readlines()
 			info = {}
 			for line in ecm:
+				line = six.ensure_str(line)
 				d = line.split(':', 1)
 				if len(d) > 1:
 					info[d[0].strip()] = d[1].strip()

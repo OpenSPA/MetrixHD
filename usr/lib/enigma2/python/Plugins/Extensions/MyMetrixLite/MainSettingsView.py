@@ -17,7 +17,7 @@
 #
 #
 #######################################################################
-
+from __future__ import absolute_import
 from . import _, MAIN_IMAGE_PATH
 from Screens.Screen import Screen
 from Screens.MessageBox import MessageBox
@@ -31,35 +31,37 @@ from Components.Sources.StaticText import StaticText
 from Components.Label import Label
 from enigma import ePicLoad, eListboxPythonMultiContent, gFont, getDesktop, eTimer
 from os import path, remove
-from ColorsSettingsView import ColorsSettingsView
-from WeatherSettingsView import WeatherSettingsView
-from OtherSettingsView import OtherSettingsView
-from FontsSettingsView import FontsSettingsView
-from BackupSettingsView import BackupSettingsView
-from SkinpartSettingsView import SkinpartSettingsView
-from ActivateSkinSettings import ActivateSkinSettings
+from .ColorsSettingsView import ColorsSettingsView
+from .WeatherSettingsView import WeatherSettingsView
+from .OtherSettingsView import OtherSettingsView
+from .FontsSettingsView import FontsSettingsView
+from .BackupSettingsView import BackupSettingsView
+from .SkinpartSettingsView import SkinpartSettingsView
+from .ActivateSkinSettings import ActivateSkinSettings
 from Tools.Directories import resolveFilename, SCOPE_CURRENT_SKIN, fileExists
 
 #############################################################
+
 
 class MainMenuList(MenuList):
 	def __init__(self, list, font0 = 24, font1 = 16, itemHeight = 50, enableWrapAround = True):
 		MenuList.__init__(self, list, enableWrapAround, eListboxPythonMultiContent)
 		screenwidth = getDesktop(0).size().width()
 		if screenwidth and screenwidth == 3840:
-			self.l.setFont(0, gFont("Regular", int(font0*3)))
-			self.l.setFont(1, gFont("Regular", int(font1*3)))
-			self.l.setItemHeight(int(itemHeight*3))
+			self.l.setFont(0, gFont("Regular", int(font0 * 3)))
+			self.l.setFont(1, gFont("Regular", int(font1 * 3)))
+			self.l.setItemHeight(int(itemHeight * 3))
 		elif screenwidth and screenwidth == 1920:
-			self.l.setFont(0, gFont("Regular", int(font0*1.5)))
-			self.l.setFont(1, gFont("Regular", int(font1*1.5)))
-			self.l.setItemHeight(int(itemHeight*1.5))
+			self.l.setFont(0, gFont("Regular", int(font0 * 1.5)))
+			self.l.setFont(1, gFont("Regular", int(font1 * 1.5)))
+			self.l.setItemHeight(int(itemHeight * 1.5))
 		else:
 			self.l.setFont(0, gFont("Regular", font0))
 			self.l.setFont(1, gFont("Regular", font1))
 			self.l.setItemHeight(itemHeight)
 
 #############################################################
+
 
 def MenuEntryItem(itemDescription, key, helptext):
 	res = [(itemDescription, key, helptext)]
@@ -73,6 +75,7 @@ def MenuEntryItem(itemDescription, key, helptext):
 	return res
 
 #############################################################
+
 
 class MainSettingsView(Screen):
 	skin = """
@@ -128,7 +131,7 @@ class MainSettingsView(Screen):
 		list.append(MenuEntryItem(_("Weather settings"), "WEATHER", _("Powered by\n-----------------\nmsn weather\n(https://www.msn.com)\nand\nOpenWeatherMap\n(https://openweathermap.org)")))
 		list.append(MenuEntryItem(_("Other settings"), "OTHER", _("helptext")))
 		if path.isfile("/usr/lib/enigma2/python/Plugins/Extensions/MyMetrixLite/DesignSettings.py"):
-			from DesignSettingsView import DesignSettingsView
+			from .DesignSettingsView import DesignSettingsView
 			list.append(MenuEntryItem(_("Design settings"), "DESIGN", _("helptext")))
 		list.append(MenuEntryItem(_("Skinpart settings"), "SKINPART", _("helptext")))
 		list.append("")
@@ -179,7 +182,7 @@ class MainSettingsView(Screen):
 			elif selectedKey == "DESIGN":
 				imageUrl = self.GetPicturePath("MyMetrixLiteSkinpart")
 
-		self.PicLoad.setPara([self["helperimage"].instance.size().width(),self["helperimage"].instance.size().height(),self.Scale[0],self.Scale[1],0,1,"#00000000"])
+		self.PicLoad.setPara([self["helperimage"].instance.size().width(), self["helperimage"].instance.size().height(), self.Scale[0], self.Scale[1], 0, 1, "#00000000"])
 		self.PicLoad.startDecode(imageUrl)
 		self.showHelperText()
 
@@ -216,7 +219,7 @@ class MainSettingsView(Screen):
 
 	def applyChanges(self):
 		ret = ActivateSkinSettings().WriteSkin()
-		if not type(ret) == tuple:
+		if not isinstance(ret, tuple):
 			self.session.open(MessageBox, _('Unknown error occurred!'), MessageBox.TYPE_ERROR)
 		elif ret[0] == 'ErrorCode_2':
 			self.session.open(MessageBox, ret[1], MessageBox.TYPE_ERROR)
@@ -224,12 +227,12 @@ class MainSettingsView(Screen):
 			self.reboot(ret[1])
 		elif ret[0] == 'error':
 			self.session.open(MessageBox, ret[1], MessageBox.TYPE_ERROR)
-		elif type(ret) == tuple and ret[0] == 'checkEHDsettings':
+		elif isinstance(ret, tuple) and ret[0] == 'checkEHDsettings':
 			self.session.openWithCallback(self.checkEHDsettingsCallback, MessageBox, ret[1], MessageBox.TYPE_INFO, timeout=10)
 
 	def checkEHDsettings(self):
 		ret = ActivateSkinSettings().CheckSettings(True)
-		if type(ret) == tuple and ret[0] == 'checkEHDsettings':
+		if isinstance(ret, tuple) and ret[0] == 'checkEHDsettings':
 			self.session.openWithCallback(self.checkEHDsettingsCallback, MessageBox, ret[1], MessageBox.TYPE_INFO, timeout=10)
 
 	def checkEHDsettingsCallback(self, ret = None):

@@ -17,17 +17,19 @@
 #
 #
 #######################################################################
-
+from __future__ import absolute_import
 from . import _
-from MainSettingsView import MainSettingsView
+from .MainSettingsView import MainSettingsView
 from Plugins.Plugin import PluginDescriptor
 from Components.config import config
 config.plugins.MetrixWeather.currentWeatherDataValid.setValue(0)
 
 #############################################################
 
+
 def main(session, **kwargs):
 	session.open(MainSettingsView)
+
 
 def Plugins(**kwargs):
 	return PluginDescriptor(name="MyMetrixLite", description=_("openSPA configuration tool for MetrixHD"), where = PluginDescriptor.WHERE_PLUGINMENU, icon="plugin.png", fnc=main)

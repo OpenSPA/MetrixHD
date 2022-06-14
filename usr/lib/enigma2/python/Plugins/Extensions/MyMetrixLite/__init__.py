@@ -19,6 +19,7 @@
 #
 #######################################################################
 
+from __future__ import print_function
 from Components.Language import language
 from Tools.Directories import resolveFilename, SCOPE_PLUGINS
 from Components.config import config, ConfigSubsection, ConfigSelection, ConfigNumber, ConfigSelectionNumber, ConfigYesNo, ConfigText, ConfigInteger
@@ -35,8 +36,10 @@ PLUGIN_PATH = resolveFilename(SCOPE_PLUGINS, "Extensions/MyMetrixLite")
 
 PluginLanguageDomain = "MyMetrixLite"
 
+
 def localeInit():
 	gettext.bindtextdomain(PluginLanguageDomain, PLUGIN_PATH + "/locale")
+
 
 def _(txt):
 	if gettext.dgettext(PluginLanguageDomain, txt):
@@ -44,7 +47,9 @@ def _(txt):
 	else:
 		return gettext.gettext(txt)
 
-language.addCallback(localeInit())
+
+localeInit()
+language.addCallback(localeInit)
 
 #############################################################
 
@@ -125,7 +130,8 @@ ColorList = [
 		("00008B", _("Darkblue")),
 		("2F1A09", _("Darkbrown")),
 		("0F0F0F", _("Darkgrey")),
-		("A61D4D", _("Magenta")),
+		("A61D4D", _("Magenta 1")),
+		("660066", _("Magenta 2")),
 		("A4C400", _("Lime")),
 		("6A00FF", _("Indigo")),
 		("5FA816", _("Brightgreen")),
@@ -165,7 +171,7 @@ ColorList = [
 		("FFFFFF", _("White"))
 	]
 
-TransparencyList=[
+TransparencyList = [
 		("00", _("0%")),
 		("0D", _("5%")),
 		("1A", _("10%")),
@@ -236,6 +242,7 @@ for lines in SysFontTypeList:
 for lines in SkinFontTypeList:
 	if path.exists(lines[0]):
 		FontTypeList.append(lines)
+
 
 def initColorsConfig():
 
@@ -428,6 +435,8 @@ def initColorsConfig():
 	config.plugins.MyMetrixLiteColors.buttonforeground = ConfigSelection(default="FFFFFF", choices = ColorList)
 	config.plugins.MyMetrixLiteColors.layeraclockforeground = ConfigSelection(default="FFFFFF", choices = ColorList)
 	config.plugins.MyMetrixLiteColors.layerbclockforeground = ConfigSelection(default="FFFFFF", choices = ColorList)
+	config.plugins.MyMetrixLiteColors.weatherborderlines = ConfigSelection(default="FFFFFF", choices = ColorList)
+	config.plugins.MyMetrixLiteColors.weatherborderlinestransparency = ConfigSelection(default="00", choices = TransparencyList)
 
 	config.plugins.MyMetrixLiteColors.upperleftcornerbackground = ConfigSelection(default="27408B", choices = ColorList)
 	config.plugins.MyMetrixLiteColors.upperleftcornertransparency = ConfigSelection(default="1A", choices = TransparencyList)
@@ -450,14 +459,15 @@ def initColorsConfig():
 	config.plugins.MyMetrixLiteColors.cologradient = ConfigSelection(default='0', choices = [('0', _('disabled'))] + ColorList)
 	config.plugins.MyMetrixLiteColors.cologradient_show_background = ConfigYesNo(default=True)
 	choicelist = []
-	for x in range(0,105,5):
-		choicelist.append(('%d' %x, '%d%s' %(x,'%')))
+	for x in list(range(0, 105, 5)):
+		choicelist.append(('%d' % x, '%d%s' % (x, '%')))
 	config.plugins.MyMetrixLiteColors.cologradient_size = ConfigSelection(default='25', choices = choicelist)
 	config.plugins.MyMetrixLiteColors.cologradient_position = ConfigSelection(default='25', choices = choicelist)
 	config.plugins.MyMetrixLiteColors.cologradient_transparencyA = ConfigSelection(default='1A', choices = TransparencyList)
 	config.plugins.MyMetrixLiteColors.cologradient_transparencyB = ConfigSelection(default='FF', choices = TransparencyList)
 
 #############################################################
+
 
 def initFontsConfig():
 
@@ -467,7 +477,7 @@ def initFontsConfig():
 #system fonts
 	config.plugins.MyMetrixLiteFonts.Lcd_type = ConfigSelection(default="/usr/share/fonts/lcd.ttf", choices = FontTypeList)
 	config.plugins.MyMetrixLiteFonts.Lcd_scale = ConfigSelectionNumber(50, 150, 1, default = 100)
-	config.plugins.MyMetrixLiteFonts.Replacement_type = ConfigSelection(default="/usr/share/enigma2/MetrixHD/fonts/OpenSans-Regular.ttf", choices = FontTypeList)
+	config.plugins.MyMetrixLiteFonts.Replacement_type = ConfigSelection(default="/usr/share/fonts/ae_AlMateen.ttf", choices = FontTypeList)
 	config.plugins.MyMetrixLiteFonts.Replacement_scale = ConfigSelectionNumber(50, 150, 1, default = 100)
 	config.plugins.MyMetrixLiteFonts.Console_type = ConfigSelection(default="/usr/share/fonts/tuxtxt.ttf", choices = FontTypeList)
 	config.plugins.MyMetrixLiteFonts.Console_scale = ConfigSelectionNumber(50, 150, 1, default = 100)
@@ -476,50 +486,53 @@ def initFontsConfig():
 	config.plugins.MyMetrixLiteFonts.Arial_type = ConfigSelection(default="/usr/share/fonts/nmsbd.ttf", choices = FontTypeList)
 	config.plugins.MyMetrixLiteFonts.Arial_scale = ConfigSelectionNumber(50, 150, 1, default = 100)
 #skin fonts
-	config.plugins.MyMetrixLiteFonts.Regular_type = ConfigSelection(default="/usr/share/enigma2/MetrixHD/fonts/OpenSans-Regular.ttf", choices = FontTypeList)
-	config.plugins.MyMetrixLiteFonts.Regular_scale = ConfigSelectionNumber(50, 150, 1, default = 100)
-	config.plugins.MyMetrixLiteFonts.RegularLight_type = ConfigSelection(default="/usr/share/enigma2/MetrixHD/fonts/OpenSans-Regular.ttf", choices = FontTypeList)
-	config.plugins.MyMetrixLiteFonts.RegularLight_scale = ConfigSelectionNumber(50, 150, 1, default = 100)
-	config.plugins.MyMetrixLiteFonts.SetrixHD_type = ConfigSelection(default="/usr/share/enigma2/MetrixHD/fonts/setrixHD.ttf", choices = FontTypeList)
-	config.plugins.MyMetrixLiteFonts.SetrixHD_scale = ConfigSelectionNumber(50, 150, 1, default = 105)
-	config.plugins.MyMetrixLiteFonts.Meteo_scale = ConfigSelectionNumber(50, 150, 1, default = 105)
+	config.plugins.MyMetrixLiteFonts.Regular_type = ConfigSelection(default="/usr/share/enigma2/MetrixHD/fonts/OpenSans-Regular.ttf", choices=FontTypeList)
+	config.plugins.MyMetrixLiteFonts.Regular_scale = ConfigSelectionNumber(50, 150, 1, default=95)
+	config.plugins.MyMetrixLiteFonts.RegularLight_type = ConfigSelection(default="/usr/share/enigma2/MetrixHD/fonts/OpenSans-Regular.ttf", choices=FontTypeList)
+	config.plugins.MyMetrixLiteFonts.RegularLight_scale = ConfigSelectionNumber(50, 150, 1, default=95)
+	config.plugins.MyMetrixLiteFonts.SetrixHD_type = ConfigSelection(default="/usr/share/enigma2/MetrixHD/fonts/setrixHD.ttf", choices=FontTypeList)
+	config.plugins.MyMetrixLiteFonts.SetrixHD_scale = ConfigSelectionNumber(50, 150, 1, default=100)
+	config.plugins.MyMetrixLiteFonts.Meteo_scale = ConfigSelectionNumber(50, 150, 1, default=100)
 #------------------------------#
 #for individual skinned screens#
 #------------------------------#
 #global
-	config.plugins.MyMetrixLiteFonts.globaltitle_type = ConfigSelection(default="/usr/share/enigma2/MetrixHD/fonts/setrixHD.ttf", choices = FontTypeList)
-	config.plugins.MyMetrixLiteFonts.globaltitle_scale = ConfigSelectionNumber(50, 150, 1, default = 105)
-	config.plugins.MyMetrixLiteFonts.globalbutton_type = ConfigSelection(default="/usr/share/enigma2/MetrixHD/fonts/setrixHD.ttf", choices = FontTypeList)
-	config.plugins.MyMetrixLiteFonts.globalbutton_scale = ConfigSelectionNumber(50, 150, 1, default = 105)
-	config.plugins.MyMetrixLiteFonts.globalclock_type = ConfigSelection(default="/usr/share/enigma2/MetrixHD/fonts/setrixHD.ttf", choices = FontTypeList)
-	config.plugins.MyMetrixLiteFonts.globalclock_scale = ConfigSelectionNumber(50, 150, 1, default = 105)
-	config.plugins.MyMetrixLiteFonts.globallarge_type = ConfigSelection(default="/usr/share/enigma2/MetrixHD/fonts/setrixHD.ttf", choices = FontTypeList)
-	config.plugins.MyMetrixLiteFonts.globallarge_scale = ConfigSelectionNumber(50, 150, 1, default = 105)
-	config.plugins.MyMetrixLiteFonts.globalsmall_type = ConfigSelection(default="/usr/share/enigma2/MetrixHD/fonts/OpenSans-Regular.ttf", choices = FontTypeList)
-	config.plugins.MyMetrixLiteFonts.globalsmall_scale = ConfigSelectionNumber(50, 150, 1, default = 105)
-	config.plugins.MyMetrixLiteFonts.globalmenu_type = ConfigSelection(default="/usr/share/enigma2/MetrixHD/fonts/setrixHD.ttf", choices = FontTypeList)
-	config.plugins.MyMetrixLiteFonts.globalmenu_scale = ConfigSelectionNumber(50, 150, 1, default = 105)
+	config.plugins.MyMetrixLiteFonts.globaltitle_type = ConfigSelection(default="/usr/share/enigma2/MetrixHD/fonts/setrixHD.ttf", choices=FontTypeList)
+	config.plugins.MyMetrixLiteFonts.globaltitle_scale = ConfigSelectionNumber(50, 150, 1, default=100)
+	config.plugins.MyMetrixLiteFonts.globalbutton_type = ConfigSelection(default="/usr/share/enigma2/MetrixHD/fonts/setrixHD.ttf", choices=FontTypeList)
+	config.plugins.MyMetrixLiteFonts.globalbutton_scale = ConfigSelectionNumber(50, 150, 1, default=90)
+	config.plugins.MyMetrixLiteFonts.globalclock_type = ConfigSelection(default="/usr/share/enigma2/MetrixHD/fonts/setrixHD.ttf", choices=FontTypeList)
+	config.plugins.MyMetrixLiteFonts.globalclock_scale = ConfigSelectionNumber(50, 150, 1, default=100)
+	config.plugins.MyMetrixLiteFonts.globalweatherweek_type = ConfigSelection(default="/usr/share/enigma2/MetrixHD/fonts/OpenSans-Bold.ttf", choices=FontTypeList)
+	config.plugins.MyMetrixLiteFonts.globalweatherweek_scale = ConfigSelectionNumber(50, 150, 1, default=100)
+	config.plugins.MyMetrixLiteFonts.globallarge_type = ConfigSelection(default="/usr/share/enigma2/MetrixHD/fonts/setrixHD.ttf", choices=FontTypeList)
+	config.plugins.MyMetrixLiteFonts.globallarge_scale = ConfigSelectionNumber(50, 150, 1, default=80)
+	config.plugins.MyMetrixLiteFonts.globalsmall_type = ConfigSelection(default="/usr/share/enigma2/MetrixHD/fonts/OpenSans-Regular.ttf", choices=FontTypeList)
+	config.plugins.MyMetrixLiteFonts.globalsmall_scale = ConfigSelectionNumber(50, 150, 1, default=95)
+	config.plugins.MyMetrixLiteFonts.globalmenu_type = ConfigSelection(default="/usr/share/enigma2/MetrixHD/fonts/setrixHD.ttf", choices=FontTypeList)
+	config.plugins.MyMetrixLiteFonts.globalmenu_scale = ConfigSelectionNumber(50, 150, 1, default=100)
 #screens, plugins
-	config.plugins.MyMetrixLiteFonts.screenlabel_type = ConfigSelection(default="/usr/share/enigma2/MetrixHD/fonts/OpenSans-Regular.ttf", choices = FontTypeList)
-	config.plugins.MyMetrixLiteFonts.screenlabel_scale = ConfigSelectionNumber(50, 150, 1, default = 100)
-	config.plugins.MyMetrixLiteFonts.screentext_type = ConfigSelection(default="/usr/share/enigma2/MetrixHD/fonts/OpenSans-Regular.ttf", choices = FontTypeList)
-	config.plugins.MyMetrixLiteFonts.screentext_scale = ConfigSelectionNumber(50, 150, 1, default = 100)
-	config.plugins.MyMetrixLiteFonts.screeninfo_type = ConfigSelection(default="/usr/share/enigma2/MetrixHD/fonts/setrixHD.ttf", choices = FontTypeList)
-	config.plugins.MyMetrixLiteFonts.screeninfo_scale = ConfigSelectionNumber(50, 150, 1, default = 105)
+	config.plugins.MyMetrixLiteFonts.screenlabel_type = ConfigSelection(default="/usr/share/enigma2/MetrixHD/fonts/OpenSans-Regular.ttf", choices=FontTypeList)
+	config.plugins.MyMetrixLiteFonts.screenlabel_scale = ConfigSelectionNumber(50, 150, 1, default=95)
+	config.plugins.MyMetrixLiteFonts.screentext_type = ConfigSelection(default="/usr/share/enigma2/MetrixHD/fonts/OpenSans-Regular.ttf", choices=FontTypeList)
+	config.plugins.MyMetrixLiteFonts.screentext_scale = ConfigSelectionNumber(50, 150, 1, default=95)
+	config.plugins.MyMetrixLiteFonts.screeninfo_type = ConfigSelection(default="/usr/share/enigma2/MetrixHD/fonts/setrixHD.ttf", choices=FontTypeList)
+	config.plugins.MyMetrixLiteFonts.screeninfo_scale = ConfigSelectionNumber(50, 150, 1, default=100)
 #epg, channellist, movielist
-	config.plugins.MyMetrixLiteFonts.epgevent_type = ConfigSelection(default="/usr/share/enigma2/MetrixHD/fonts/OpenSans-Regular.ttf", choices = FontTypeList)
-	config.plugins.MyMetrixLiteFonts.epgevent_scale = ConfigSelectionNumber(50, 150, 1, default = 100)
-	config.plugins.MyMetrixLiteFonts.epgtext_type = ConfigSelection(default="/usr/share/enigma2/MetrixHD/fonts/OpenSans-Regular.ttf", choices = FontTypeList)
-	config.plugins.MyMetrixLiteFonts.epgtext_scale = ConfigSelectionNumber(50, 150, 1, default = 100)
-	config.plugins.MyMetrixLiteFonts.epginfo_type = ConfigSelection(default="/usr/share/enigma2/MetrixHD/fonts/OpenSans-Regular.ttf", choices = FontTypeList)
-	config.plugins.MyMetrixLiteFonts.epginfo_scale = ConfigSelectionNumber(50, 150, 1, default = 100)
+	config.plugins.MyMetrixLiteFonts.epgevent_type = ConfigSelection(default="/usr/share/enigma2/MetrixHD/fonts/OpenSans-Regular.ttf", choices=FontTypeList)
+	config.plugins.MyMetrixLiteFonts.epgevent_scale = ConfigSelectionNumber(50, 150, 1, default=95)
+	config.plugins.MyMetrixLiteFonts.epgtext_type = ConfigSelection(default="/usr/share/enigma2/MetrixHD/fonts/OpenSans-Regular.ttf", choices=FontTypeList)
+	config.plugins.MyMetrixLiteFonts.epgtext_scale = ConfigSelectionNumber(50, 150, 1, default=95)
+	config.plugins.MyMetrixLiteFonts.epginfo_type = ConfigSelection(default="/usr/share/enigma2/MetrixHD/fonts/OpenSans-Regular.ttf", choices=FontTypeList)
+	config.plugins.MyMetrixLiteFonts.epginfo_scale = ConfigSelectionNumber(50, 150, 1, default=95)
 #infobar, movieplayer
-	config.plugins.MyMetrixLiteFonts.infobarevent_type = ConfigSelection(default="/usr/share/enigma2/MetrixHD/fonts/setrixHD.ttf", choices = FontTypeList)
-	config.plugins.MyMetrixLiteFonts.infobarevent_scale = ConfigSelectionNumber(50, 150, 1, default = 105)
-	config.plugins.MyMetrixLiteFonts.infobartext_type = ConfigSelection(default="/usr/share/enigma2/MetrixHD/fonts/OpenSans-Regular.ttf", choices = FontTypeList)
-	config.plugins.MyMetrixLiteFonts.infobartext_scale = ConfigSelectionNumber(50, 150, 1, default = 100)
+	config.plugins.MyMetrixLiteFonts.infobarevent_type = ConfigSelection(default="/usr/share/enigma2/MetrixHD/fonts/setrixHD.ttf", choices=FontTypeList)
+	config.plugins.MyMetrixLiteFonts.infobarevent_scale = ConfigSelectionNumber(50, 150, 1, default=100)
+	config.plugins.MyMetrixLiteFonts.infobartext_type = ConfigSelection(default="/usr/share/enigma2/MetrixHD/fonts/OpenSans-Regular.ttf", choices=FontTypeList)
+	config.plugins.MyMetrixLiteFonts.infobartext_scale = ConfigSelectionNumber(50, 150, 1, default=95)
 
 #######################################################################
+
 
 def initWeatherConfig():
 	config.plugins.MetrixWeather = ConfigSubsection()
@@ -550,7 +563,9 @@ def initWeatherConfig():
 		("MSN", _("MSN")),
 		("openweather", _("openweather"))
 	])
-
+	config.plugins.MetrixWeather.forecast = ConfigSelectionNumber(0, 3, 1, default=1, wraparound=True)
+	config.plugins.MetrixWeather.weekday = ConfigYesNo(default=False)
+	config.plugins.MetrixWeather.detail = ConfigYesNo(default=False)
 
 	## RENDERER CONFIG:
 
@@ -599,6 +614,7 @@ def initWeatherConfig():
 
 #######################################################################
 
+
 def initOtherConfig():
 	channelSelectionStyleList = [
 		("CHANNELSELECTION-1", _("Focus left, no picon, 5 next Events")),
@@ -641,7 +657,7 @@ def initOtherConfig():
 	#OtherSettings
 	#EHD-Option -> Enhanced HD
 	BoxType = getBoxType()
-	config.plugins.MyMetrixLiteOther.EHDtested = ConfigText(default = "%s_|_0" %BoxType)
+	config.plugins.MyMetrixLiteOther.EHDtested = ConfigText(default="%s_|_0" % BoxType)
 
 	skinmodes = [("0", _("Standard HD (1280x720)"))]
 	mode1080p = mode2160p = risk = False
@@ -655,7 +671,7 @@ def initOtherConfig():
 		else:
 			risk = True
 	except:
-		print "[MyMetrixLite] - can't read video modes"
+		print("[MyMetrixLite] - can't read video modes")
 		risk = True
 
 	tested = config.plugins.MyMetrixLiteOther.EHDtested.value.split('_|_')
@@ -664,18 +680,19 @@ def initOtherConfig():
 		if BoxType in tested[0] and '1' in tested[1]:
 			skinmodes.append(("1", _("Full HD (1920x1080)")))
 		elif mode1080p or risk:
-			skinmodes.append(("1", _("Full HD (1920x1080) %s") %risktxt))
+			skinmodes.append(("1", _("Full HD (1920x1080) %s") % risktxt))
 		if BoxType in tested[0] and '2' in tested[1]:
 			skinmodes.append(("2", _("Ultra HD (3840x2160)")))
 		elif mode2160p or risk:
-			skinmodes.append(("2", _("Ultra HD (3840x2160) %s") %risktxt))
+			skinmodes.append(("2", _("Ultra HD (3840x2160) %s") % risktxt))
 	else:
 		if mode1080p or risk:
-			skinmodes.append(("1", _("Full HD (1920x1080) %s") %risktxt))
+			skinmodes.append(("1", _("Full HD (1920x1080) %s") % risktxt))
 		if mode2160p or risk:
-			skinmodes.append(("2", _("Ultra HD (3840x2160) %s") %risktxt))
+			skinmodes.append(("2", _("Ultra HD (3840x2160) %s") % risktxt))
 	###no box supports at time uhd skins ...###
-	if '2' in skinmodes[-1]: del skinmodes[-1]#
+	if '2' in skinmodes[-1]:
+		del skinmodes[-1]#
 	###########################################
 	config.plugins.MyMetrixLiteOther.EHDenabled = ConfigSelection(default = "0", choices = skinmodes)
 	config.plugins.MyMetrixLiteOther.EHDrounddown = ConfigYesNo(default=False)
@@ -684,11 +701,12 @@ def initOtherConfig():
 	config.plugins.MyMetrixLiteOther.EHDpiconzoom =  ConfigSelection(default = "1.0", choices = [("0", _("No")), ("0.2", _("20%")), ("0.4", _("40%")), ("0.6", _("60%")), ("0.8", _("80%")), ("1.0", _("100%"))])
 	config.plugins.MyMetrixLiteOther.EHDadditionalfiles = ConfigYesNo(default=False)
 	config.plugins.MyMetrixLiteOther.piconresize_experimental = ConfigYesNo(default=False)
+	config.plugins.MyMetrixLiteOther.EHDoldlinechanger = ConfigYesNo(default=False)
 	sharpness = []
-	for i in range(0,525,25):
-		x = str(format(float(i)/100, '.2f'))
-		sharpness.append((x,x))
-	config.plugins.MyMetrixLiteOther.piconsharpness_experimental = ConfigSelection(default = '1.00', choices = sharpness)
+	for i in list(range(0, 525, 25)):
+		x = str(format(float(i) / 100, '.2f'))
+		sharpness.append((x, x))
+	config.plugins.MyMetrixLiteOther.piconsharpness_experimental = ConfigSelection(default='1.00', choices=sharpness)
 	#STB-Info
 	config.plugins.MyMetrixLiteOther.STBDistance = ConfigSelectionNumber(1, 50, 1, default = 10)
 	config.plugins.MyMetrixLiteOther.showCPULoad = ConfigYesNo(default=True)
@@ -721,7 +739,7 @@ def initOtherConfig():
 	config.plugins.MyMetrixLiteOther.showSTBinfo = ConfigYesNo(default=False)
 	config.plugins.MyMetrixLiteOther.showTunerinfo = ConfigYesNo(default=True)
 	config.plugins.MyMetrixLiteOther.setTunerAuto = ConfigYesNo(default=True)
-	config.plugins.MyMetrixLiteOther.setTunerManual = ConfigSelection(default='2', choices=[('1','1'),('2','2'),('3','3'),('4','4'),('5','5'),('6','6'),('7','7'),('8','8'),('10','10'),('12','12'),('16','16'),('18','18'),('19','19')])
+	config.plugins.MyMetrixLiteOther.setTunerManual = ConfigSelection(default='2', choices=[('1', '1'), ('2', '2'), ('3', '3'), ('4', '4'), ('5', '5'), ('6', '6'), ('7', '7'), ('8', '8'), ('10', '10'), ('12', '12'), ('16', '16'), ('18', '18'), ('19', '19')])
 	config.plugins.MyMetrixLiteOther.showInfoBarRunningtext = ConfigYesNo(default=False)
 	#pig
 	config.plugins.MyMetrixLiteOther.movielist_pig = ConfigYesNo(default=False)
@@ -756,14 +774,14 @@ def initOtherConfig():
 	config.plugins.MyMetrixLiteOther.showEMCSelectionRows = ConfigSelection(default = "0", choices = [("-4", _("-4")), ("-2", _("-2")), ("0", _("No")), ("+2", _("+2")), ("+4", _("+4")), ("+6", _("+6")), ("+8", _("+8"))])
 	config.plugins.MyMetrixLiteOther.showEMCSelectionPicon = ConfigSelection(default = "no", choices = [("no", _("No")), ("left", _("left")), ("right", _("right"))])
 	choicelist = [("0", _("off"))]
-	for x in range(50,202,2):
-		choicelist.append(('%d' %x,'%d' %x))
-	config.plugins.MyMetrixLiteOther.setEMCdatesize = ConfigSelection(default = "104", choices = choicelist)
-	config.plugins.MyMetrixLiteOther.setEMCdirinfosize = ConfigSelection(default = "140", choices = choicelist)
+	for x in list(range(50, 202, 2)):
+		choicelist.append(('%d' % x, '%d' % x))
+	config.plugins.MyMetrixLiteOther.setEMCdatesize = ConfigSelection(default="104", choices=choicelist)
+	config.plugins.MyMetrixLiteOther.setEMCdirinfosize = ConfigSelection(default="140", choices=choicelist)
 	choicelist = [("0", _("off"))]
-	for x in range(20,82,2):
-		choicelist.append(('%d' %x,'%d' %x))
-	config.plugins.MyMetrixLiteOther.setEMCbarsize = ConfigSelection(default = "50", choices = choicelist)
+	for x in list(range(20, 82, 2)):
+		choicelist.append(('%d' % x, '%d' % x))
+	config.plugins.MyMetrixLiteOther.setEMCbarsize = ConfigSelection(default="50", choices=choicelist)
 	#SkinDesign
 	config.plugins.MyMetrixLiteOther.SkinDesignScrollbarSliderWidth = ConfigSelectionNumber(0, 15, 1, default = 10)
 	config.plugins.MyMetrixLiteOther.SkinDesignScrollbarBorderWidth = ConfigSelectionNumber(0, 5, 1, default = 1)
@@ -833,6 +851,7 @@ def initOtherConfig():
 
 #######################################################################
 
+
 def getTunerPositionList():
 	tunerPositionList = [
 		("286,666", "286,693", "1", "0,0"),
@@ -846,6 +865,7 @@ def getTunerPositionList():
 	return tunerPositionList
 
 #######################################################################
+
 
 def appendSkinFile(appendFileName, skinPartSearchAndReplace):
 	"""
