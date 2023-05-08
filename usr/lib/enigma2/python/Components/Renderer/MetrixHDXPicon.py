@@ -1,23 +1,21 @@
-from __future__ import print_function
 ##
 ## Picon renderer by Gruffy .. some speedups by Ghost
 ## XPicon mod by iMaxxx
 ##
-from Components.Renderer.Renderer import Renderer
+from re import sub
+from unicodedata import normalize
+from six import PY2, text_type
 from enigma import ePixmap
-from enigma import iServiceInformation, iPlayableService, iPlayableServicePtr
+
+from PIL import Image, ImageFile, PngImagePlugin, ImageEnhance
+
+from Components.config import config
+from Components.Renderer.Renderer import Renderer
+from ServiceReference import ServiceReference
 from Tools.Directories import fileExists, SCOPE_SKIN_IMAGE, SCOPE_CURRENT_SKIN, resolveFilename
 from Plugins.Extensions.MyMetrixLite.__init__ import initOtherConfig
-from Components.config import config
-from PIL import Image, ImageFile, PngImagePlugin, ImageEnhance
-import six
 
 initOtherConfig()
-
-# For SNP
-from ServiceReference import ServiceReference
-import re
-import unicodedata
 
 
 def patched_chunk_tRNS(self, pos, len):
@@ -31,7 +29,8 @@ def patched_chunk_tRNS(self, pos, len):
 		self.im_info["transparency"] = i16(s), i16(s[2:]), i16(s[4:])
 	return s
 
-if six.PY2:
+
+if PY2:
 	PngImagePlugin.PngStream.chunk_tRNS = patched_chunk_tRNS
 
 
@@ -55,7 +54,7 @@ def patched_load(self):
 		return self.im.pixel_access(self.readonly)
 
 
-if six.PY2:
+if PY2:
 	Image.Image.load = patched_load
 
 
@@ -86,34 +85,36 @@ class MetrixHDXPicon(Renderer):
 			if what[0] != self.CHANGED_CLEAR:
 				self.instance.show()
 				sname = self.source.text
-				pos = sname.rfind(':')
-				if pos != -1:
-					sname = sname[:pos].rstrip(':').replace(':', '_')
-					sname = sname.split("_http")[0]
+				if sname.count(':') > 9:
+					sname = '_'.join(sname.split(':')[0:10])
 				pngname = self.nameCache.get(sname, "")
-				if pngname == "" or not fileExists(pngname):
+				if not pngname or not fileExists(pngname):
 					pngname = self.findPicon(sname)
-					if pngname == "":
-						fields = sname.split('_', 3)
-						if len(fields) > 0 and fields[0] != '1':                    #fallback to 1 for IPTV streams
-							fields[0] = '1'
-							pngname = self.findPicon('_'.join(fields))
-						if pngname == "" and len(fields) > 2 and fields[2] != '2':  #fallback to 1 for find picons with not defined stream quality
-							fields[2] = '1'
-							pngname = self.findPicon('_'.join(fields))
-					if not pngname: # picon by channel name
+					if not pngname:
+						fields = sname.split('_')
+						if len(fields) == 10:
+							if not fields[6].endswith('0000'):
+								no_subnet = "%s_%s_%s" % ('_'.join(fields[:6]), fields[6][:-4] + '0000', '_'.join(fields[7:]))
+								pngname = self.findPicon(no_subnet)			# removed SubNetwork in the right part of the NameSpace field
+							if not pngname and fields[0] != '1':
+								fields[0] = '1'
+								pngname = self.findPicon('_'.join(fields))	# fallback to 1 for online streams (4097, 5001, 5002; 5003, etc.)
+							if not pngname and fields[2] != '2':
+								fields[2] = '1'
+								pngname = self.findPicon('_'.join(fields))	# fallback to 1 for online streams + find an picon with undefined stream quality
+					if not pngname:		# search picon by channel name
 						name = ServiceReference(self.source.text).getServiceName()
-						name = unicodedata.normalize('NFKD', six.text_type(name))
-						name = re.sub('[^a-z0-9]', '', name.replace('&', 'and').replace('+', 'plus').replace('*', 'star').lower())
+						name = normalize('NFKD', text_type(name))
+						name = sub('[^a-z0-9]', '', name.replace('&', 'and').replace('+', 'plus').replace('*', 'star').lower())
 						if len(name) > 0:
 							pngname = self.findPicon(name)
 							if not pngname and len(name) > 2 and name.endswith('hd'):
 								pngname = self.findPicon(name[:-2])
 					if pngname != "" and sname.split('_', 1)[0] == "1":
 						self.nameCache[sname] = pngname
-				if pngname == "": # no picon for service found
+				if not pngname:			# no picon for service found
 					pngname = self.nameCache.get("default", "")
-					if pngname == "": # no default yet in cache..
+					if not pngname:		# no default yet in cache...
 						pngname = self.findPicon("picon_default")
 						if pngname == "":
 							tmp = resolveFilename(SCOPE_CURRENT_SKIN, "picon_default.png")
@@ -128,7 +129,7 @@ class MetrixHDXPicon(Renderer):
 							ImageFile.LOAD_TRUNCATED_IMAGES = True
 							im = Image.open(pngname).convert('RGBA')
 						except:
-							print("[MetrixHDXPicon] cant load image:", pngname)
+							print("[MetrixHDXPicon] cant load image: %s" % pngname)
 							tmp = resolveFilename(SCOPE_CURRENT_SKIN, "picon_default.png")
 							if fileExists(tmp):
 								pngname = tmp

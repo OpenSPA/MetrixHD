@@ -19,20 +19,19 @@
 #
 #######################################################################
 
-from . import _, COLOR_IMAGE_PATH, MAIN_IMAGE_PATH, ColorList, TransparencyList
-from Screens.Screen import Screen
-from Screens.MessageBox import MessageBox
+from enigma import ePicLoad, eTimer
 from Components.ActionMap import ActionMap
 from Components.AVSwitch import AVSwitch
 from Components.config import config, configfile, getConfigListEntry, ConfigSelection
 from Components.ConfigList import ConfigListScreen
-from Components.Sources.StaticText import StaticText
 from Components.Label import Label
-from skin import parseColor
 from Components.Pixmap import Pixmap
-from enigma import ePicLoad, eTimer
-from os import path
-from Tools.Directories import resolveFilename, SCOPE_CURRENT_SKIN, fileExists
+from Components.Sources.StaticText import StaticText
+from Screens.MessageBox import MessageBox
+from Screens.Screen import Screen
+from Tools.Directories import fileExists, resolveFilename, SCOPE_CURRENT_SKIN
+
+from . import _, COLOR_IMAGE_PATH, MAIN_IMAGE_PATH, ColorList, TransparencyList
 
 #######################################################################
 
@@ -1243,7 +1242,7 @@ class ColorsSettingsView(ConfigListScreen, Screen):
 		self.onLayoutFinish.append(self.ShowPicture)
 
 	def ShowPicture(self):
-		self.PicLoad.setPara([self["helperimage"].instance.size().width(),self["helperimage"].instance.size().height(),self.Scale[0],self.Scale[1],0,1,"#00000000"])
+		self.PicLoad.setPara([self["helperimage"].instance.size().width(), self["helperimage"].instance.size().height(), self.Scale[0], self.Scale[1], 0, 1, "#00000000"])
 		self.PicLoad.startDecode(self.GetPicturePath())
 		self.showHelperText()
 

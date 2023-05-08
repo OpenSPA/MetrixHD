@@ -27,7 +27,7 @@
 			<convert type="ServiceInfo">Is4K</convert>
 			<convert type="ConditionalShowHide"/>
 		</widget>
-		<widget asource="session.CurrentService" render="Pixmap" pixmap="icons/ico_hd_hdr_on.png" position="1109,616" size="49,24" zPosition="2" alphatest="blend">
+		<widget source="session.CurrentService" render="Pixmap" pixmap="icons/ico_hd_hdr_on.png" position="1109,616" size="49,24" zPosition="2" alphatest="blend">
 			<convert type="ServiceInfo">IsHDHDR</convert>
 			<convert type="ConditionalShowHide"/>
 		</widget>
@@ -59,7 +59,7 @@
 		<widget source="session.CurrentService" render="PositionGauge" position="151,666" size="980,9" transparent="1" zPosition="6">
 			<convert type="ServicePosition">Gauge</convert>
 		</widget>
-		<widget source="session.CurrentService" render="Progress" position="151,668" size="980,5" foregroundColor="infobarprogress" borderWidth="0" transparent="1" zPosition="5">
+		<widget source="session.CurrentService" render="Progress" position="151,668" size="980,5" foregroundColor="infobarprogress" transparent="1" zPosition="5">
 			<convert type="ServicePosition">Position</convert>
 		</widget>
 		<widget source="session.CurrentService" render="Label" position="1138,658" size="100,28" font="infobar_event;24" halign="left" valign="bottom" backgroundColor="infobarbackground" foregroundColor="infobarfont1" transparent="1">
@@ -78,7 +78,7 @@
 		<widget source="session.CurrentService" render="PositionGauge" position="188,621" size="1050,9" zPosition="6" transparent="1">
 			<convert type="ServicePosition">Gauge</convert>
 		</widget>
-		<widget source="session.CurrentService" render="Progress" position="188,623" size="1050,5" foregroundColor="infobarprogress" borderWidth="0" transparent="1" zPosition="5">
+		<widget source="session.CurrentService" render="Progress" position="188,623" size="1050,5" foregroundColor="infobarprogress" transparent="1" zPosition="5">
 			<convert type="ServicePosition">Position</convert>
 		</widget>
 		<widget source="session.CurrentService" render="Label" position="1041,568" size="200,56" font="infobar_event;40" halign="right" valign="center" backgroundColor="infobarbackground" transparent="1" foregroundColor="infobaraccent2">
@@ -101,7 +101,7 @@
 		<widget source="session.CurrentService" render="PositionGauge" position="110,679" size="796,9" zPosition="6" transparent="1">
 			<convert type="ServicePosition">Gauge</convert>
 		</widget>
-		<widget source="session.CurrentService" render="Progress" position="110,681" size="796,5" foregroundColor="infobarprogress" borderWidth="0" transparent="1" zPosition="5">
+		<widget source="session.CurrentService" render="Progress" position="110,681" size="796,5" foregroundColor="infobarprogress" transparent="1" zPosition="5">
 			<convert type="ServicePosition">Position</convert>
 		</widget>
 		<widget source="session.CurrentService" render="Label" position="826,644" size="80,30" font="infobar_event;24" halign="right" valign="center" backgroundColor="infobarbackground" transparent="1" foregroundColor="infobaraccent2">
@@ -155,7 +155,8 @@
 	<!-- Default Movie Center -->
 	<screen name="MovieSelection_left">
 		<eLabel text="Movie Center" position="58,36" size="525,50" noWrap="1" valign="bottom" font="global_title;34" foregroundColor="layer-a-title-foreground" backgroundColor="layer-a-background" transparent="1" />
-		<widget name="list" position="70,130" size="700,500" scrollbarSliderBorderWidth="1" scrollbarWidth="10" scrollbarSliderForegroundColor="scrollbarSlidercolor" scrollbarSliderBorderColor="scrollbarSliderbordercolor" scrollbarMode="showNever" font="epg_text;20" itemHeight="30" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" transparent="1" />
+		<widget name="list" position="70,130" size="700,500" scrollbarMode="showNever" font="epg_text;20" itemHeight="30" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" transparent="1" />
+		<widget name="chosenletter" position="70,130" size="700,500" font="epg_text;100" foregroundColor="layer-b-accent1" halign="center" transparent="1" valign="center" zPosition="+1" />
 		<widget name="waitingtext" position="100,300" size="640,100" zPosition="1" font="epg_text;24" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" halign="center" valign="center" transparent="0"/>
 		<widget name="freeDiskSpace" position="70,95" size="700,30" font="epg_text;22" valign="center" halign="left" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="1" />
 		<widget source="Service" render="Label" position="825,90" noWrap="1" size="385,30" font="epg_text;22" backgroundColor="layer-b-background" foregroundColor="layer-b-foreground" transparent="1">
@@ -183,7 +184,7 @@
 		<panel name="SkinDesign-s" />
 		<eLabel text="Movie Center" position="424,50" size="790,50" noWrap="1" valign="bottom" font="global_title;34" foregroundColor="layer-a-title-foreground" backgroundColor="layer-a-background" transparent="1" />
 		<eLabel text="Movie Center" position="5,535" size="1280,200" font="global_large_screen;100" noWrap="0" backgroundColor="text-background" transparent="1" foregroundColor="background-text" valign="bottom" zPosition="-50" />
-		<widget name="list" position="424,105" size="792,510" scrollbarSliderBorderWidth="1" scrollbarWidth="10" scrollbarSliderForegroundColor="scrollbarSlidercolor" scrollbarSliderBorderColor="scrollbarSliderbordercolor" scrollbarMode="showNever" font="epg_text;20" itemHeight="30" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" transparent="1" />
+		<widget name="list" position="424,105" size="792,510" scrollbarMode="showNever" font="epg_text;20" itemHeight="30" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" transparent="1" />
 		<widget name="waitingtext" position="424,350" size="792,30" zPosition="1" font="epg_text;24" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" halign="center" valign="center" transparent="0"/>
 		<widget name="freeDiskSpace" position="424,50" size="792,50" font="epg_text;22" valign="bottom" halign="right" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="1" />
 		<widget source="Service" render="Label" position="60,60" noWrap="0" valign="center" halign="center" size="322,60" font="epg_event;24" backgroundColor="layer-b-background" foregroundColor="layer-b-foreground" transparent="1">
@@ -216,7 +217,8 @@
 	<screen name="MovieSelection_PIG" position="0,0" size="1280,720" title="Select a movie" flags="wfNoBorder" backgroundColor="transparent">
 		<eLabel text="Movie Center" position="58,36" size="525,50" noWrap="1" valign="bottom" font="global_title;34" foregroundColor="layer-a-title-foreground" backgroundColor="layer-a-background" transparent="1" />
 		<eLabel text="Movie Center" position="5,535" size="1280,200" font="global_large_screen;100" noWrap="0" backgroundColor="text-background" transparent="1" foregroundColor="background-text" valign="bottom" zPosition="-50" />
-		<widget name="list" position="70,130" size="600,500" scrollbarSliderBorderWidth="1" scrollbarWidth="10" scrollbarSliderForegroundColor="scrollbarSlidercolor" scrollbarSliderBorderColor="scrollbarSliderbordercolor" scrollbarMode="showNever" font="epg_text;20" itemHeight="30" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" transparent="1" />
+		<widget name="list" position="70,130" size="600,500" scrollbarMode="showNever" font="epg_text;20" itemHeight="30" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" transparent="1" />
+		<widget name="chosenletter" position="70,130" size="600,500" font="epg_text;100" foregroundColor="layer-b-accent1" halign="center" transparent="1" valign="center" zPosition="+1" />
 		<widget name="waitingtext" position="100,300" size="540,100" zPosition="1" font="epg_text;24" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" halign="center" valign="center" transparent="0"/>
 		<widget name="freeDiskSpace" position="70,95" size="680,30" font="epg_text;22" valign="center" halign="left" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="1" />
 		<widget source="session.VideoPicture" render="Pig" position="680,95" size="530,299" zPosition="3" backgroundColor="unff000000" />

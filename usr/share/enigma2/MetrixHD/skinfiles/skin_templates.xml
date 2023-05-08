@@ -931,15 +931,15 @@
 		</screen>
 		<screen name="INFOBARWEATHERWIDGET_detail">
 			<eLabel backgroundColor="layer-b-background" position="45,111" size="209,52" />
-			<eLabel font="Meteo;22" text="F" backgroundColor="layer-b-background" foregroundColor="layer-b-clock-foreground" position="54,115" size="22,22" noWrap="1" halign="center" valign="center" source="session.CurrentService" transparent="1" zPosition="9" />
+			<eLabel font="Meteo;22" text="F" backgroundColor="layer-b-background" foregroundColor="layer-b-clock-foreground" position="54,115" size="22,22" noWrap="1" halign="center" valign="center" transparent="1" zPosition="9" />
 			<widget font="global_clock;16" backgroundColor="layer-b-background" foregroundColor="layer-b-clock-foreground" position="79,115" size="170,20" noWrap="1" halign="left" valign="center" render="Label" source="session.CurrentService" transparent="1" zPosition="10">
 				<convert type="MetrixHDWeather">currentwinddisplay</convert>
 			</widget>
-			<eLabel font="Meteo;22" text="'" backgroundColor="layer-b-background" foregroundColor="layer-b-clock-foreground" position="54,139" size="22,22" noWrap="1" halign="center" valign="center" source="session.CurrentService" transparent="1" zPosition="9" />
+			<eLabel font="Meteo;22" text="'" backgroundColor="layer-b-background" foregroundColor="layer-b-clock-foreground" position="54,139" size="22,22" noWrap="1" halign="center" valign="center" transparent="1" zPosition="9" />
 			<widget font="global_clock;16" backgroundColor="layer-b-background" foregroundColor="layer-b-clock-foreground" position="79,139" size="45,20" noWrap="1" halign="left" valign="center" render="Label" source="session.CurrentService" transparent="1" zPosition="10">
 				<convert type="MetrixHDWeather">currentfeelslike</convert>
 			</widget>
-			<eLabel font="Meteo;22" text="M" backgroundColor="layer-b-background" foregroundColor="layer-b-clock-foreground" position="158,139" size="22,22" noWrap="1" halign="center" valign="center" source="session.CurrentService" transparent="1" zPosition="9" />
+			<eLabel font="Meteo;22" text="M" backgroundColor="layer-b-background" foregroundColor="layer-b-clock-foreground" position="158,139" size="22,22" noWrap="1" halign="center" valign="center" transparent="1" zPosition="9" />
 			<widget font="global_clock;16" backgroundColor="layer-b-background" foregroundColor="layer-b-clock-foreground" position="183,139" size="45,20" noWrap="1" halign="left" valign="center" render="Label" source="session.CurrentService" transparent="1" zPosition="10">
 				<convert type="MetrixHDWeather">currenthumidity</convert>
 			</widget>
@@ -2420,25 +2420,99 @@
 			</widget>
 			<!--ClockWidget */-->
 		</screen>
+		<!-- template1_2layer -->
+
+		<screen name="MenuButtons_template_greenold">
+			<ePixmap pixmap="buttons/key_green.png" position="448,0" size="30,20" alphatest="blend" />
+			<widget name="green" position="483,0" size="170,22" zPosition="1" valign="center" font="global_button;18" halign="left" noWrap="1" foregroundColor="layer-a-button-foreground" backgroundColor="menubackground" transparent="1" />
+		</screen>
+
+		<screen name="MenuButtons_template_yellowold">
+			<ePixmap pixmap="buttons/key_yellow.png" position="631,0" size="30,20" alphatest="blend" />
+			<widget name="yellow" position="666,0" size="170,22" zPosition="1" valign="center" font="global_button;18" halign="left" noWrap="1" foregroundColor="layer-a-button-foreground" backgroundColor="menubackground" transparent="1" />
+		</screen>
+
+		<screen name="MenuButtons_template_blueold">
+			<ePixmap pixmap="buttons/key_blue.png" position="814,0" size="30,20" alphatest="blend" />
+			<widget name="blue" position="849,0" size="170,22" zPosition="1" valign="center" font="global_button;18" halign="left" noWrap="1" foregroundColor="layer-a-button-foreground" backgroundColor="menubackground" transparent="1"  />
+		</screen>
+
+		<screen name="MenuButtons_template_red">
+			<widget source="key_red" render="Pixmap" pixmap="buttons/key_red.png" position="265,0" size="30,20" alphatest="blend">
+ 				<convert type="ConditionalShowHide" />
+	 		</widget>
+			<widget source="key_red" render="Label" position="300,0" size="170,22" zPosition="1" valign="center" font="global_button;18" halign="left" noWrap="1" foregroundColor="layer-a-button-foreground" backgroundColor="menubackground" transparent="1">
+				<convert type="ConditionalShowHide" />
+			</widget>
+		</screen>
+
+		<screen name="MenuButtons_template_green">
+			<widget source="key_green" render="Pixmap" pixmap="buttons/key_green.png" position="448,0" size="30,20" alphatest="blend">
+ 				<convert type="ConditionalShowHide" />
+	 		</widget>
+			<widget source="key_green" render="Label" position="483,0" size="170,22" zPosition="1" valign="center" font="global_button;18" halign="left" noWrap="1" foregroundColor="layer-a-button-foreground" backgroundColor="menubackground" transparent="1">
+				<convert type="ConditionalShowHide" />
+			</widget>
+		</screen>
+
+		<screen name="MenuButtons_template_yellow">
+			<widget source="key_yellow" render="Pixmap" pixmap="buttons/key_yellow.png" position="631,0" size="30,20" alphatest="blend">
+ 				<convert type="ConditionalShowHide" />
+	 		</widget>
+			<widget source="key_yellow" render="Label" position="666,0" size="170,22" zPosition="1" valign="center" font="global_button;18" halign="left" noWrap="1" foregroundColor="layer-a-button-foreground" backgroundColor="menubackground" transparent="1">
+				<convert type="ConditionalShowHide" />
+			</widget>
+		</screen>
+
+		<screen name="MenuButtons_template_blue">
+			<widget source="key_blue" render="Pixmap" pixmap="buttons/key_blue.png" position="814,0" size="30,20" alphatest="blend">
+ 				<convert type="ConditionalShowHide" />
+	 		</widget>
+			<widget source="key_blue" render="Label" position="849,0" size="170,22" zPosition="1" valign="center" font="global_button;18" halign="left" noWrap="1" foregroundColor="layer-a-button-foreground" backgroundColor="menubackground" transparent="1">
+				<convert type="ConditionalShowHide" />
+			</widget>
+		</screen>
+
 		<screen name="MenuButtons_template">
 			<eLabel backgroundColor="menubackground" position="0,0" size="1280,22" transparent="0" zPosition="-1"/>
-			<!--ePixmap pixmap="buttons/key_red.png" position="265,0" size="30,20" alphatest="blend" /-->
-			<ePixmap pixmap="buttons/key_green.png" position="448,0" size="30,20" alphatest="blend" />
-			<ePixmap pixmap="buttons/key_yellow.png" position="631,0" size="30,20" alphatest="blend" />
-			<ePixmap pixmap="buttons/key_blue.png" position="814,0" size="30,20" alphatest="blend" />
-			<!--widget name="key" position="300,0" size="170,22" zPosition="1" valign="center" font="global_button;18" halign="left" noWrap="1" foregroundColor="layer-a-button-foreground" backgroundColor="menubackground" transparent="1" /-->
-			<widget name="green" position="483,0" size="170,22" zPosition="1" valign="center" font="global_button;18" halign="left" noWrap="1" foregroundColor="layer-a-button-foreground" backgroundColor="menubackground" transparent="1" />
-			<widget name="yellow" position="666,0" size="170,22" zPosition="1" valign="center" font="global_button;18" halign="left" noWrap="1" foregroundColor="layer-a-button-foreground" backgroundColor="menubackground" transparent="1" />
-			<widget name="blue" position="849,0" size="170,22" zPosition="1" valign="center" font="global_button;18" halign="left" noWrap="1" foregroundColor="layer-a-button-foreground" backgroundColor="menubackground" transparent="1" />
+			<panel name="MenuButtons_template_red" conditional="key_red"/>
+			<panel name="MenuButtons_template_greenold" conditional="green"/>
+			<panel name="MenuButtons_template_green" conditional="key_green"/>
+			<panel name="MenuButtons_template_yellowold" conditional="yellow"/>
+			<panel name="MenuButtons_template_yellow" conditional="key_yellow"/>
+			<panel name="MenuButtons_template_blueold" conditional="blue"/>
+			<panel name="MenuButtons_template_blue" conditional="key_blue"/>
 		</screen>
+
 		<screen name="MENU_template-1">
-			<eLabel position="645,51" zPosition="-11" size="482,558" backgroundColor="menubackground" transparent="0" />
+			<eLabel position="645,51" zPosition="-11" size="562,558" backgroundColor="menubackground" transparent="0" />
 			<eLabel position="264,51" zPosition="-1" size="340,320" backgroundColor="menusymbolbackground" transparent="0" />
-			<widget source="menu" render="Listbox" position="636,60" size="500,540" backgroundColor="menubackground" foregroundColor="menufont" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="menufontselected" scrollbarSliderBorderWidth="1" scrollbarWidth="10" scrollbarSliderForegroundColor="scrollbarSlidercolor" scrollbarSliderBorderColor="scrollbarSliderbordercolor" scrollbarMode="showNever" enableWrapAround="1" transparent="1">
+			<widget source="menu" render="Listbox" position="636,60" size="580,540" backgroundColor="menubackground" foregroundColor="menufont" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="menufontselected" scrollbarMode="showNever" enableWrapAround="1" transparent="1">
 				<convert type="TemplatedMultiContent">
-					{"template": [ MultiContentEntryText(pos = (30, 8), size = (465, 50), flags = RT_HALIGN_LEFT, text = 0) ],
-					"fonts": [gFont("global_menu", 30)],
-					"itemHeight": 60
+					{"templates":
+						{"default": (60,[
+							MultiContentEntryText(pos = (20, 5), size = (540, 50), flags = RT_HALIGN_LEFT | RT_VALIGN_CENTER, text = 0)
+							]),
+						"text": (60,[
+							MultiContentEntryText(pos = (20, 5), size = (540, 50), flags = RT_HALIGN_LEFT | RT_VALIGN_CENTER, text = 3)
+							]),
+						"number": (60,[
+							MultiContentEntryText(pos = (20, 5), size = (30, 50), font = 1, flags = RT_HALIGN_LEFT | RT_VALIGN_CENTER, text = 2),
+							MultiContentEntryText(pos = (45, 5), size = (515, 50), font = 1, flags = RT_HALIGN_LEFT | RT_VALIGN_CENTER, text = 3),
+							]),
+						"image": (60,[
+							MultiContentEntryPixmapAlphaBlend(pos = (20, 4), size = (50, 50), png = 1, flags = BT_SCALE | BT_KEEP_ASPECT_RATIO),
+							MultiContentEntryText(pos = (75, 5), size = (485, 50), font = 1, flags = RT_HALIGN_LEFT | RT_VALIGN_CENTER, text = 3),
+							]),
+						"both": (60,[
+							MultiContentEntryPixmapAlphaBlend(pos = (20, 4), size = (50, 50), png = 1, flags = BT_SCALE | BT_KEEP_ASPECT_RATIO),
+							MultiContentEntryText(pos = (75, 5), size = (30, 50), font = 2, flags = RT_HALIGN_LEFT | RT_VALIGN_CENTER, text = 2),
+							MultiContentEntryText(pos = (100, 5), size = (465, 50), font = 2, flags = RT_HALIGN_LEFT | RT_VALIGN_CENTER, text = 3),
+							])
+						},
+					"fonts": [gFont("global_menu", 30),gFont("global_menu", 29),gFont("global_menu", 28)],
+					"itemHeight": 60,
+					"scrollbarMode": "showNever"
 					}
 				</convert>
 			</widget>
@@ -2449,20 +2523,25 @@
 				<convert type="ConditionalShowHide">Invert</convert>
 			</widget>
 			<widget source="menu" render="Pixmap" pixmap="buttons/key_down.png" position="871,594" size="30,30" alphatest="blend"-->
-			<widget source="menu" render="FixedLabel" text="&#x25ba;" position="1107,596" size="20,20" font="SetrixHD;16" foregroundColor="menufont" backgroundColor="menubackground" halign="right" valign="bottom" transparent="1">
+			<widget source="menu" render="FixedLabel" text="&#x25ba;" position="1180,596" size="20,20" font="SetrixHD;16" foregroundColor="menufont" backgroundColor="menubackground" halign="right" valign="bottom" transparent="1">
 				<convert type="MetrixHDMenuEntryCompare" />
 				<convert type="ValueRange">0,9</convert>
 				<convert type="ConditionalShowHide">Invert</convert>
 			</widget>
 
 			<panel name="MENUCLOCKWIDGET_screen_pos265_410_size_340_70" />
+			<widget source="description" render="Label" position="265,500" size="340,110" conditional="description" font="SetrixHD;18" valign="center" halign="center" foregroundColor="layer-a-clock-foreground" backgroundColor="layer-a-background">
+				<convert type="MetrixMenuDescription" />
+			</widget>
 			<panel name="SKINPART_menu"/>
 			<panel name="MenuButtons"/>
 		</screen>
+				
+		
 	<screen name="CONTEXTMENU_template-1" >
 		<eLabel position="645,51" zPosition="-11" size="482,558" backgroundColor="menubackground" transparent="0" />
 		<eLabel position="264,51" zPosition="-1" size="340,320" backgroundColor="menusymbolbackground" transparent="0" />
-		<widget source="menu" render="Listbox" position="636,60" size="500,540" backgroundColor="menubackground" foregroundColor="menufont" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="menufontselected" scrollbarSliderBorderWidth="1" scrollbarWidth="10" scrollbarSliderForegroundColor="scrollbarSlidercolor" scrollbarSliderBorderColor="scrollbarSliderbordercolor" scrollbarMode="showNever" enableWrapAround="1" transparent="1">
+		<widget source="menu" render="Listbox" position="636,60" size="500,540" backgroundColor="menubackground" foregroundColor="menufont" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="menufontselected" scrollbarMode="showNever" enableWrapAround="1" transparent="1">
 			<convert type="TemplatedMultiContent">
 				{"template": [ MultiContentEntryText(pos = (40, 4), size = (455, 30), flags = RT_HALIGN_LEFT, text = 0) ],
 				"fonts": [gFont("screen_text", 20)],
@@ -2488,7 +2567,7 @@
 	<screen name="CONTEXTMENU2_template-1">
 		<eLabel position="645,51" zPosition="-11" size="482,558" backgroundColor="menubackground" transparent="0" />
 		<eLabel position="264,51" zPosition="-1" size="340,320" backgroundColor="menusymbolbackground" transparent="0" />
-		<widget name="menu" position="636,60" size="500,540" font="screen_text;20" backgroundColor="menubackground" foregroundColor="menufont" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="menufontselected" scrollbarSliderBorderWidth="1" scrollbarWidth="10" scrollbarSliderForegroundColor="scrollbarSlidercolor" scrollbarSliderBorderColor="scrollbarSliderbordercolor" scrollbarMode="showNever" itemHeight="36" enableWrapAround="1" transparent="1" />
+		<widget name="menu" position="636,60" size="500,540" font="screen_text;20" backgroundColor="menubackground" foregroundColor="menufont" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="menufontselected" scrollbarMode="showNever" itemHeight="36" enableWrapAround="1" transparent="1" />
 		<panel name="MENUCLOCKWIDGET_screen_pos265_410_size_340_70" />
 	</screen>
 	<!-- CHANNELSELECTION 1 FOCUS LEFT NO PICON 5 NEXT EVENTS */ -->

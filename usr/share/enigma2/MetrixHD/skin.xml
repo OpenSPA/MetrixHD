@@ -1,28 +1,11 @@
 <!-- original file -->
 <skin>
-###############################################################################
-# control flag description (for converting skin to another screen resolution) #
-#<!-- cf#_#stop -->                                                           #
-# stop converting                                                             #
-#<!-- cf#_#start -->  (or <!-- cf#_#begin --> )                               #
-# start converting                                                            #
-#<!-- cf#_#rename -->                                                         #
-# rename next screen and stop converting                                      #
-# example1: if name ends with 'xxx#_FHDscreen', renamed to 'xxx'              #
-# example2: if name ends with 'xxx', renamed to 'xxx#_HDscreen'               #
-# example3: if name ends with 'xxx#_UHDscreen', renamed to 'xxx'              #
-# example4: if name ends with 'xxx', renamed to 'xxx#_HDscreen'               #
-#<!-- cf#_#picon -->                                                          #
-# next line is a picon position                                               #
-#(for centered position at different picon size -> xpicon scalable option)    #
-#<!-- cf#_#pixnore -->                                                        #
-# next line is a pixmap png file and not check is this file available         #
-###############################################################################
 <!-- cf#_#start -->
 	<!-- MetrixHD v2.5 by iMaxxx | optimized for openSPA 7.x -->
 	<!-- MetrixHD v3.0 by openATV Team | adapted to openSPA 8.x -->
 	<!-- recommended to use with XPicons -->
 	<!-- You can modify and redistribute it as long as you keep this license and the original author for the skin and all of your modifications -->
+	<!-- check controlflags.md -->
 	<output id="0">
 		<resolution xres="1280" yres="720" bpp="32" />
 	</output>
@@ -195,6 +178,7 @@
 	</subtitles>
 	<windowstyle type="skinned" id="0">
 		<title offset="5,0" font="global_title;34" />
+		<configList entryFont="screen_text;19" valueFont="screen_text;18" />
 		<color name="Background" color="layer-a-background" />
 		<color name="LabelForeground" color="layer-a-foreground" />
 		<color name="ListboxBackground" color="layer-a-background" />
@@ -207,6 +191,11 @@
 		<color name="ListboxMarkedAndSelectedForeground" color="layer-a-foreground" />
 		<color name="WindowTitleForeground" color="title-foreground" />
 		<color name="WindowTitleBackground" color="title-background"/>
+		<color name="ScrollbarForeground" color="scrollbarSlidercolor" />
+		<color name="ScrollbarBorder" color="scrollbarSliderbordercolor" />
+		<color name="SliderForeground" color="scrollbarSlidercolor" />
+		<color name="SliderBorder" color="scrollbarSliderbordercolor" />
+
 <!-- cf#_#stop -->
 		<borderset name="bsWindow">
 			<!--pixmap pos="bpTopLeft" filename="MetrixHD/border/5px/0F0F0F.png" /-->
@@ -224,6 +213,16 @@
 			<!--lb pixmap pos="bpLeft" filename="MetrixHD/border/1px/FFFFFF.png" /-->
 			<!--lb pixmap pos="bpRight" filename="MetrixHD/border/1px/FFFFFF.png" /-->
 		</borderset>
+
+		<!-- <slider borderWidth="0" /> -->
+		<scrolllabel scrollbarWidth="10" scrollbarBorderWidth="1"/>
+		<listbox scrollbarWidth="10" scrollbarBorderWidth="1" enableWrapAround="1"/>
+		<!-- 
+		TODO TEST showOnDemand as default
+		<scrolllabel scrollbarWidth="10" scrollbarBorderWidth="1" scrollbarMode="showOnDemand"/>
+		<listbox scrollbarWidth="10" scrollbarBorderWidth="1" enableWrapAround="1" scrollbarMode="showOnDemand"/>
+		-->
+
 	</windowstyle>
 	<windowstyle type="skinned" id="1">
 		<color name="Background" color="layer-a-background" />
@@ -238,6 +237,8 @@
 		<color name="ListboxMarkedAndSelectedForeground" color="layer-a-foreground" />
 		<color name="WindowTitleForeground" color="title-foreground" />
 		<color name="WindowTitleBackground" color="title-background"/>
+		<color name="ScrollbarForeground" color="layer-a-foreground" />
+		<color name="ScrollbarBorder" color="layer-a-foreground" />
 	</windowstyle>
 <!-- cf#_#start -->
 	<switchpixmap>
@@ -257,8 +258,11 @@
 		<parameter name="PluginBrowserDownloadDescr" value="80,24,30"/>
 		<parameter name="PluginBrowserDownloadIcon" value="10,0,60,50"/>
 		<parameter name="ChoicelistDash" value="0,2,700,2"/>
-		<parameter name="ChoicelistName" value="50,4,650,30"/>
+		<parameter name="ChoicelistName" value="50,0,650,38"/>
 		<parameter name="ChoicelistIcon" value="10,3,30,30"/>
+		<parameter name="ChoicelistIconVerticalline" value="10,0,30,38"/>
+		<parameter name="ChoicelistIconExpanded" value="10,3,30,35"/>
+		<parameter name="ChoicelistNameSingle" value="10,0,690,38"/>
 		<parameter name="ConfigListSlider" value="10,0"/>
 		<parameter name="ConfigListSeperator" value="400"/>
 		<parameter name="FileListName" value="40,2,660,28"/>
@@ -303,6 +307,7 @@
 <!-- cf#_#rename -->
 		<parameter name="EpgListSingle#_FHDscreen" value="88,220"/>
 <!-- cf#_#start -->
+		<parameter name="InformationColors" value="0x00ffffff,0x00ffffff,0x00ffffff,0x00cccccc,0x00cccccc,0x00ffff00,0x0000ffff"/>
 	</parameters>
 <!-- SKINFILES -->
 	<include filename="/usr/share/enigma2/MetrixHD/skinfiles/skin_unchecked.xml" />
